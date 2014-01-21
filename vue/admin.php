@@ -29,7 +29,24 @@
                 </div>
             </div>
             <div id="liste">
-                
+                <form>
+                    <div>Titre</div>
+                    <input type="text" value="Titre">
+                    <div>Description</div>
+                    <textarea name="descri"></textarea>
+                    <div>Prix Unité</div>
+                    <input type="text" name="pue"> , <input type="text" name="puc">
+                    <div>Prix Menu</div>
+                    <input type="text" name="pme"> , <input type="text" name="pmc">
+                    <div>Photo</div>
+                    <input type="image" name="pue">
+                    <div>Categorie</div>
+                    <select>
+                        <option>sandwich</option>
+                        <option>boisson</option>
+                        <option>dessert</option>
+                    </select>
+                </form>
             </div>
         </div>
         <script>
