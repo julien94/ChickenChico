@@ -76,8 +76,24 @@ body{
 
 /******************************  FIN DU HEADER  *******************************/
 
+.formprod{
+    padding-left: 20px;
+    width: 480px;
+}
 
+.formprod h1{
+    text-align: center;
+    padding-bottom: 20px;
+}
 
+.addprod{
+    background-color: #141415;
+    border-color: #0e56ef;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/******************************  FIN FORMULAIRE  ******************************/
 
 #corp{
     clear: both;

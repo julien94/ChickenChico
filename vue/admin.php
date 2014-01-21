@@ -29,24 +29,27 @@
                 </div>
             </div>
             <div id="liste">
+                <div class="formprod">
+                <h1>Ajouter un produit</h1>
                 <form>
                     <div>Titre</div>
-                    <input type="text" value="Titre">
+                    <input type="text" class="addprod">
                     <div>Description</div>
-                    <textarea name="descri"></textarea>
+                    <div><textarea name="descri" class="addprod"></textarea></div>
                     <div>Prix Unité</div>
-                    <input type="text" name="pue"> , <input type="text" name="puc">
+                    <input type="text" size="2" name="pue" class="addprod">                    
                     <div>Prix Menu</div>
-                    <input type="text" name="pme"> , <input type="text" name="pmc">
+                    <input type="text" size="2" name="pme" class="addprod">
                     <div>Photo</div>
-                    <input type="image" name="pue">
+                    <input type="text" name="pue" class="addprod">
                     <div>Categorie</div>
-                    <select>
+                    <select class="addprod">
                         <option>sandwich</option>
                         <option>boisson</option>
                         <option>dessert</option>
                     </select>
                 </form>
+                </div>
             </div>
         </div>
         <script>
