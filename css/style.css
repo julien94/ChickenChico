@@ -1,0 +1,322 @@
+/* 
+    Created on : 28 dec. 2013, 12:58:35
+    Author     : LEFEBVRE Julien
+*/
+
+body{
+    background: url(../image/font.jpg) no-repeat center fixed; 
+    -webkit-background-size: cover; 
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: auto;
+    color: white;
+}
+
+#container {
+    margin: auto;
+    padding: 0px;
+    width: 960px;
+}
+
+
+
+/*********************************  HEADER  ***********************************/
+
+#header{
+    position: relative;
+}
+
+.logo{
+    margin: 0px;
+}
+
+#menu{
+    position: absolute;
+    right: 0px;
+    top: 100px;
+}
+
+#menu a{
+   text-decoration: none;
+   color: white;
+}
+
+#menu h4{
+    border: solid 1px white;
+    display: inline;
+    display: inline-block;
+    padding: 10px 20px 10px 20px;
+    margin-left: 5px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 15px rgba(0,100,255, 0.5);
+}
+
+.form{
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    font-weight: bold;
+}
+
+.erreur{
+    color: red;
+    font-weight: bold;
+}
+
+.zone{
+    background-color: black;
+    color: grey;
+}
+
+.right{
+    right: 0px;
+    float: right;
+}
+
+/******************************  FIN DU HEADER  *******************************/
+
+
+
+
+#corp{
+    clear: both;
+    position: relative;
+    top: 80px;
+    
+}
+
+#left{
+    background-color: black;
+    width: 400px;
+    height: 500px;
+    float: left;
+    text-align: center;
+    border: solid 1px activeborder;
+    box-shadow: 1px 1px 15px rgba(0,100,255, 0.5);
+}
+
+#welcome{
+    background-color: black;
+    position: absolute;
+    width: 400px;
+    height: 600px;
+    padding: 15px;
+    margin-top: 40px;
+    text-align: center;
+    border: solid 1px white;
+    box-shadow: 1px 1px 30px rgba(0,100,255, 0.5);
+}
+
+#aside{
+    margin-top: 0px;
+    width: 300px;
+    left: 650px;
+    position: absolute;
+    text-align: center;
+    
+}
+/******************************* PAGE 404 *************************************/
+
+.page404{
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    margin-top: 20%;
+    text-shadow: 2px 2px 4px white;
+}
+
+.pi{
+    font-family: Georgia;
+    font-size: 80px;  
+    color: yellow;
+    font-weight: bold;
+}
+
+.e404{
+    font-size: 60px;
+    color: blue;
+    font-weight: bold;
+}
+
+/****************************  CARTE DU RESTO  ********************************/
+
+#liste{
+    width: 960px;
+    position: relative;
+    border: solid 1px white;
+    margin-top: 80px;
+    padding-top: 30px;
+    background-color: black;
+    font-size: 17px;
+}
+
+.ligne{
+    width: 960px;
+}
+
+ul{
+    margin: 0px;
+    padding: 0px;
+}
+
+li{
+    display: inline;
+    display: inline-block;
+    list-style-type: none;
+    vertical-align: middle;
+}
+
+#liste h2{
+    text-align: center;
+    color: yellow;
+    padding: 0px;
+    margin: 0px;
+}
+
+.grey{
+    background-color: #101010;
+}
+
+.titre{
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+    color: yellow;
+}
+
+.nom{
+    margin: 0px;
+    width: 100px;
+    padding-left: 10px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+}
+
+.marge{
+    height: 100px;
+}
+
+.descri{
+    width: 400px;
+}
+
+.price{
+    text-align: center;
+    width: 60px;
+}
+
+.fright{
+     float: right;
+}
+
+.fleft{
+    float: left;
+}
+
+.img{
+    width: 330px;
+    text-align: center;
+}
+
+/**************************  FIN CARTE DU RESTO  ******************************/
+
+
+
+/********************************  FOOTER  ************************************/
+
+#footer{
+    clear: both;
+    position: relative;
+    top: 150px;
+}
+
+.mini{
+  padding: 10px;
+  border: solid 1px white;
+  box-shadow: 1px 1px 15px rgba(255,255,0, 0.5);
+}
+
+.m{margin-right: 17px;}
+
+
+/*****************************  FIN FOOTER ************************************/
+
+
+
+
+
+
+/****************************** DIAPORAMA *************************************/
+
+#banner-slide{
+   top: 40px;
+   left:510px;
+   border: solid 1px white;
+}
+
+ul.bjqs-controls.v-centered li a{
+	display:block;
+	padding:10px;
+	background:#fff;
+	color:#000;
+	text-decoration: none;
+       
+        
+}
+
+ul.bjqs-controls.v-centered li a:hover{
+	background:#000;
+	color:#fff;
+        
+}
+
+ol.bjqs-markers li a{
+	padding:5px 9px;
+	background:#000;
+	color:#fff;
+	margin:5px;
+	text-decoration: none;
+        box-shadow: 1px 1px 10px rgba(0,100,255, 0.5);
+        border: solid 1px white;
+}
+
+ol.bjqs-markers li.active-marker a,
+ol.bjqs-markers li a:hover{
+	/*background: rgba(255,255,0, 0.4);*/
+        color: yellow;
+        border: solid 1px yellow;
+}
+
+p.bjqs-caption{
+	background: rgba(0,0,0,0.5);
+}
+
+/***************************  FIN DIAPORAMA ***********************************/
+
+
+
+
+/***************************  FACEBOOK API  ***********************************/
+#facebook{
+    background: white;
+}
+
+/************************  FIN FACEBOOK API  **********************************/
+
+
+
+
+/*************************  GOOGLE MAP API  ***********************************/
+#map-canvas{
+    margin: 0px;
+    padding: 0px;
+    width: 500px;
+    height: 500px;
+    float: right;
+    
+}
+
+/************************  FIN GOOGLE MAP API  ********************************/
