@@ -36,21 +36,23 @@
                 </div>
             </div>
             <div class="formpage">
-                <h1>CATEGORIES</h1>
-                <form class="add">
-                    <input type="text" name="">
-                    <input type="submit" value="Ajouter">
-                </form>   
-                <form class="upddel">
-                    <select name="categoryName">
+                <h1><center>CATEGORIES</center></h1>
+                <form class="formcat">
+                    <div class="add">
+                        <input type="text" name="">
+                        <input type="submit" value="Ajouter">
+                    </div>
+                    <div class="upddel">
+                        <select name="categoryName">
                         <option></option>
                         // Affiche la liste des categories
-                    </select>
-                    <input type="submit" value="Modifier" name="updcat">
-                    <input type="submit" value="Supprimer" name="delcat">
+                        </select>
+                        <input type="submit" value="Modifier" name="updcat">
+                        <input type="submit" value="Supprimer" name="delcat">
+                    </div>    
                 </form> 
                 <hr>
-                <h1>PRODUITS</h1>
+                <h1><center>PRODUITS</center></h1>
                 <form>    
                     <div>Description</div>
                     <div><textarea name="descri" class="addprod"></textarea></div>

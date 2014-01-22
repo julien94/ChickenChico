@@ -95,6 +95,37 @@ body{
 
 /******************************  FIN FORMULAIRE  ******************************/
 
+
+.formpage{
+    margin: auto;
+    width: 600px;
+}
+
+.formcat{
+    padding-bottom: 80px;
+    padding-top: 50px;
+}
+
+.add{
+    float: left;
+}
+
+.upddel{
+    float: right;
+}
+
+hr{
+    clear: both;
+}
+
+
+
+
+
+
+
+
+/*******************************  PAGE ADMIN  *********************************/
 #corp{
     clear: both;
     position: relative;
