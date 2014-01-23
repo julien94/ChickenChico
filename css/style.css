@@ -76,25 +76,12 @@ body{
 
 /******************************  FIN DU HEADER  *******************************/
 
-.formprod{
-    padding-left: 20px;
-    width: 480px;
-}
-
-.formprod h1{
-    text-align: center;
-    padding-bottom: 20px;
-}
-
 .addprod{
     background-color: #141415;
     border-color: #0e56ef;
     color: white;
     margin-bottom: 20px;
 }
-
-/******************************  FIN FORMULAIRE  ******************************/
-
 
 .formpage{
     padding-top: 50px;
@@ -112,7 +99,15 @@ body{
     font-weight: bold;
     border-color: blue;
     background: black;
-    color: white;
+    color: grey;
+}
+
+.select{
+    margin-top: 10px;
+    font-weight: bold;
+    border-color: blue;
+    background: black;
+    color: white
 }
 
 .formcat{
