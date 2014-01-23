@@ -39,35 +39,35 @@
                 <h1><center>CATEGORIES</center></h1>
                 <form class="formcat">
                     <div class="add">
-                        <input type="text" name="">
-                        <input type="submit" value="Ajouter">
+                        <div class="bold">AJOUTER UNE CATEGORIE :</div>
+                        <input class="input" type="text" name="">
+                        <input class="submit" type="submit" value="Ajouter">
                     </div>
-                    <div class="upddel">
-                        <select name="categoryName">
+                    <div>
+                        <div class="bold">MODIFIER / SUPPRIMER UNE CATEGORIE :</div>
+                        <select name="categoryName" class="input">
                         <option></option>
                         // Affiche la liste des categories
                         </select>
                         <input type="submit" value="Modifier" name="updcat">
                         <input type="submit" value="Supprimer" name="delcat">
                     </div>    
-                </form> 
+                </form>
                 <hr>
                 <h1><center>PRODUITS</center></h1>
-                <form>    
-                    <div>Description</div>
-                    <div><textarea name="descri" class="addprod"></textarea></div>
-                    <div>Prix Unité</div>
-                    <input type="text" size="2" name="pue" class="addprod">                    
-                    <div>Prix Menu</div>
-                    <input type="text" size="2" name="pme" class="addprod">
-                    <div>Photo</div>
-                    <input type="text" name="pue" class="addprod">
-                    <div>Categorie</div>
-                    <select class="addprod">
+                <form class="formprod">
+                    <div class="bold">AJOUTER UN PRODUIT :</div>
+                    <div><input type="text" name="productName" value="Nom" size="20" class="input"></div>
+                    <div><textarea name="descri" class="input">Description</textarea></div>
+                    <div><input type="text" size="20" name="pue" class="input" value="Prix Unité"></div>                    
+                    <div><input type="text" size="20" name="pme" class="input" value="Prix Menu"></div>
+                    <div><input type="text" name="pue" value="Photo" class="input"></div>
+                    <div><select class="input">
+                        <option>Categorie   </option>
                         <option>sandwich</option>
                         <option>boisson</option>
                         <option>dessert</option>
-                    </select>
+                        </select></div>
                 </form>
             </div>
         </div>

@@ -97,31 +97,40 @@ body{
 
 
 .formpage{
+    padding-top: 50px;
     margin: auto;
     width: 600px;
 }
 
+.formpage h1{
+    color: white;
+    text-shadow: 1px 1px 10px yellow;
+}
+
+.input{
+    margin-top: 10px;
+    font-weight: bold;
+    border-color: blue;
+    background: black;
+    color: white;
+}
+
 .formcat{
-    padding-bottom: 80px;
-    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-top: 30px;
+}
+
+.bold{
+    font-weight: bold;
 }
 
 .add{
-    float: left;
-}
-
-.upddel{
-    float: right;
+    padding-bottom: 20px;
 }
 
 hr{
     clear: both;
 }
-
-
-
-
-
 
 
 
