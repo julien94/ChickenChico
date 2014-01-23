@@ -76,58 +76,14 @@ body{
 
 /******************************  FIN DU HEADER  *******************************/
 
-.addprod{
-    background-color: #141415;
-    border-color: #0e56ef;
-    color: white;
-    margin-bottom: 20px;
-}
-
 .formpage{
-    padding-top: 50px;
+    background: black;
+    border: solid 2px white;
+    top: 250px;
     margin: auto;
+    padding: 50px;
     width: 600px;
 }
-
-.formpage h1{
-    color: white;
-    text-shadow: 1px 1px 10px yellow;
-}
-
-.input{
-    margin-top: 10px;
-    font-weight: bold;
-    border-color: blue;
-    background: black;
-    color: grey;
-}
-
-.select{
-    margin-top: 10px;
-    font-weight: bold;
-    border-color: blue;
-    background: black;
-    color: white
-}
-
-.formcat{
-    padding-bottom: 50px;
-    padding-top: 30px;
-}
-
-.bold{
-    font-weight: bold;
-}
-
-.add{
-    padding-bottom: 20px;
-}
-
-hr{
-    clear: both;
-}
-
-
 
 /*******************************  PAGE ADMIN  *********************************/
 #corp{

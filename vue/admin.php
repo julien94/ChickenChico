@@ -6,7 +6,9 @@
         <meta name="description" content="Goutez la différence"/>
         <meta name="keywords" content="khebab, sandwich, pomme de terre, four"/>
         <link rel="stylesheet" href="css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
         <script src="jquery/jquery-1.10.2.js"></script>
+        <script src="../js/bootstrap.js"></script>
     </head>
     <body>
         <script>
@@ -36,42 +38,33 @@
                 </div>
             </div>
             <div class="formpage">
-                <h1><center>CATEGORIES</center></h1>
-                <form class="formcat">
-                    <div class="add">
-                        <div class="bold">AJOUTER UNE CATEGORIE :</div>
-                        <input class="input" type="text" name="">
-                        <input class="submit" type="submit" value="Ajouter">
+                <form role="form">
+                    <div class="form-group">
+                        <h4>AJOUTER UNE CATEGORIE :</h4>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                     </div>
-                    <div>
-                        <div class="bold">MODIFIER / SUPPRIMER UNE CATEGORIE :</div>
-                        <select name="categoryName" class="input">
-                        <option></option>
-                        // Affiche la liste des categories
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default">Ajouter</button>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <h4 class="">MODIFIER OU SUPPRIMER UNE CATEGORIE :</h4>
+                        <select class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
                         </select>
-                        <input type="submit" value="Modifier" name="updcat">
-                        <input type="submit" value="Supprimer" name="delcat">
-                    </div>    
+                    </div>
+                    <button type="submit" class="btn btn-default">Supprimer</button>
                 </form>
-                <hr>
-                <h1><center>PRODUITS</center></h1>
-                <form class="formprod">
-                    <div class="bold">AJOUTER UN PRODUIT :</div>
-                    <div><input type="text" name="productName" value="Nom" size="20" class="input"></div>
-                    <div><textarea name="descri" class="input">Description</textarea></div>
-                    <div><input type="text" size="20" name="pue" class="input" value="Prix Unité"></div>                    
-                    <div><input type="text" size="20" name="pme" class="input" value="Prix Menu"></div>
-                    <div><input type="text" name="pue" value="Photo" class="input"></div>
-                    <div><select class="input">
-                        <option>Categorie   </option>
-                        <option>sandwich</option>
-                        <option>boisson</option>
-                        <option>dessert</option>
-                        </select></div>
-                </form>
-            </div>
+            </div>    
         </div>
         <script>
+            $(".input").mousedown(function() {
+                $(this).val("").css("color", "white");
+            });
             $("#menu h4").mouseover(function() {
                 $(this).css("box-shadow", "1px 1px 20px rgba(255, 255, 0, 0.5)");
             });
