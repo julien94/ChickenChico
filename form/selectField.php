@@ -43,8 +43,20 @@ class selectField {
     public function setClass($class) {
         $this->class = $class;
     }
+    
+    /**
+     * Insert array list in the option list
+     * @param array $listOption
+     */
+    public function setListOption($listOption) {
+        $this->listOption = $listOption;
+    }
 
-    public function addToListOption($option) {
+    /**
+     * Add a new option in the option list
+     * @param array $option
+     */
+    public function pushToListOption($option) {
         $this->listOption = array_merge($this->listOption, $option);
     }
 
