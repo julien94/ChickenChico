@@ -32,9 +32,9 @@
             <div id="header">
                 <img src="image/logo.png" class="logo">
                 <div id="menu">
-                    <a href="/accueil"><h4>Accueil</h4></a>
-                    <a href="/carte"><h4>Nos menus</h4></a>
-                    <a href="/contact"><h4>Nous contacter</h4></a>
+                    <a href="/accueil"><h4>Gestion Categorie</h4></a>
+                    <a href="/carte"><h4>Gestion Produits</h4></a>
+                    <a href="/contact"><h4>Deconnection</h4></a>
                 </div>
             </div>
             <div class="formpage">
