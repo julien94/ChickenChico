@@ -7,9 +7,12 @@
  */
 class test {
     
+    private $test;
+    
     public function __construct() {
-        $produit = new product("toto", "titi", "2.5", "plouf", "3.6", "test.jpg");
-        echo $produit->getPrixMenu();
+        $this->test = new form("test formulaire");
+        $this->test->
+        
     }
     
 }

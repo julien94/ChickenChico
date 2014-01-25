@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * Creat select Field
+ * 
  * @author LEFEBVRE Julien
  */
 class selectField {
@@ -10,24 +12,41 @@ class selectField {
     private $class;
     private $listOption = array();
     
+    /**
+     * @param String $name
+     * @param String $id
+     * @param String $class
+     */
     function __construct($name, $id = null, $class = null) {
         $this->name = $name;
         if($id != null){$this->id = 'id="'.$id.'"';}
         if($class != null){$this->class = 'class="'.$class.'"';}
     }
     
+    /**
+     * @return String
+     */
     public function getId() {
         return $this->id;
     }
 
+    /**
+     * @return String
+     */
     public function getName() {
         return $this->name;
     }
 
+    /**
+     * @return String
+     */
     public function getClass() {
         return $this->class;
     }
 
+    /**
+     * @return Array
+     */
     public function getListOption() {
         return $this->listOption;
     }
