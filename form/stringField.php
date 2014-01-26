@@ -12,11 +12,11 @@ class stringField extends field{
     private $class;
     
     function __construct($type, $name, $value = null, $id = null, $class = null) {
-        $this->type = 'type="'.$type.'"';
-        $this->name = 'name='.$name;
-        if($id != null){$this->id = 'id="'.$id.'"';}
-        if($value != null){$this->value = 'value="'.$value.'"';}
-        if($class != null){$this->class = 'class="'.$class.'"';}
+        $this->type = ' type="'.$type.'"';
+        $this->name = ' name="'.$name.'"';
+        if($id != null){$this->id = ' id="'.$id.'"';}
+        if($value != null){$this->value = ' value="'.$value.'"';}
+        if($class != null){$this->class = ' class="'.$class.'"';}
     }
 
     public function getType() {
@@ -60,6 +60,6 @@ class stringField extends field{
     }
 
     public function toString(){
-        return "<input".$this->genre.$this->type.$this->id.$this->name.$this->value.$this->class.">";
+        return '<input'.$this->type.$this->id.$this->name.$this->value.$this->class.'>';
     }
 }
