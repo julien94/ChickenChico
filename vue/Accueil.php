@@ -7,8 +7,8 @@
         <meta name="keywords" content="khebab, sandwich, pomme de terre, four"/>
         <link rel="stylesheet" href="../css/style.css" type="text/css"/>
         <link rel="stylesheet" href="../css/bjqs.css">
-        <script src="../jquery/jquery-1.10.2.js"></script>
-        <script src="../jquery/bjqs-1.3.min.js"></script>
+        <script src="../js/jquery-1.10.2.js"></script>
+        <script src="../js/bjqs-1.3.min.js"></script>
     </head>
     <body>
         <script>

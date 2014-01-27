@@ -10,6 +10,7 @@ class selectField {
     private $id;
     private $name;
     private $class;
+    private $options;
     private $listOption = array();
     
     /**
@@ -17,10 +18,15 @@ class selectField {
      * @param String $id
      * @param String $class
      */
-    function __construct($name, $id = null, $class = null) {
-        $this->name = $name;
-        if($id != null){$this->id = 'id="'.$id.'"';}
-        if($class != null){$this->class = 'class="'.$class.'"';}
+    function __construct($name, $tabOption = null, $id = null, $class = null) {
+        $this->name = ' name="'.$name.'"';
+        if($tabOption != null){
+            foreach($tabOption as $opt){
+            $this->listOption[] = '<option>'.$opt.'</option>';
+        }
+        }
+        if($id != null){$this->id = ' id="'.$id.'"';}
+        if($class != null){$this->class = ' class="'.$class.'"';}
     }
     
     /**
@@ -67,8 +73,10 @@ class selectField {
      * Insert array list in the option list
      * @param array $listOption
      */
-    public function setListOption($listOption) {
-        $this->listOption = $listOption;
+    public function setListOption($tabOption) {
+        foreach($tabOption as $opt){
+            $this->listOption[] = '<option>'.$opt->getNom().'</option>';
+        }
     }
 
     /**
@@ -80,9 +88,10 @@ class selectField {
     }
 
     public function toString(){
-        return "<select".$this->name.$this->id.$this->class.">"
-                ."<?php foreach($data->getListOption() as $option){echo '<option>'.$option.'</option>';} ?>"
-                ."</select>";
+        foreach($this->listOption as $option){
+            $this->options .= $option;
+        }
+        return "<select".$this->name.$this->id.$this->class.">".$this->options."</select>";
     }
 
 }

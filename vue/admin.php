@@ -7,7 +7,7 @@
         <meta name="keywords" content="khebab, sandwich, pomme de terre, four"/>
         <link rel="stylesheet" href="css/style.css" type="text/css"/>
         <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
-        <script src="jquery/jquery-1.10.2.js"></script>
+        <script src="../js/jquery-1.10.2.js"></script>
         <script src="../js/bootstrap.js"></script>
     </head>
     <body>
@@ -32,9 +32,9 @@
             <div id="header">
                 <img src="image/logo.png" class="logo">
                 <div id="menu">
-                    <a href="/accueil"><h4>Gestion Categorie</h4></a>
-                    <a href="/carte"><h4>Gestion Produits</h4></a>
-                    <a href="/contact"><h4>Deconnection</h4></a>
+                    <a href="/admin/viewCat"><h4>Gestion Categorie</h4></a>
+                    <a href="/admin/viewProd"><h4>Gestion Produits</h4></a>
+                    <a href="/admin/deco"><h4>Deconnection</h4></a>
                 </div>
             </div>
             <div class="formpage">

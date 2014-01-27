@@ -13,14 +13,14 @@ class textField {
     private $rows;
     private $cols;
     
-    public function __construct($name, $id = null, $value = null, $text = null, $class = null, $rows = null, $cols = null) {
+    public function __construct($name, $value = null, $text = null, $class = null, $id = null,$rows = null, $cols = null) {
         $this->name = $name;
-        if($id != null){$this->id = 'id="'.$id.'"';}
-        if($value != null){$this->value = 'value="'.$value.'"';}
+        if($id != null){$this->id = ' id="'.$id.'"';}
+        if($value != null){$this->value = ' value="'.$value.'"';}
         if($text != null){$this->text = $text;}
-        if($class != null){$this->class = 'class="'.$class.'"';}
-        if($rows != null){$this->rows = 'rows="'.$rows.'"';}
-        if($cols != null){$this->cols = 'cols="'.$cols.'"';}
+        if($class != null){$this->class = ' class="'.$class.'"';}
+        if($rows != null){$this->rows = ' rows="'.$rows.'"';}
+        if($cols != null){$this->cols = ' cols="'.$cols.'"';}
     }
     
     public function getId() {
@@ -80,6 +80,6 @@ class textField {
     }
 
     public function toString(){
-        return "<textarea".$this->id.$this->name.$this->value.$this->class.$this->rows.$this->cols.">".$this->text."</textarea>";
+        return "<textarea ".$this->id.$this->name.$this->value.$this->class.$this->rows.$this->cols.">".$this->text."</textarea>";
     }
 }

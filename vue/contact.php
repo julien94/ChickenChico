@@ -6,7 +6,7 @@
         <meta name="description" content="Goutez la différence"/>
         <meta name="keywords" content="khebab, sandwich, pomme de terre, four"/>
         <link rel="stylesheet" href="css/style.css" type="text/css"/>
-        <script src="jquery/jquery-1.10.2.js"></script>
+        <script src="../js/jquery-1.10.2.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&rs=AIzaSyC9_zXqzYiRuzQXZNl5mUfQywB4hcjfNkk"></script>
     </head>
     <body>

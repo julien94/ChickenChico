@@ -11,12 +11,12 @@ class stringField extends field{
     private $value;
     private $class;
     
-    function __construct($type, $name, $value = null, $id = null, $class = null) {
+    function __construct($type, $name, $value = null, $class = null, $id = null) {
         $this->type = ' type="'.$type.'"';
         $this->name = ' name="'.$name.'"';
-        if($id != null){$this->id = ' id="'.$id.'"';}
         if($value != null){$this->value = ' value="'.$value.'"';}
         if($class != null){$this->class = ' class="'.$class.'"';}
+        if($id != null){$this->id = ' id="'.$id.'"';}
     }
 
     public function getType() {
