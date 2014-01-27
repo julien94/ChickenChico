@@ -7,12 +7,20 @@ class form {
     
     private $fieldList = array();
     private $titre;
+    private $action;
+    private $method;
+    private $class;
     
     /**
+     * @param String $method
+     * @param String $action
      * @param String $titre
      */
-    public function __construct($titre) {
-        $this->titre = $titre;
+    public function __construct($method, $action, $class = null ,$titre = null) {
+        $this->method = ' method="'.$method.'"';
+        $this->action = ' action="'.$action.'"';
+        $this->class = ' class="'.$class.'"';
+        if($titre != null){$this->titre = $titre;}
     }
     
     public function newStringField($type, $name, $value = null, $id = null, $class = null){
@@ -32,8 +40,16 @@ class form {
     }
 
     public function getTitre() {
-        return $this->titre;
+        return strtoupper($this->titre);
     }
 
+    public function getAction() {
+        return $this->action;
+    }
 
+    public function getMethod() {
+        return $this->method;
+    }
+
+    
 }

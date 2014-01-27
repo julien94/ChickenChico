@@ -4,10 +4,13 @@ class controleur {
     
     private $data = array();
     private $userCsv;
-    private $admin;
     
     public function set($value){
         $this->data = array_merge($this->data, $value);
+    }
+    
+    public function add($value){
+        $this->data[] = $value;
     }
     
     public function render($way){

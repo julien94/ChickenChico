@@ -32,33 +32,21 @@
             <div id="header">
                 <img src="image/logo.png" class="logo">
                 <div id="menu">
-                    <a href="/admin/viewCat"><h4>Gestion Categorie</h4></a>
-                    <a href="/admin/viewProd"><h4>Gestion Produits</h4></a>
+                    <a href="/admin"><h4>Gestion Categorie / Produit</h4></a>
                     <a href="/admin/deco"><h4>Deconnection</h4></a>
                 </div>
             </div>
             <div class="formpage">
-                <form role="form">
-                    <div class="form-group">
-                        <h4>AJOUTER UNE CATEGORIE :</h4>
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-default">Ajouter</button>
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <h4 class="">MODIFIER OU SUPPRIMER UNE CATEGORIE :</h4>
-                        <select class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-default">Supprimer</button>
-                </form>
+                <?php
+                echo '<h3>'.$this->data[0]->getTitre().'</h3>';
+                echo '<form role="form"'.$this->data[0]->getMethod().$this->data[0]->getAction().'>';
+                foreach($this->data[0]->getFieldList() as $field){
+                    echo '<div class="form-group">';
+                    print_r($field->toString());
+                    echo '</div>';
+                }
+                echo '</form>';
+                ?>
             </div>    
         </div>
         <script>

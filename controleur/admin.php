@@ -20,7 +20,8 @@ class admin extends controleur {
             } else {
                 $this->admin = new user($_POST['mail'], $_POST['mdp']);
                 $_SESSION['admin'] = serialize($this->admin);
-                $this->render('admin');
+                $this->viewNewCategory();
+                //$this->render('admin');
             }
         } else {
             if (isset($_SESSION['admin'])) {
@@ -28,36 +29,33 @@ class admin extends controleur {
                 if (!$this->checkUser($this->user->getEmail(), $this->user->getPassword())) {
                     header('location:accueil');
                 } else {
-                    $this->render('admin');
+                    
+                    $this->viewNewCategory();
                 }
             } else {
                 header('location:accueil');
             }
         }
     }
-
-    public function newCategory($d) {
-        $this->d = $d;
+    public function viewCategory(){
+        $this->add($this->test);
+        $this->render('admin');
+    }  
+    
+    public function addCategory(){
+        
     }
 
-    public function updCategory($d) {
-        $this->d = $d;
+    public function newProduct() {
+       
     }
 
-    public function delCategory($d) {
-        $this->d = $d;
+    public function delProduct() {
+       
     }
 
-    public function newProduct($d) {
-        $this->d = $d;
-    }
-
-    public function delProduct($d) {
-        $this->d = $d;
-    }
-
-    public function updProduct($d) {
-        $this->d = $d;
+    public function updProduct() {
+        
     }
 
 }

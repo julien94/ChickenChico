@@ -15,14 +15,15 @@ class selectField {
     
     /**
      * @param String $name
+     * @param ArrayList $tabOption
      * @param String $id
      * @param String $class
      */
-    function __construct($name, $tabOption = null, $id = null, $class = null) {
+    function __construct($name, $tabOption = null, $class = null, $id = null) {
         $this->name = ' name="'.$name.'"';
         if($tabOption != null){
             foreach($tabOption as $opt){
-            $this->listOption[] = '<option>'.$opt.'</option>';
+            $this->listOption[] = '<option>'.$opt[0].'</option>';
         }
         }
         if($id != null){$this->id = ' id="'.$id.'"';}
@@ -75,7 +76,7 @@ class selectField {
      */
     public function setListOption($tabOption) {
         foreach($tabOption as $opt){
-            $this->listOption[] = '<option>'.$opt->getNom().'</option>';
+            $this->listOption[] = '<option>'.$opt.'</option>';
         }
     }
 

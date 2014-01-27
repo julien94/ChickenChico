@@ -12,6 +12,20 @@ class categoryCsv extends connectCsv{
         $this->connectCsv('category');
     }
     
+    /**
+     * @param String $nom
+     */
+    public function removeCategory($nom){
+        
+    }
+    
+    /**
+     * @param Array $data
+     */
+    public function addCategory($data){
+        fputcsv($this->connection, $data, ";", " ");
+    }
+    
     Public function getAllCategory(){
         while($this->category = fgetcsv($this->connection, 255, ";")){
             $this->list[] = $this->category;
@@ -20,7 +34,4 @@ class categoryCsv extends connectCsv{
         return $this->list;
     }
     
-    public function addCategory($data){
-        fputcsv($this->connection, $data, ";", " ");
-    }
 }
