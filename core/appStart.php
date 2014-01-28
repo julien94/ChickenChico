@@ -11,10 +11,6 @@ class appStart {
     
     public function __construct()
     {
-        if (empty($_SERVER['REDIRECT_URL']))
-        {
-            header('location:/accueil');
-        }
         $this->xplurl = explode('/', $_SERVER['REDIRECT_URL']);
         for($i=1; $i<count($this->xplurl); $i++){
             $this->level .= "../";
@@ -37,6 +33,6 @@ class appStart {
                 else{header('location:/erreur404');}
             }
         }
-        else{header('location:/erreur404');} 
+        else{header('location:/accueil');} 
     }
 }

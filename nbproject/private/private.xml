@@ -5,8 +5,10 @@
         <group>
             <file>file:/C:/wamp/www/ChickenChico/controleur/admin.php</file>
             <file>file:/C:/wamp/www/ChickenChico/core/appStart.php</file>
-            <file>file:/C:/wamp/www/ChickenChico/form/stringField.php</file>
-            <file>file:/C:/wamp/www/ChickenChico/form/formHandler.php</file>
+            <file>file:/C:/wamp/www/ChickenChico/vue/admin.php</file>
+            <file>file:/C:/wamp/www/ChickenChico/support/product.csv</file>
+            <file>file:/C:/wamp/www/ChickenChico/support/category.csv</file>
+            <file>file:/C:/wamp/www/ChickenChico/core/controleur.php</file>
         </group>
     </open-files>
 </project-private>

@@ -5,6 +5,8 @@ class controleur {
     private $data = array();
     private $msg = array();
     private $userCsv;
+    private $testUser;
+    private $admin;
     
     public function set($value){
         $this->data = array_merge($this->data, $value);
@@ -32,9 +34,20 @@ class controleur {
     public function checkUser($email, $pwd){
         $this->userCsv = new userCsv();
         if($this->userCsv->getPseudo() !== $email || $this->userCsv->getPwd() !== $pwd){return FALSE;}
-        else{return true;}
+        else{
+            $this->admin = new user($email, $pwd);
+            $_SESSION['admin'] = serialize($this->admin);
+            return true;
+        }
     }
     
-    
+    public function checkSession(){
+        if (isset($_SESSION['admin'])) {
+            $this->testUser = unserialize($_SESSION['admin']);
+            if (!$this->checkUser($this->testUser->getEmail(), $this->testUser->getPassword())) {header('location:accueil');} 
+            else {return null;}
+        } 
+        else {header('location:accueil');}
+    }
 }
 

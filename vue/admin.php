@@ -32,7 +32,7 @@
             <div id="header">
                 <img src="<?php echo (ROOTHTML) ?>../image/logo.png" class="logo">
                 <div id="menu">
-                    <a href="/admin"><h4>Gestion Categorie / Produit</h4></a>
+                    <a href="/admin/viewOption"><h4>Gestion Categorie / Produit</h4></a>
                     <a href="/admin/deco"><h4>Deconnection</h4></a>
                 </div>
             </div>
