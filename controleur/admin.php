@@ -10,11 +10,17 @@ class admin extends controleur {
     private $catCsv;
     private $form;
     private $fh;
-    private $string;
+    private $url;
 
     public function __construct() {
         session_start();
-        
+        $this->url = explode('/', $_SERVER['REDIRECT_URL']);
+        if($this->url[2] == ""){header('location:admin/option');}
+    }
+    
+    public function option(){
+        $this->checkSession();
+        $this->render('admin');
     }
 
     public function userConnect() {
@@ -22,14 +28,8 @@ class admin extends controleur {
             if (!$this->checkUser($_POST['mail'], $_POST['mdp'])) {
                 $this->setMsg("Erreur Email / Password");
                 $this->render('accueil');
-            } 
-            else {$this->viewOption();}
-        }
-        else{header('location:accueil');}
-    }
-
-    public function viewOption() {
-        $this->render('admin');
+            } else {header('location:/admin/option');}
+        } else {header('location:accueil');}
     }
 
     public function viewCategory($opt) {
@@ -38,14 +38,12 @@ class admin extends controleur {
         $this->fh = new formHandler();
         $this->form = $this->fh->{$opt . 'category'}($_POST['select']);
         $this->add($this->form);
-        $this->viewOption();
+        $this->render('admin');
     }
 
     public function addCategory() {
         $this->checkSession();
-        if (!isset($_POST['new'])) {
-            header('location:accueil');
-        }
+        if (!isset($_POST['new'])) {header('location:accueil');}
         if ($this->checkfield($_POST['new'])) {
             $this->catCsv = new categoryCsv();
             $this->msg = $this->catCsv->addCategory($_POST['new']);

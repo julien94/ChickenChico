@@ -26,7 +26,7 @@ class appStart {
         $this->var = (empty($this->xplurl[3]))? null : $this->xplurl[3];
         if(file_exists(ROOT.'controleur/'.$this->controleur.'.php')){
             $this->controleur = new $this->controleur();
-            if($this->method != null){
+            if($this->method != null){    
                 if(method_exists($this->controleur, $this->method)){
                     $this->controleur->{$this->method}($this->var);
                 }

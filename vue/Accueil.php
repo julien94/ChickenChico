@@ -32,7 +32,7 @@
                     </div>
                     <div class="right"><input type="submit" value="Admin"></div>
                 </form>
-                    <?php if(!empty($this->data[0])){echo '<div class="erreur"><center>'.$this->data[0].'</center></div>';} ?>
+                    <?php if(!empty($this->msg[0])){echo '<div class="erreur"><center>'.$this->msg[0].'</center></div>';} ?>
                 </div>
                 <div id="menu">
                     <a href="/accueil"><h4>Accueil</h4></a>

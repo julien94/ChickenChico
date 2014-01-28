@@ -32,7 +32,7 @@
             <div id="header">
                 <img src="<?php echo (ROOTHTML) ?>../image/logo.png" class="logo">
                 <div id="menu">
-                    <a href="/admin/viewOption"><h4>Gestion Categorie / Produit</h4></a>
+                    <a href="/admin/option"><h4>Gestion Categorie / Produit</h4></a>
                     <a href="/admin/deco"><h4>Deconnection</h4></a>
                 </div>
             </div>
@@ -64,10 +64,8 @@
                     <h3 class="grey"><a href="">Supprimer</a></h3>
                 </div>
                 <hr class="clear"/>
-                <?php
-            }
-            ?>
-            <?php if(!empty($this->msg)){echo '<div class="clear msgform">'.$this->msg[0].'</div>';} ?>
+            <?php }
+                  if(!empty($this->msg)){echo '<div class="clear msgform">'.$this->msg[0].'</div>';} ?>
             </div>
         </div>
         <script>
