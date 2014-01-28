@@ -23,7 +23,12 @@ class categoryCsv extends connectCsv{
      * @param Array $data
      */
     public function addCategory($data){
-        fputcsv($this->connection, $data, ";", " ");
+        if(fputs($this->connection, $data."\r\n")){
+            return 'La categorie "'.$data.'" à bien été ajouté';
+        }
+        else{
+            return 'Probleme d\'ajout de categorie, contacter le developpeur';
+        }
     }
     
     Public function getAllCategory(){

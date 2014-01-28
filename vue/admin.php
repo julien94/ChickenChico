@@ -5,10 +5,10 @@
         <meta charset="utf-8"/>
         <meta name="description" content="Goutez la différence"/>
         <meta name="keywords" content="khebab, sandwich, pomme de terre, four"/>
-        <link rel="stylesheet" href="css/style.css" type="text/css"/>
-        <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
-        <script src="../js/jquery-1.10.2.js"></script>
-        <script src="../js/bootstrap.js"></script>
+        <link rel="stylesheet" href="<?php echo (ROOTHTML) ?>../css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="<?php echo (ROOTHTML) ?>../css/bootstrap.css" type="text/css"/>
+        <script src="<?php echo (ROOTHTML) ?>../js/jquery-1.10.2.js"></script>
+        <script src="<?php echo (ROOTHTML) ?>../js/bootstrap.js"></script>
     </head>
     <body>
         <script>
@@ -30,14 +30,15 @@
         </script>
         <div id="container">
             <div id="header">
-                <img src="image/logo.png" class="logo">
+                <img src="<?php echo (ROOTHTML) ?>../image/logo.png" class="logo">
                 <div id="menu">
                     <a href="/admin"><h4>Gestion Categorie / Produit</h4></a>
                     <a href="/admin/deco"><h4>Deconnection</h4></a>
                 </div>
             </div>
             <div class="formpage">
-                <?php
+            <?php
+            if(!empty($this->data[0])){
                 echo '<h3>'.$this->data[0]->getTitre().'</h3>';
                 echo '<form role="form"'.$this->data[0]->getMethod().$this->data[0]->getAction().'>';
                 foreach($this->data[0]->getFieldList() as $field){
@@ -46,10 +47,32 @@
                     echo '</div>';
                 }
                 echo '</form>';
+                echo '<br/>';
+            }
+            else{
                 ?>
-            </div>    
+                <div class="category">
+                    <h2>CATEGORIES</h2>
+                    <h3><a href="/admin/viewCategory/new">Ajouter</a></h3>
+                    <h3 class="grey"><a href="/admin/viewCategory/select">Modifier</a></h3>
+                    <h3><a href="/admin/viewCategory/del">Supprimer</a></h3>
+                </div>
+                <div class="product">
+                    <h2>PRODUITS</h2>
+                    <h3 class="grey"><a href="">Ajouter</a></h3>
+                    <h3><a href="">Modifier</a></h3>
+                    <h3 class="grey"><a href="">Supprimer</a></h3>
+                </div>
+                <hr class="clear"/>
+                <?php
+            }
+            ?>
+            <?php if(!empty($this->msg)){echo '<div class="clear msgform">'.$this->msg[0].'</div>';} ?>
+            </div>
         </div>
         <script>
+            $(".category h3").mouseover(function(){$(this).css('background', 'grey');}).mouseout(function(){$(this).css('background', '');});
+            $(".product h3").mouseover(function(){$(this).css('background', 'grey');}).mouseout(function(){$(this).css('background', '');});
             $(".input").mousedown(function() {
                 $(this).val("").css("color", "white");
             });

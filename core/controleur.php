@@ -3,6 +3,7 @@
 class controleur {
     
     private $data = array();
+    private $msg = array();
     private $userCsv;
     
     public function set($value){
@@ -13,10 +14,19 @@ class controleur {
         $this->data[] = $value;
     }
     
+    public function setMsg($message){
+        $this->msg[] = $message;
+    }
+    
     public function render($way){
+        extract($this->msg);
         extract($this->data);
         require (ROOT.'vue/'.$way.'.php');
         
+    }
+    
+    public function checkField($string){
+        return true;
     }
     
     public function checkUser($email, $pwd){

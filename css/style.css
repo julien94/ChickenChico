@@ -90,6 +90,10 @@ body{
     margin-bottom: 30px;
 }
 
+.greyc{
+    color: grey;
+}
+
 /*******************************  PAGE ADMIN  *********************************/
 #corp{
     clear: both;
@@ -257,9 +261,27 @@ li{
 /*****************************  FIN FOOTER ************************************/
 
 
+.category{
+    width: 230px;
+    text-align: center;
+    float: left;
+}
 
+.product{
+    width: 230px;
+    text-align: center;
+    float: right;
+}
 
+.clear{
+    clear: both;
+}
 
+.msgform{
+    color: white;
+    padding-top: 50px;
+    text-align: center;
+}
 
 /****************************** DIAPORAMA *************************************/
 

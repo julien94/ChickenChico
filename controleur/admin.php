@@ -5,9 +5,12 @@
  */
 class admin extends controleur {
 
-    private $d;
     private $user;
     private $userCsv;
+    private $catCsv;
+    private $form;
+    private $fh;
+    private $string;
     private $msg = array();
 
     public function __construct() {
@@ -20,8 +23,7 @@ class admin extends controleur {
             } else {
                 $this->admin = new user($_POST['mail'], $_POST['mdp']);
                 $_SESSION['admin'] = serialize($this->admin);
-                //$this->viewNewCategory();
-                //$this->render('admin');
+                header('location:/admin/choise');
             }
         } else {
             if (isset($_SESSION['admin'])) {
@@ -29,24 +31,35 @@ class admin extends controleur {
                 if (!$this->checkUser($this->user->getEmail(), $this->user->getPassword())) {
                     header('location:accueil');
                 } else {
-                    
-                    //$this->viewNewCategory();
-                }
+                    header('location:/admin/choise');
+                  }
             } else {
                 header('location:accueil');
             }
         }
     }
-    public function viewCategory($opt, $id = null){
+    
+    public function choise(){
+        $this->render('admin');
+    }
+    
+    public function viewCategory($opt){
+        if(!isset($_POST['select'])){$_POST['select'] = null;}
         $this->fh = new formHandler();
-        $this->form = $this->fh->$opt.category($id);
+        $this->form = $this->fh->{$opt.'category'}($_POST['select']);
         
         $this->add($this->form);
         $this->render('admin');
     }  
     
     public function addCategory(){
-        
+        if(!isset($_POST['new'])){header('location:accueil');}
+        if($this->checkfield($_POST['new'])){
+            $this->catCsv = new categoryCsv();
+            $this->msg = $this->catCsv->addCategory($_POST['new']);
+            $this->setMsg($this->msg);
+            $this->render('admin');
+        }
     }
     
     public function updCategory(){

@@ -39,7 +39,7 @@ class formHandler {
     public function selectCategory(){
         $this->Form = new form("POST", "/admin/viewCategory/upd", null, "Choisir la categorie à modifier");
         $this->cat = new categoryCsv();
-        $this->Form->newSelectField("testselect", $this->cat->getAllCategory(), "form-control");
+        $this->Form->newSelectField("select", $this->cat->getAllCategory(), "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
         return $this->Form;          
     }
