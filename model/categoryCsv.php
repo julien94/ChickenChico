@@ -6,6 +6,7 @@
 class categoryCsv extends connectCsv{
     
     private $category;
+    private $message;
     private $list = array();
     
     public function __construct() {
@@ -17,12 +18,16 @@ class categoryCsv extends connectCsv{
      */
     public function delCategory($nom){
         while($this->category = fgetcsv($this->connection, 255, ";")){
-            if($this->category != $nom){$this->list[] = $this->category;}
+            if($this->category[0] != $nom){$this->list[] = $this->category;}
         }
+        $this->closeCsv();
+        $this->connectCsv('category', 'w+');
         foreach($this->list as $d){
-            if(fputs($this->connection, $d."\r\n")){return 'la categorie "'.$nom.'" à bien été supprimé';}
-            else{return 'Probleme de suppression de categorie, contacter le developpeur';}
+            if(fputcsv($this->connection, $d, ",", " ")){$this->message = 'la categorie "'.$nom.'" à bien été supprimé';}
+            else{$this->message = 'Probleme de suppression de categorie, contacter le developpeur';}
         }
+        $this->closeCsv();
+        return $this->message;
     }
     
     /**
