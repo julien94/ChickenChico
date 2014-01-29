@@ -57,7 +57,14 @@ class admin extends controleur {
     }
 
     public function delCategory() {
-        
+        $this->checkSession();
+        if(!isset($_POST['name'])){header('location:accueil');}
+        if($this->checkField($_POST['name'])){
+             $this->catCsv = new categoryCsv();
+             $this->msg = $this->catCsv->delCategory($_POST['name']);
+             $this->setMsg($this->msg);
+             $this->render('admin');
+        }
     }
 
     public function viewProduct() {

@@ -31,7 +31,7 @@ class formHandler {
     public function delCategory(){
         $this->Form = new form("POST", "/admin/delCategory", null, "supprimer une categorie");
         $this->cat = new categoryCsv();
-        $this->Form->newSelectField("testselect", $this->cat->getAllCategory(), "form-control");
+        $this->Form->newSelectField("name", $this->cat->getAllCategory(), "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
         return $this->Form;        
     }
