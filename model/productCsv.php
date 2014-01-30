@@ -5,7 +5,7 @@
  *
  * @author LEFEBVRE Julien
  */
-class productCsv extends connectCsv{
+class productCsv extends controllerCsv{
     
     private $product;
     private $listp = array();
@@ -25,16 +25,7 @@ class productCsv extends connectCsv{
         return $this->listp;
     }
     
-    /**
-     * @wait array
-     */
-    public function setProduct(array $data){
-        foreach ($data as $fields) {
-            fputcsv($this->connection, $fields, ';', ' ');
-        }
-    }
-    
-    /**
+     /**
      * @return array
      */
     public function getProductBy($category){
@@ -46,5 +37,16 @@ class productCsv extends connectCsv{
         $this->closeCsv();
         return $this->listp;
     }
+    
+    /**
+     * @param array $data
+     */
+    public function addProduct($data){
+        foreach ($data as $fields) {
+            fputcsv($this->connection, $fields, ';', ' ');
+        }
+    }
+   
+   
     
 }

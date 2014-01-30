@@ -5,36 +5,30 @@
  */
 class admin extends controleur {
 
-    private $user;
-    private $userCsv;
-    private $catCsv;
+    private $csv;
     private $form;
     private $fh;
     private $url;
 
     public function __construct() {
         session_start();
+        if (!isset($_POST['mail']) && !isset($_POST['mdp'])) {$this->checkSession();}
         $this->url = explode('/', $_SERVER['REDIRECT_URL']);
-        if($this->url[2] == ""){header('location:admin/option');}
+        if($this->url[2] == ""){header('location:/admin/option');}
     }
     
     public function option(){
-        $this->checkSession();
         $this->render('admin');
     }
 
     public function userConnect() {
-        if (isset($_POST['mail']) && isset($_POST['mdp'])) {
-            if (!$this->checkUser($_POST['mail'], $_POST['mdp'])) {
-                $this->setMsg("Erreur Email / Password");
-                $this->render('accueil');
-            } else {header('location:/admin/option');}
-        } else {header('location:accueil');}
+        if (!isset($_POST['mail']) && !isset($_POST['mdp'])) {header('location:/accueil');}
+        if ($this->checkUser($_POST['mail'], $_POST['mdp'])) {header('location:/admin/option');}
     }
 
     public function viewCategory($opt) {
-        $this->checkSession();
         $_POST['select'] = (!isset($_POST['select'])) ? null : $_POST['select'];
+        if($opt == null){$opt = "new";}
         $this->fh = new formHandler();
         $this->form = $this->fh->{$opt . 'category'}($_POST['select']);
         $this->add($this->form);
@@ -42,37 +36,44 @@ class admin extends controleur {
     }
 
     public function addCategory() {
-        $this->checkSession();
-        if (!isset($_POST['new'])) {header('location:accueil');}
-        if ($this->checkfield($_POST['new'])) {
-            $this->catCsv = new categoryCsv();
-            $this->msg = $this->catCsv->addCategory($_POST['new']);
-            $this->setMsg($this->msg);
-            $this->render('admin');
+        if (!isset($_POST['new'])) {header('location:/accueil');}
+        if($this->checkfield($_POST['new'])){
+            $this->csv = new categoryCsv();
+            $this->csv->addCategory($_POST['new']);
         }
     }
 
     public function updCategory() {
-        
-    }
-
-    public function delCategory() {
-        $this->checkSession();
-        if(!isset($_POST['name'])){header('location:accueil');}
-        if($this->checkField($_POST['name'])){
-             $this->catCsv = new categoryCsv();
-             $this->msg = $this->catCsv->delCategory($_POST['name']);
-             $this->setMsg($this->msg);
-             $this->render('admin');
+        if(!isset($_POST['new']) && !isset($_POST['old'])) {header('location:/accueil');}
+        if($this->checkfield($_POST['new'])){
+            $this->csv = new categoryCsv();
+            $this->csv->updCategory($_POST['old'], $_POST['new']);
         }
     }
 
-    public function viewProduct() {
-        
+    public function delCategory() {
+        if(!isset($_POST['name'])){header('location:/accueil');}
+        if($this->checkField($_POST['name'])){
+            $this->csv = new categoryCsv();
+            $this->csv->delCategory($_POST['name']);
+        }
+    }
+
+    public function viewProduct($opt) {
+        $_POST['select'] = (!isset($_POST['select'])) ? null : $_POST['select'];
+        if($opt == null){$opt = "new";}
+        $this->fh = new formHandler();
+        $this->form = $this->fh->{$opt . 'Product'}($_POST['select']);
+        $this->add($this->form);
+        $this->render('admin');
     }
 
     public function addProduct() {
-        
+        if (!isset($_POST['nom'])) {header('location:/accueil');}
+        if($this->checkfield($_POST['nom'])){
+            $this->csv = new productCsv();
+            $this->csv->addProduct($_POST['new']);
+        }
     }
 
     public function updProduct() {

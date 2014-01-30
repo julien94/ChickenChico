@@ -25,7 +25,7 @@
             <div id="header">
                 <img src="../image/logo.png" class="logo">
                 <div class="form">
-                <form action="/admin/userConnect" method="post">
+                <form action="admin/userConnect" method="post">
                     <div>
                         <input class="zone" type="text" size="12" name="mail" value="Email">
                         <input class="zone pass" type="text" size="12" name="mdp" value="Mot de passe">

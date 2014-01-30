@@ -40,7 +40,7 @@
             <?php
             if(!empty($this->data[0])){
                 echo '<h3>'.$this->data[0]->getTitre().'</h3>';
-                echo '<form role="form"'.$this->data[0]->getMethod().$this->data[0]->getAction().'>';
+                echo '<form role="form"'.$this->data[0]->getMethod().$this->data[0]->getAction().$this->data[0]->getClass().$this->data[0]->getEncType().'>';
                 foreach($this->data[0]->getFieldList() as $field){
                     echo '<div class="form-group">';
                     print_r($field->toString());

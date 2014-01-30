@@ -3,9 +3,10 @@
 /**
  * @author JULIEN
  */
-class connectCsv {
+class controllerCsv extends controleur{
     
     public $connection;
+    private $array = array();
     
     public function connectCsv($file, $openMode = null) {
         if($openMode == null){$openMode = "a+";}
@@ -15,5 +16,10 @@ class connectCsv {
     
     public function closeCsv(){
         fclose($this->connection);
+    }
+    
+    public function returnMsg($stringMsg){
+        $this->setMsg($stringMsg);
+        $this->render('admin');
     }
 }

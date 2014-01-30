@@ -10,17 +10,19 @@ class form {
     private $action;
     private $method;
     private $class;
+    private $encType;
     
     /**
      * @param String $method
      * @param String $action
      * @param String $titre
      */
-    public function __construct($method, $action, $class = null ,$titre = null) {
+    public function __construct($method, $action, $class = null ,$titre = null, $enctype = null) {
         $this->method = ' method="'.$method.'"';
         $this->action = ' action="'.$action.'"';
-        $this->class = ' class="'.$class.'"';
+        if($class != null){$this->class = ' class="'.$class.'"';}
         if($titre != null){$this->titre = $titre;}
+        if($enctype != null){$this->encType = ' enctype="'.$enctype.'"';}
     }
     
     public function newStringField($type, $name, $value = null, $id = null, $class = null){
@@ -51,5 +53,12 @@ class form {
         return $this->method;
     }
 
-    
+    public function getEncType() {
+        return $this->encType;
+    }
+
+    public function getClass() {
+        return $this->class;
+    }
+
 }
