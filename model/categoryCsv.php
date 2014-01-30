@@ -23,7 +23,7 @@ class categoryCsv extends connectCsv{
         $this->closeCsv();
         $this->connectCsv('category', 'w+');
         foreach($this->list as $d){
-            if(fputcsv($this->connection, $d, ",", " ")){$this->message = 'la categorie "'.$nom.'" à bien été supprimé';}
+            if(fputs($this->connection, $d[0]."\r\n")){$this->message = 'la categorie "'.$nom.'" à bien été supprimé';}
             else{$this->message = 'Probleme de suppression de categorie, contacter le developpeur';}
         }
         $this->closeCsv();
@@ -31,7 +31,7 @@ class categoryCsv extends connectCsv{
     }
     
     /**
-     * @param Array $data
+     * @param String $data
      */
     public function addCategory($data){
         if(fputs($this->connection, $data."\r\n")){return 'La categorie "'.$data.'" à bien été ajouté';}
