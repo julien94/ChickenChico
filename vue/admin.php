@@ -59,9 +59,9 @@
                 </div>
                 <div class="product">
                     <h2>PRODUITS</h2>
-                    <h3 class="grey"><a href="">Ajouter</a></h3>
-                    <h3><a href="">Modifier</a></h3>
-                    <h3 class="grey"><a href="">Supprimer</a></h3>
+                    <h3 class="grey"><a href="/admin/viewProduct/new">Ajouter</a></h3>
+                    <h3><a href="/admin/viewProduct/select">Modifier</a></h3>
+                    <h3 class="grey"><a href="/admin/viewProduct/del">Supprimer</a></h3>
                 </div>
                 <hr class="clear"/>
             <?php }

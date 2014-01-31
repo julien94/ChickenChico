@@ -12,9 +12,7 @@ class test extends controleur{
     
     
     public function __construct() {
-        
-         print_r($this->toArray("ok"));
-        
+      
     }
     
 }

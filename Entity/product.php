@@ -30,23 +30,23 @@ class product {
     public function getDescription() {
         return ucfirst(trim($this->description));
     }
-
+    
     public function getPrix() {
-        return trim($this->prix).' €';
+        return trim($this->prix);
     }
 
     public function getPrixMenu() {
         if($this->prixMenu === 'null'){
-            return 'X';
+            return '';
         }
         else{
-            return trim($this->prixMenu).' €';
+            return trim($this->prixMenu);
         }
     }
 
     public function getImage() {
         if(file_exists("image/menu/sandwich/".$this->image)){return $this->image;}
-        else{return $this->image = "noImg.jpg";}
+        else{return $this->image = "no-image.jpg";}
     }
 
     public function getCategory() {

@@ -8,6 +8,8 @@
 class formHandler {
     
     private $Form;
+    private $csv;
+    private $product;
     
     public function __construct() {
         
@@ -23,7 +25,7 @@ class formHandler {
     public function selectCategory(){
         $this->Form = new form("POST", "/admin/viewCategory/upd", null, "Choisir la categorie a modifier");
         $this->cat = new categoryCsv();
-        $this->Form->newSelectField("select", $this->cat->getAllCategory(), "form-control");
+        $this->Form->newSelectField("select", $this->csv->getAllCategory(), "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
         return $this->Form;          
     }
@@ -39,7 +41,7 @@ class formHandler {
     public function delCategory(){
         $this->Form = new form("POST", "/admin/delCategory", null, "supprimer une categorie");
         $this->cat = new categoryCsv();
-        $this->Form->newSelectField("name", $this->cat->getAllCategory(), "form-control");
+        $this->Form->newSelectField("name", $this->csv->getAllCategory(), "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
         return $this->Form;        
     }
@@ -51,21 +53,33 @@ class formHandler {
         $this->Form->newStringField("text", "pu", "Prix Unité (ex : 4.80)", "form-control");
         $this->Form->newStringField("text", "pm", "Prix Unité (ex : 5.50)", "form-control");
         $this->Form->newStringField("file", "image", null, "form-control");
-        $this->cat = new categoryCsv();
-        $this->Form->newSelectField("category", $this->cat->getAllCategory(), "form-control");
+        $this->csv = new categoryCsv();
+        $this->Form->newSelectField("category", $this->csv->getAllCategory(), "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
         return $this->Form;        
     }
     
     public function selectProduct(){
-        
+        $this->Form = new form("POST", "/admin/viewProduct/upd", null, "Choisir le produit a modifier");
+        $this->csv = new productCsv();
+        $this->Form->newSelectField("select", $this->csv->getAllProduct(), "form-control");
+        $this->Form->newStringField("submit", "bt", null, "btn btn-default");
+        return $this->Form;
     }
     
-    public function updProduct(){
-        $this->test = new form("POST", "/admin/addCategory", null, "ajouter une categorie");
-        $this->test->newTextField("texta", null, null, "form-control");
-        $this->cat = new categoryCsv();
-        $this->test->newSelectField("testselect", $this->cat->getAllCategory(), "form-control");
+    public function updProduct($nom){
+        $this->csv = new productCsv();
+        $this->product = $this->csv->getProductByNom($nom);
+        $this->Form = new form("POST", "/admin/addProduct", null, "ajouter un Produit", "multipart/form-data");
+        $this->Form->newStringField("text", "nom", $this->product->getNom(), "form-control");
+        $this->Form->newTextField("description", null, $this->product->getDescription(), "form-control");
+        $this->Form->newStringField("text", "pu", $this->product->getPrix(), "form-control");
+        $this->Form->newStringField("text", "pm", $this->product->getPrixMenu(), "form-control");
+        $this->Form->newStringField("file", "image", null, "form-control");
+        $this->csv = new categoryCsv();
+        $this->Form->newSelectField("category", $this->csv->getAllCategory(), "form-control");
+        $this->Form->newStringField("submit", "bt", null, "btn btn-default");
+        return $this->Form; 
     }
     
     public function delProduct(){

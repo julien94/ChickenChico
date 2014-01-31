@@ -51,8 +51,8 @@
                             echo'<ul>';
                             echo'<li class="nom">'.$tab[$j]->getNom().'</li>';
                             echo'<li class="descri">'.$tab[$j]->getDescription().'</li>';
-                            echo'<li class="price">'.$tab[$j]->getPrix().'</li>';
-                            echo'<li class="price">'.$tab[$j]->getPrixMenu().'</li>';
+                            echo'<li class="price">'.$tab[$j]->getPrix().' €</li>';
+                            echo'<li class="price">'.$tab[$j]->getPrixMenu().' €</li>';
                             echo'<li><img class="img fright" src="image/menu/sandwich/'.$tab[$j]->getImage().'"></li>';
                             echo'</ul>';
                             echo'</div>';
@@ -78,8 +78,8 @@
                         echo'<li><img class="img fleft" src="image/menu/sandwich/'.$tab[$k]->getImage().'"></li>';
                         echo'<li class="nom">'.$tab[$k]->getNom().'</li>';
                         echo'<li class="descri">'.$tab[$k]->getDescription().'</li>';
-                        echo'<li class="price">'.$tab[$k]->getPrix().'</li>';
-                        echo'<li class="price">'.$tab[$k]->getPrixMenu().'</li>';
+                        echo'<li class="price">'.$tab[$k]->getPrix().' €</li>';
+                        echo'<li class="price">'.$tab[$k]->getPrixMenu().' €</li>';
                         echo'</ul>';
                         echo'</div>';
                     }

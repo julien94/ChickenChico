@@ -14,7 +14,7 @@ class textField {
     private $cols;
     
     public function __construct($name, $value = null, $text = null, $class = null, $id = null,$rows = null, $cols = null) {
-        $this->name = $name;
+        $this->name = ' name="'.$name.'"';
         if($id != null){$this->id = ' id="'.$id.'"';}
         if($value != null){$this->value = ' value="'.$value.'"';}
         if($text != null){$this->text = $text;}

@@ -7,6 +7,7 @@ class admin extends controleur {
 
     private $csv;
     private $form;
+    private $product;
     private $fh;
     private $url;
 
@@ -71,8 +72,9 @@ class admin extends controleur {
     public function addProduct() {
         if (!isset($_POST['nom'])) {header('location:/accueil');}
         if($this->checkfield($_POST['nom'])){
+            $this->product = new product($_POST['nom'],$_POST['description'],$_POST['pu'],$_POST['category'],$_POST['pm'],"");
             $this->csv = new productCsv();
-            $this->csv->addProduct($_POST['new']);
+            $this->csv->addProduct($this->product);
         }
     }
 
