@@ -9,6 +9,7 @@ class productCsv extends controllerCsv{
     
     private $product;
     private $listp = array();
+    private $xpl;
     
     public function __construct() {
         $this->connectCsv('product');
@@ -53,11 +54,20 @@ class productCsv extends controllerCsv{
      * @param array $data
      */
     public function addProduct($data){
-        //foreach ($data as $fields) {
-            fputcsv($this->connection, $data->getAll(), ';', ' ');
-        //}
+        if(fputs($this->connection, $data->toString()."\r\n")){$this->returnMsg('Le produit "'.$data.'" à bien été ajouté');}
+        else{$this->returnMsg('Probleme d\'ajout de produit, contacter le developpeur');}
+        $this->closeCsv();
     }
    
-   
+    public function updProduct($old, $product){
+        foreach ($this->getAllProduct() as $prod){
+            $this->xpl = explode($prod, ";");
+            if($old == $this->xpl[0]){$this->listp = $product->getAll();}
+            else{$this->listp = $prod;}
+        }
+        $this->closeCsv();
+        $this->connectCsv("product", "w+");
+        
+    }
     
 }

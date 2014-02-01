@@ -24,7 +24,7 @@ class formHandler {
     
     public function selectCategory(){
         $this->Form = new form("POST", "/admin/viewCategory/upd", null, "Choisir la categorie a modifier");
-        $this->cat = new categoryCsv();
+        $this->csv = new categoryCsv();
         $this->Form->newSelectField("select", $this->csv->getAllCategory(), "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
         return $this->Form;          
@@ -40,7 +40,7 @@ class formHandler {
     
     public function delCategory(){
         $this->Form = new form("POST", "/admin/delCategory", null, "supprimer une categorie");
-        $this->cat = new categoryCsv();
+        $this->csv = new categoryCsv();
         $this->Form->newSelectField("name", $this->csv->getAllCategory(), "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
         return $this->Form;        
@@ -79,6 +79,7 @@ class formHandler {
         $this->csv = new categoryCsv();
         $this->Form->newSelectField("category", $this->csv->getAllCategory(), "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
+        $this->Form->newStringField("hidden", "old", "$nom");
         return $this->Form; 
     }
     

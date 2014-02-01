@@ -81,4 +81,7 @@ class product {
         $this->category = $category;
     }
 
+    public function toString(){
+        return $this->nom.';'.$this->description.';'.$this->prix.';'.$this->prixMenu.';'.$this->image.';'.$this->category;
+    }
 }

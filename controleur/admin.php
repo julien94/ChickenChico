@@ -79,7 +79,12 @@ class admin extends controleur {
     }
 
     public function updProduct() {
-        
+        if(!isset($_POST['nom']) && !isset($_POST['old'])) {header('location:/accueil');}
+        if($this->checkfield($_POST['nom'])){
+            $this->product = new product($_POST['nom'], $_POST['description'], $_POST['pu'], $_POST['category'], $_POST['pm'], '');
+            $this->csv = new productCsv();
+            $this->csv->updProduct($_POST['old'], $this->product);
+        }
     }
 
     public function delProduct() {
