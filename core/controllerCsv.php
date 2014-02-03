@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author JULIEN
+ * @author LEFEBVRE Julien
  */
 class controllerCsv extends controleur{
     
@@ -11,7 +11,6 @@ class controllerCsv extends controleur{
     public function connectCsv($file, $openMode = null) {
         if($openMode == null){$openMode = "a+";}
         $this->connection = fopen(ROOT."support/".$file.".csv", $openMode);
-        return $this->connection;
     }
     
     public function closeCsv(){

@@ -9,7 +9,8 @@ class productCsv extends controllerCsv{
     
     private $product;
     private $listp = array();
-    private $xpl;
+    private $bad;
+    private $good;
     
     public function __construct() {
         $this->connectCsv('product');
@@ -54,20 +55,24 @@ class productCsv extends controllerCsv{
      * @param array $data
      */
     public function addProduct($data){
-        if(fputs($this->connection, $data->toString()."\r\n")){$this->returnMsg('Le produit "'.$data.'" à bien été ajouté');}
-        else{$this->returnMsg('Probleme d\'ajout de produit, contacter le developpeur');}
+        if(fputs($this->connection, $data->toString()."\r\n")){$this->returnMsg('Ajout réussie');}
+        else{$this->returnMsg('Echec d\'ajout de produit, contacter l\'administrateur');}
         $this->closeCsv();
     }
    
     public function updProduct($old, $product){
         foreach ($this->getAllProduct() as $prod){
-            $this->xpl = explode($prod, ";");
-            if($old == $this->xpl[0]){$this->listp = $product->getAll();}
+            if($old == $prod[0]){$this->listp = $product->getAll();}
             else{$this->listp = $prod;}
         }
-        $this->closeCsv();
         $this->connectCsv("product", "w+");
-        
+        while(!feof($this->listp)){
+            if(fputs($this->connection, $this->listp[0].";".$this->listp[1].";".$this->listp[2].";".$this->listp[3].";".$this->listp[4].";".$this->listp[5]."\r\n")){$this->good = true;}
+            else{$this->bad = true;}
+        }
+        $this->closeCsv();
+        if($this->bad == true){$this->returnMsg('Echec de la modification, contacter l\'administrateur du site');}
+        else{if($this->good == true){$this->returnMsg('Modification réussie');}}
     }
     
 }

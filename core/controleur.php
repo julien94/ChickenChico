@@ -8,7 +8,6 @@ class controleur {
     private $userCsv;
     private $testUser;
     private $admin;
-    private $string;
     
     public function set($value){
         $this->data = array_merge($this->data, $value);

@@ -70,7 +70,7 @@ class formHandler {
     public function updProduct($nom){
         $this->csv = new productCsv();
         $this->product = $this->csv->getProductByNom($nom);
-        $this->Form = new form("POST", "/admin/addProduct", null, "ajouter un Produit", "multipart/form-data");
+        $this->Form = new form("POST", "/admin/updProduct", null, "Modifier un Produit", "multipart/form-data");
         $this->Form->newStringField("text", "nom", $this->product->getNom(), "form-control");
         $this->Form->newTextField("description", null, $this->product->getDescription(), "form-control");
         $this->Form->newStringField("text", "pu", $this->product->getPrix(), "form-control");
