@@ -84,6 +84,10 @@ class formHandler {
     }
     
     public function delProduct(){
-        
+        $this->Form = new form("POST", "/admin/viewProduct/del", null, "Supprimer un produit");
+        $this->csv = new productCsv();
+        $this->Form->newSelectField("nom", $this->csv->getAllProduct(), "form-control");
+        $this->Form->newStringField("submit", "bt", null, "btn btn-default");
+        return $this->Form;
     }
 }

@@ -9,8 +9,8 @@ class productCsv extends controllerCsv{
     
     private $product;
     private $listp = array();
-    private $bad;
-    private $good;
+    private $arrayp = array();
+    private $good = false;
     
     public function __construct() {
         $this->connectCsv('product');
@@ -62,17 +62,16 @@ class productCsv extends controllerCsv{
    
     public function updProduct($old, $product){
         foreach ($this->getAllProduct() as $prod){
-            if($old == $prod[0]){$this->listp = $product->getAll();}
-            else{$this->listp = $prod;}
+            if($old == $prod[0]){$this->arrayp[] = $product->getAll();}
+            else{$this->arrayp[] = $prod;}
         }
         $this->connectCsv("product", "w+");
-        while(!feof($this->listp)){
-            if(fputs($this->connection, $this->listp[0].";".$this->listp[1].";".$this->listp[2].";".$this->listp[3].";".$this->listp[4].";".$this->listp[5]."\r\n")){$this->good = true;}
-            else{$this->bad = true;}
+        for($i=0; $i<3; $i++){
+            if(fputs($this->connection, $this->arrayp[$i][0].";".$this->arrayp[$i][1].";".$this->arrayp[$i][2].";".$this->arrayp[$i][3].";".$this->arrayp[$i][4].";".$this->arrayp[$i][5]."\r\n")){$this->good = true;}
         }
         $this->closeCsv();
-        if($this->bad == true){$this->returnMsg('Echec de la modification, contacter l\'administrateur du site');}
-        else{if($this->good == true){$this->returnMsg('Modification réussie');}}
+        if($this->good == false){$this->returnMsg('Echec de la modification, contacter l\'administrateur du site');}
+        else{$this->returnMsg('Modification réussie');}
     }
     
 }
