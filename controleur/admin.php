@@ -88,7 +88,11 @@ class admin extends controleur {
     }
 
     public function delProduct() {
-        
+        if(!isset($_POST['name'])){header('location:/accueil');}
+        if($this->checkField($_POST['name'])){
+            $this->csv = new productCsv();
+            $this->csv->delProduct($_POST['name']);
+        }
     }
 
 }

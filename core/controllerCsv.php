@@ -9,7 +9,7 @@ class controllerCsv extends controleur{
     private $array = array();
     
     public function connectCsv($file, $openMode = null) {
-        if($openMode == null){$openMode = "a+";}
+        if($openMode == null){$openMode = "r";}
         $this->connection = fopen(ROOT."support/".$file.".csv", $openMode);
     }
     
@@ -17,8 +17,4 @@ class controllerCsv extends controleur{
         fclose($this->connection);
     }
     
-    public function returnMsg($stringMsg){
-        $this->setMsg($stringMsg);
-        $this->render('admin');
-    }
 }

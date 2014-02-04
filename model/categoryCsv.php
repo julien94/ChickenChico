@@ -7,54 +7,45 @@ class categoryCsv extends controllerCsv{
     
     private $category;
     private $good = false;
-    private $bad = false;
-    private $list = array();
+    private $listGet = array();
+    private $listSet = array();
     
     public function __construct() {
-        $this->connectCsv('category', 'a+');
+        
     }
     
     /**
      * @return array
      */
     Public function getAllCategory(){
+        $this->connectCsv('category');
         while($this->category = fgetcsv($this->connection, 255, ";")){
-            $this->list[] = $this->category;
+            $this->listGet[] = $this->category;
         }
         $this->closeCsv();
-        return $this->list;
+        return $this->listGet;
     }
        
     /**
-     * @param String $data
-     * @return String
+     * @param String $name
      */
-    public function addCategory($data){
-        if(fputs($this->connection, $data."\r\n")){$this->returnMsg('La categorie "'.$data.'" à bien été ajouté');}
-        else{$this->returnMsg('Probleme d\'ajout de categorie, contacter le developpeur');}
+    public function addCategory($name){
+        $this->connectCsv("category", "a+");
+        if(fputs($this->connection, $name."\r\n")){$this->good = true;}
         $this->closeCsv();
+        $this->returnMsg("Ajout");
     }
     
     /**
-     * 
      * @param String $old
      * @param String $new
-     * @return String
      */
     public function updCategory($old, $new){
-        while($this->category = fgetcsv($this->connection, 255, ";")){
-            if($this->category[0] == $old){$this->list[] = array_replace($this->category, $this->toArray($new));}
-            else{$this->list[] = $this->category;}
+        foreach($this->getAllCategory() as $category){
+            if($category[0] == $old){$this->listSet[] = $this->toArray($new);}
+            else{$this->listSet[] = $category;}
         }
-        $this->closeCsv();
-        $this->connectCsv('category', 'w+');
-        foreach($this->list as $d){
-            if(fputs($this->connection, $d[0]."\r\n")){$this->good = true;}
-            else{$this->bad = true;}
-        }
-        $this->closeCsv();
-        if($this->bad == true){$this->returnMsg('Probleme de modification de categorie, contacter le developpeur');}
-        else{if($this->good == true){$this->returnMsg('la categorie "'.$old.'" à bien été remplacé par "'.$new.'"');}}
+        if($this->updFile()){$this->returnMsg("Modification");}
     }
  
      /**
@@ -62,18 +53,30 @@ class categoryCsv extends controllerCsv{
      * @return String
      */
     public function delCategory($nom){
-        while($this->category = fgetcsv($this->connection, 255, ";")){
-            if($this->category[0] != $nom){$this->list[] = $this->category;}
+        foreach($this->getAllCategory() as $category){
+            if($category[0] != $nom){$this->listSet[] = $category;}
         }
-        $this->closeCsv();
-        $this->connectCsv('category', 'w+');
-        foreach($this->list as $d){
-            if(fputs($this->connection, $d[0]."\r\n")){$this->good = true;}
-            else{$this->bad = true;}
-        }
-        $this->closeCsv();
-        if($this->bad == true){$this->returnMsg('Probleme de modification de categorie, contacter le developpeur');}
-        else{if($this->good == true){$this->returnMsg('la categorie "'.$nom.'" à bien été supprimé');}}
+        if($this->updFile()){$this->returnMsg("Suppression");}
     }
     
+    /**
+     * @return boolean
+     */
+    private function updFile(){
+        $this->connectCsv('category', 'w+');
+        foreach($this->listSet as $d){
+            if(fputs($this->connection, $d[0]."\r\n")){$this->good = true;}
+        }
+        $this->closeCsv();
+        return true;
+    }
+    
+    /**
+     * @param String $subject
+     */
+    private function returnMsg($subject){
+        if($this->good == false){$this->setMsg('Echec de "'.$subject.'", contacter l\'administrateur');}
+        else{$this->setMsg($subject.' réussie');}
+        $this->render("admin");
+    }
 }
