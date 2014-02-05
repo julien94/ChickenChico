@@ -32,14 +32,17 @@ class controleur {
         return $this->array = array($string);
     }
     
-    
-    
-    public function checkField($string){
-        if(empty($string)){
-        $this->setMsg("Au moin un des champs est vide ou contient des caracteres non autorisé !");
-        $this->render('admin');
+    public function checkField($field){
+        $this->testField = new checkField($field);
+        if(!$this->testField->test()){
+            $this->setMsg("Au moin un des champs est vide ou contient des caracteres non autorisé !");
+            $this->render('admin');
         }
         else{return true;}
+    }
+    
+    public function checkImg($image){
+        
     }
     
     public function checkUser($email, $pwd){

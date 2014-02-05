@@ -11,7 +11,6 @@ class categoryCsv extends controllerCsv{
     private $listSet = array();
     
     public function __construct() {
-        
     }
     
     /**
@@ -45,7 +44,7 @@ class categoryCsv extends controllerCsv{
             if($category[0] == $old){$this->listSet[] = $this->toArray($new);}
             else{$this->listSet[] = $category;}
         }
-        if($this->updFile()){$this->returnMsg("Modification");}
+        if($this->updFile("category")){$this->returnMsg("Modification");}
     }
  
      /**
@@ -56,27 +55,7 @@ class categoryCsv extends controllerCsv{
         foreach($this->getAllCategory() as $category){
             if($category[0] != $nom){$this->listSet[] = $category;}
         }
-        if($this->updFile()){$this->returnMsg("Suppression");}
+        if($this->updFile("category")){$this->returnMsg("Suppression");}
     }
     
-    /**
-     * @return boolean
-     */
-    private function updFile(){
-        $this->connectCsv('category', 'w+');
-        foreach($this->listSet as $d){
-            if(fputs($this->connection, $d[0]."\r\n")){$this->good = true;}
-        }
-        $this->closeCsv();
-        return true;
-    }
-    
-    /**
-     * @param String $subject
-     */
-    private function returnMsg($subject){
-        if($this->good == false){$this->setMsg('Echec de "'.$subject.'", contacter l\'administrateur');}
-        else{$this->setMsg($subject.' réussie');}
-        $this->render("admin");
-    }
 }

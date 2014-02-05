@@ -4,11 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp/www/ChickenChico/controleur/admin.php</file>
+            <file>file:/C:/wamp/www/ChickenChico/form/checkField.php</file>
             <file>file:/C:/wamp/www/ChickenChico/core/controllerCsv.php</file>
-            <file>file:/C:/wamp/www/ChickenChico/support/product.csv</file>
             <file>file:/C:/wamp/www/ChickenChico/form/formHandler.php</file>
             <file>file:/C:/wamp/www/ChickenChico/model/productCsv.php</file>
-            <file>file:/C:/wamp/www/ChickenChico/support/category.csv</file>
             <file>file:/C:/wamp/www/ChickenChico/core/controleur.php</file>
             <file>file:/C:/wamp/www/ChickenChico/model/categoryCsv.php</file>
         </group>
