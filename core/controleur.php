@@ -41,7 +41,7 @@ class controleur {
         else{return true;}
     }
     
-    public function checkImg($image){
+    public function checkImgField($image){
         
     }
     

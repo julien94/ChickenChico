@@ -34,7 +34,7 @@ class productCsv extends controllerCsv{
     public function getProductBy($categoryName){
         $this->connectCsv('product');
         while($this->product = fgetcsv($this->connection, 255, ";")){
-            if($categoryName === $this->product[5]){$this->listp[] = $this->product;}
+            if($categoryName === $this->product[5]){$this->listGet[] = $this->product;}
         }
         $this->closeCsv();
         return $this->listGet;
