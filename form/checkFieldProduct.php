@@ -3,7 +3,7 @@
 /**
  * @author LEFEBVRE Julien
  */
-class checkField extends controleur{
+class checkFieldProduct extends controleur{
     
     private $message;
     private $specialCaract = array("/</","/>/","/\(/","/\)/","/'/",'/"/',"/\[/","/\]/","/{/","/}/");
