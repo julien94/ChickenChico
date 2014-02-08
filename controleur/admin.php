@@ -52,7 +52,7 @@ class admin extends controleur {
         if($opt2 != null){$this->value = $opt2;}
         else{$this->createValueCategory();}
         if($this->value == "upd"){$this->select = (!isset($_POST['select']))? null : $_POST['select'];}
-        $this->controller = new categoryController();
+        $this->controller = new categoryService();
         $this->controller->$opt($this->value, $this->select);
     }
     
@@ -60,7 +60,7 @@ class admin extends controleur {
         if($opt2 != null){$this->value = $opt2;}
         else{$this->createValueProduct();}
         if($this->value == "upd"){$this->select = (!isset($_POST['select']))? null : $_POST['select'];}
-        $this->controller = new productController();
+        $this->controller = new productService();
         $this->controller->$opt($this->value, $this->select);
     }
     

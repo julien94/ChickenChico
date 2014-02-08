@@ -3,7 +3,7 @@
 /**
  * @author LEFEBVRE Julien
  */
-class controllerCsv extends controleur{
+class controllerDao extends controleur{
     
     public $connection;
     private $array = array();
@@ -38,7 +38,7 @@ class controllerCsv extends controleur{
      * @param String $subject
      */
     private function returnMsg($subject){
-        if($this->good == false){$this->setMsg('Echec de "'.$subject.'", contacter l\'administrateur');}
+        if($this->good == false){$this->setMsg('Echec "'.$subject.'", contacter l\'administrateur');}
         else{$this->setMsg($subject.' réussie');}
         $this->render("admin");
     }

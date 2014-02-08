@@ -1,8 +1,6 @@
 <?php
 
 /**
- * formHandler
- *
  * @author LEFEBVRE Julien
  */
 class formHandler {

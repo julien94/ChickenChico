@@ -3,7 +3,7 @@
 /**
  * @author LEFEBVRE Julien
  */
-class categoryCsv extends controllerCsv{
+class categoryCsv extends controllerDao{
     
     private $category;
     private $good = false;
@@ -28,9 +28,9 @@ class categoryCsv extends controllerCsv{
     /**
      * @param String $name
      */
-    public function addCategory($name){
+    public function addCategory(category $category){
         $this->connectCsv("category", "a+");
-        if(fputs($this->connection, $name."\r\n")){$this->good = true;}
+        if(fputs($this->connection, $category->getNom()."\r\n")){$this->good = true;}
         $this->closeCsv();
         $this->returnMsg("Ajout");
     }
@@ -39,10 +39,10 @@ class categoryCsv extends controllerCsv{
      * @param String $old
      * @param String $new
      */
-    public function updCategory($old, $new){
-        foreach($this->getAllCategory() as $category){
-            if($category[0] == $old){$this->listSet[] = $this->toArray($new);}
-            else{$this->listSet[] = $category;}
+    public function updCategory(category $category){
+        foreach($this->getAllCategory() as $aCat){
+            if($aCat[0] == $category->getOldName()){$this->listSet[] = $this->toArray($category->getNom());}
+            else{$this->listSet[] = $aCat;}
         }
         if($this->updFile("category")){$this->returnMsg("Modification");}
     }
@@ -51,9 +51,9 @@ class categoryCsv extends controllerCsv{
      * @param String $nom
      * @return String
      */
-    public function delCategory($nom){
-        foreach($this->getAllCategory() as $category){
-            if($category[0] != $nom){$this->listSet[] = $category;}
+    public function delCategory(category $category){
+        foreach($this->getAllCategory() as $aCat){
+            if($aCat[0] != $category->getNom()){$this->listSet[] = $aCat;}
         }
         if($this->updFile("category")){$this->returnMsg("Suppression");}
     }
