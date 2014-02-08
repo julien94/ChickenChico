@@ -8,13 +8,9 @@ class checkField extends controleur{
     private $message;
     private $specialCaract = array("/</","/>/","/\(/","/\)/","/'/",'/"/',"/\[/","/\]/","/{/","/}/");
     
-    public function __construct() {
-        
-    }
-    
-    public function test($nameField, $dataField){
-        $this->isEmptyField($dataField);
-        $this->badCaract($dataField);
+    public function __construct($type) {
+        $this->isEmptyField();
+        $this->badCaract();
         $this->{test.$nameField}($dataField);
     }
     
@@ -35,6 +31,7 @@ class checkField extends controleur{
     }
     
     private function testNom($data){
+        $this->isEmptyField($_POST['nom']);
         if(count_chars($data) > 30){
              $this->message = "Le nom est trop grand !!! Max : 30 caractère";
              $this->render('admin');

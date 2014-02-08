@@ -5,10 +5,9 @@
  */
 class admin extends controleur {
 
-    private $csv;
-    private $form;
-    private $product;
-    private $fh;
+    private $controller;
+    private $value;
+    private $select = null;
     private $url;
 
     public function __construct() {
@@ -16,6 +15,7 @@ class admin extends controleur {
         if (!isset($_POST['mail']) && !isset($_POST['mdp'])) {$this->checkSession();}
         $this->url = explode('/', $_SERVER['REDIRECT_URL']);
         if($this->url[2] == ""){header('location:/admin/option');}
+        
     }
     
     public function option(){
@@ -26,73 +26,42 @@ class admin extends controleur {
         if (!isset($_POST['mail']) && !isset($_POST['mdp'])) {header('location:/accueil');}
         if ($this->checkUser($_POST['mail'], $_POST['mdp'])) {header('location:/admin/option');}
     }
-
-    public function viewCategory($opt) {
-        $_POST['select'] = (!isset($_POST['select'])) ? null : $_POST['select'];
-        if($opt == null){$opt = "new";}
-        $this->fh = new formHandler();
-        $this->form = $this->fh->{$opt . 'category'}($_POST['select']);
-        $this->add($this->form);
-        $this->render('admin');
-    }
-
-    public function addCategory() {
-        if (!isset($_POST['new'])) {header('location:/accueil');}
-        if($this->checkfield($_POST['new'])){
-            $this->csv = new categoryCsv();
-            $this->csv->addCategory($_POST['new']);
+    
+    private function createValueCategory(){
+        if(isset($_POST['name'])){
+            $this->value = new category($_POST['name']);
+            if(isset($_POST['old'])){$this->value->setOldName($_POST['old']);}
         }
+        else{$this->value = new category("");}
     }
-
-    public function updCategory() {
-        if(!isset($_POST['new']) && !isset($_POST['old'])) {header('location:/accueil');}
-        if($this->checkfield($_POST['new'])){
-            $this->csv = new categoryCsv();
-            $this->csv->updCategory($_POST['old'], $_POST['new']);
+    
+    private function createValueProduct(){
+        if(isset($_FILES['image'])){
+            $this->image = new image($_FILES['image']['error'],$_FILES['image']['name'],$_FILES['image']['size'],$_FILES['image']['tmp_name']);
         }
-    }
-
-    public function delCategory() {
-        if(!isset($_POST['name'])){header('location:/accueil');}
-        if($this->checkField($_POST['name'])){
-            $this->csv = new categoryCsv();
-            $this->csv->delCategory($_POST['name']);
+        else{$this->image = new image();}
+        if(isset($_POST['nom']) && isset($_POST['description']) && isset($_POST['pu']) && isset($_POST['category']) && isset($_POST['pm'])){
+            $this->value = new product($_POST['nom'], $_POST['description'], $_POST['pu'], $_POST['category'], $_POST['pm'], $this->image->getName());
+            $this->value->setObjUploadImg($this->image);
+            if(isset($_POST['old'])){$this->value->setOldName($_POST['old']);}
         }
+        else{$this->value = new product("", "", "", "");}
     }
-
-    public function viewProduct($opt) {
-        $_POST['select'] = (!isset($_POST['select'])) ? null : $_POST['select'];
-        if($opt == null){$opt = "new";}
-        $this->fh = new formHandler();
-        $this->form = $this->fh->{$opt . 'Product'}($_POST['select']);
-        $this->add($this->form);
-        $this->render('admin');
+    
+    public function category($opt, $opt2 = null){
+        if($opt2 != null){$this->value = $opt2;}
+        else{$this->createValueCategory();}
+        if($this->value == "upd"){$this->select = (!isset($_POST['select']))? null : $_POST['select'];}
+        $this->controller = new categoryController();
+        $this->controller->$opt($this->value, $this->select);
     }
-
-    public function addProduct() {
-        if (!isset($_POST['nom'])) {header('location:/accueil');}
-        if($this->checkfield($_POST['nom'])){
-            $this->product = new product($_POST['nom'],$_POST['description'],$_POST['pu'],$_POST['category'],$_POST['pm'],"");
-            $this->csv = new productCsv();
-            $this->csv->addProduct($this->product);
-        }
+    
+    public function product($opt, $opt2 = null){
+        if($opt2 != null){$this->value = $opt2;}
+        else{$this->createValueProduct();}
+        if($this->value == "upd"){$this->select = (!isset($_POST['select']))? null : $_POST['select'];}
+        $this->controller = new productController();
+        $this->controller->$opt($this->value, $this->select);
     }
-
-    public function updProduct() {
-        if(!isset($_POST['nom']) && !isset($_POST['old'])) {header('location:/accueil');}
-        if($this->checkfield($_POST['nom'])){
-            $this->product = new product($_POST['nom'], $_POST['description'], $_POST['pu'], $_POST['category'], $_POST['pm'], '');
-            $this->csv = new productCsv();
-            $this->csv->updProduct($_POST['old'], $this->product);
-        }
-    }
-
-    public function delProduct() {
-        if(!isset($_POST['name'])){header('location:/accueil');}
-        if($this->checkField($_POST['name'])){
-            $this->csv = new productCsv();
-            $this->csv->delProduct($_POST['name']);
-        }
-    }
-
+    
 }

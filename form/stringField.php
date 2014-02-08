@@ -3,7 +3,7 @@
 /**
  * @author LEFEBVRE Julien
  */
-class stringField extends field{
+class stringField{
     
     private $type;
     private $id;

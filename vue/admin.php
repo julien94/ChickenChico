@@ -53,15 +53,15 @@
                 ?>
                 <div class="category">
                     <h2>CATEGORIES</h2>
-                    <h3><a href="/admin/viewCategory/new">Ajouter</a></h3>
-                    <h3 class="grey"><a href="/admin/viewCategory/select">Modifier</a></h3>
-                    <h3><a href="/admin/viewCategory/del">Supprimer</a></h3>
+                    <h3><a href="/admin/category/view/new">Ajouter</a></h3>
+                    <h3 class="grey"><a href="/admin/category/view/select">Modifier</a></h3>
+                    <h3><a href="/admin/category/view/del">Supprimer</a></h3>
                 </div>
                 <div class="product">
                     <h2>PRODUITS</h2>
-                    <h3 class="grey"><a href="/admin/viewProduct/new">Ajouter</a></h3>
-                    <h3><a href="/admin/viewProduct/select">Modifier</a></h3>
-                    <h3 class="grey"><a href="/admin/viewProduct/del">Supprimer</a></h3>
+                    <h3 class="grey"><a href="/admin/product/view/new">Ajouter</a></h3>
+                    <h3><a href="/admin/product/view/select">Modifier</a></h3>
+                    <h3 class="grey"><a href="/admin/product/view/del">Supprimer</a></h3>
                 </div>
                 <hr class="clear"/>
             <?php }

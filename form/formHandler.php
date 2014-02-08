@@ -16,14 +16,14 @@ class formHandler {
     }
     
     public function newCategory(){
-        $this->Form = new form("POST", "/admin/addCategory", null, "ajouter une categorie");
-        $this->Form->newStringField("text", "new", null, "form-control");
+        $this->Form = new form("POST", "/admin/category/add", null, "ajouter une categorie");
+        $this->Form->newStringField("text", "name", null, "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
         return $this->Form;
     }
     
     public function selectCategory(){
-        $this->Form = new form("POST", "/admin/viewCategory/upd", null, "Choisir la categorie a modifier");
+        $this->Form = new form("POST", "/admin/category/view/upd", null, "Choisir la categorie a modifier");
         $this->csv = new categoryCsv();
         $this->Form->newSelectField("select", $this->csv->getAllCategory(), "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
@@ -60,7 +60,7 @@ class formHandler {
     }
     
     public function selectProduct(){
-        $this->Form = new form("POST", "/admin/viewProduct/upd", null, "Choisir le produit a modifier");
+        $this->Form = new form("POST", "/admin/product/view/upd", null, "Choisir le produit a modifier");
         $this->csv = new productCsv();
         $this->Form->newSelectField("select", $this->csv->getAllProduct(), "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");

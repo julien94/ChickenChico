@@ -6,12 +6,13 @@
 class product {
     
     private $nom;
+    private $oldName;
     private $description;
     private $prix;
     private $prixMenu;
     private $image;
     private $category;
-    private $imgHeight;
+    private $objUploadImg;
     
     
     function __construct($nom, $description, $prix, $category, $prixMenu = null, $image = null) {
@@ -44,7 +45,7 @@ class product {
         }
     }
 
-    public function getImage() {
+    public function getImageName() {
         if(file_exists("image/menu/sandwich/".$this->image)){return $this->image;}
         else{return $this->image = "no-image.jpg";}
     }
@@ -57,6 +58,23 @@ class product {
         return array($this->nom, $this->description, $this->prix, $this->prixMenu, $this->image, $this->category);
     }
 
+    public function getOldName() {
+        return $this->oldName;
+    }
+
+    public function setOldName($oldName) {
+        $this->oldName = $oldName;
+    }
+
+    public function getObjUploadImg() {
+        return $this->objUploadImg;
+    }
+
+    public function setObjUploadImg(image $objUploadImg) {
+        $this->objUploadImg = $objUploadImg;
+    }
+
+        
     public function setNom($nom) {
         $this->nom = $nom;
     }

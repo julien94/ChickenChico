@@ -5,6 +5,7 @@ class controleur {
     private $data = array();
     private $msg = array();
     private $array;
+    private $image;
     private $userCsv;
     private $testUser;
     private $admin;
@@ -13,7 +14,7 @@ class controleur {
         $this->data = array_merge($this->data, $value);
     }
     
-    public function add($value){
+    public function addData($value){
         $this->data[] = $value;
     }
     
@@ -32,17 +33,9 @@ class controleur {
         return $this->array = array($string);
     }
     
-    public function checkField($field){
-        $this->testField = new checkField($field);
-        if(!$this->testField->test()){
-            $this->setMsg("Au moin un des champs est vide ou contient des caracteres non autorisé !");
-            $this->render('admin');
-        }
-        else{return true;}
-    }
-    
-    public function checkImgField($image){
-        
+    public function checkField($type, $object){
+        $this->testField = new checkField.$type();
+        if($this->testField->start($object)){return true;}
     }
     
     public function checkUser($email, $pwd){
