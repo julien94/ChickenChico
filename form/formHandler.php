@@ -6,11 +6,15 @@
 class formHandler {
     
     private $Form;
-    private $csv;
-    private $product;
+    private $dao;
+    private $object;
+    private $dataCategory;
+    private $dataProduct;
     
-    public function __construct() {
-        
+    public function __construct($object, $dataCategory, $dataProduct) {
+        $this->object = $object;
+        $this->dataCategory = $dataCategory;
+        $this->dataProduct = $dataProduct;
     }
     
     public function newCategory(){
@@ -22,69 +26,62 @@ class formHandler {
     
     public function selectCategory(){
         $this->Form = new form("POST", "/admin/category/view/upd", null, "Choisir la categorie a modifier");
-        $this->csv = new categoryCsv();
-        $this->Form->newSelectField("select", $this->csv->getAllCategory(), "form-control");
+        $this->dao = new categoryDao();
+        $this->Form->newSelectField("select", $this->dataCategory, "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
         return $this->Form;          
     }
     
-    public function updCategory($nom){
-        $this->Form = new form("POST", "/admin/updCategory", null, "Modifier une categorie");
+    public function updCategory(){
+        $this->Form = new form("POST", "/admin/category/upd", null, "Modifier une categorie");
         $this->Form->newStringField("text", "new", "Nouveau nom", "form-control");
         $this->Form->newStringField("submit", "btn", null, "btn btn-default");
-        $this->Form->newStringField("hidden", "old", "$nom");
+        $this->Form->newStringField("hidden", "old", $this->object->getName());
         return $this->Form;
     }
     
     public function delCategory(){
-        $this->Form = new form("POST", "/admin/delCategory", null, "supprimer une categorie");
-        $this->csv = new categoryCsv();
-        $this->Form->newSelectField("name", $this->csv->getAllCategory(), "form-control");
+        $this->Form = new form("POST", "/admin/category/del", null, "supprimer une categorie");
+        $this->Form->newSelectField("name", $this->dataCategory, "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
         return $this->Form;        
     }
     
     public function newProduct(){
-        $this->Form = new form("POST", "/admin/addProduct", null, "ajouter un Produit", "multipart/form-data");
+        $this->Form = new form("POST", "/admin/product/add", null, "ajouter un Produit", "multipart/form-data");
         $this->Form->newStringField("text", "nom", "Nom", "form-control");
         $this->Form->newTextField("description", null, "Description", "form-control");
         $this->Form->newStringField("text", "pu", "Prix Unité (ex : 4.80)", "form-control");
         $this->Form->newStringField("text", "pm", "Prix Unité (ex : 5.50)", "form-control");
         $this->Form->newStringField("file", "image", null, "form-control");
-        $this->csv = new categoryCsv();
-        $this->Form->newSelectField("category", $this->csv->getAllCategory(), "form-control");
+        $this->Form->newSelectField("category", $this->dataCategory, "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
         return $this->Form;        
     }
     
     public function selectProduct(){
         $this->Form = new form("POST", "/admin/product/view/upd", null, "Choisir le produit a modifier");
-        $this->csv = new productCsv();
-        $this->Form->newSelectField("select", $this->csv->getAllProduct(), "form-control");
+        $this->Form->newSelectField("select", $this->dataProduct, "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
         return $this->Form;
     }
     
-    public function updProduct($nom){
-        $this->csv = new productCsv();
-        $this->product = $this->csv->getProductByNom($nom);
-        $this->Form = new form("POST", "/admin/updProduct", null, "Modifier un Produit", "multipart/form-data");
-        $this->Form->newStringField("text", "nom", $this->product->getNom(), "form-control");
-        $this->Form->newTextField("description", null, $this->product->getDescription(), "form-control");
-        $this->Form->newStringField("text", "pu", $this->product->getPrix(), "form-control");
-        $this->Form->newStringField("text", "pm", $this->product->getPrixMenu(), "form-control");
+    public function updProduct(){
+        $this->Form = new form("POST", "/admin/product/upd", null, "Modifier un Produit", "multipart/form-data");
+        $this->Form->newStringField("text", "nom", $this->object->getNom(), "form-control");
+        $this->Form->newTextField("description", null, $this->object->getDescription(), "form-control");
+        $this->Form->newStringField("text", "pu", $this->object->getPrix(), "form-control");
+        $this->Form->newStringField("text", "pm", $this->object->getPrixMenu(), "form-control");
         $this->Form->newStringField("file", "image", null, "form-control");
-        $this->csv = new categoryCsv();
-        $this->Form->newSelectField("category", $this->csv->getAllCategory(), "form-control");
+        $this->Form->newSelectField("category", $this->dataCategory, "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
-        $this->Form->newStringField("hidden", "old", "$nom");
+        $this->Form->newStringField("hidden", "old", $this->object->getName());
         return $this->Form; 
     }
     
     public function delProduct(){
-        $this->Form = new form("POST", "/admin/delProduct", null, "Supprimer un produit");
-        $this->csv = new productCsv();
-        $this->Form->newSelectField("name", $this->csv->getAllProduct(), "form-control");
+        $this->Form = new form("POST", "/admin/product/del", null, "Supprimer un produit");
+        $this->Form->newSelectField("name", $this->dataProduct, "form-control");
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
         return $this->Form;
     }

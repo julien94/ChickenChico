@@ -3,7 +3,7 @@
 /**
  * @author LEFEBVRE Julien
  */
-class categoryCsv extends controllerDao{
+class categoryDao extends controllerDao{
     
     private $category;
     private $good = false;

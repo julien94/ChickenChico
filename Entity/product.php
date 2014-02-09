@@ -5,7 +5,7 @@
  */
 class product {
     
-    private $nom;
+    private $name;
     private $oldName;
     private $description;
     private $prix;
@@ -16,7 +16,7 @@ class product {
     
     
     function __construct($nom, $description, $prix, $category, $prixMenu = null, $image = null) {
-        $this->nom = $nom;
+        $this->name = $nom;
         $this->description = $description;
         $this->prix = $prix;
         $this->prixMenu = $prixMenu;
@@ -24,8 +24,8 @@ class product {
         $this->category = $category;
     }
 
-    public function getNom() {
-        return ucfirst(trim($this->nom));
+    public function getName() {
+        return $this->name;
     }
 
     public function getDescription() {
@@ -55,7 +55,7 @@ class product {
     }
     
     public function getAll(){
-        return array($this->nom, $this->description, $this->prix, $this->prixMenu, $this->image, $this->category);
+        return array($this->name, $this->description, $this->prix, $this->prixMenu, $this->image, $this->category);
     }
 
     public function getOldName() {
@@ -76,7 +76,7 @@ class product {
 
         
     public function setNom($nom) {
-        $this->nom = $nom;
+        $this->name = $nom;
     }
 
     public function setDescription($description) {
@@ -100,6 +100,6 @@ class product {
     }
 
     public function toString(){
-        return $this->nom.';'.$this->description.';'.$this->prix.';'.$this->prixMenu.';'.$this->image.';'.$this->category;
+        return $this->name.';'.$this->description.';'.$this->prix.';'.$this->prixMenu.';'.$this->image.';'.$this->category;
     }
 }

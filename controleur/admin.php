@@ -6,6 +6,7 @@
 class admin extends controleur {
 
     private $controller;
+    private $formToObject;
     private $value;
     private $select = null;
     private $url;
@@ -27,39 +28,24 @@ class admin extends controleur {
         if ($this->checkUser($_POST['mail'], $_POST['mdp'])) {header('location:/admin/option');}
     }
     
-    private function createValueCategory(){
-        if(isset($_POST['name'])){
-            $this->value = new category($_POST['name']);
-            if(isset($_POST['old'])){$this->value->setOldName($_POST['old']);}
-        }
-        else{$this->value = new category("");}
-    }
-    
-    private function createValueProduct(){
-        if(isset($_FILES['image'])){
-            $this->image = new image($_FILES['image']['error'],$_FILES['image']['name'],$_FILES['image']['size'],$_FILES['image']['tmp_name']);
-        }
-        else{$this->image = new image();}
-        if(isset($_POST['nom']) && isset($_POST['description']) && isset($_POST['pu']) && isset($_POST['category']) && isset($_POST['pm'])){
-            $this->value = new product($_POST['nom'], $_POST['description'], $_POST['pu'], $_POST['category'], $_POST['pm'], $this->image->getName());
-            $this->value->setObjUploadImg($this->image);
-            if(isset($_POST['old'])){$this->value->setOldName($_POST['old']);}
-        }
-        else{$this->value = new product("", "", "", "");}
-    }
-    
     public function category($opt, $opt2 = null){
         if($opt2 != null){$this->value = $opt2;}
-        else{$this->createValueCategory();}
-        if($this->value == "upd"){$this->select = (!isset($_POST['select']))? null : $_POST['select'];}
+        else{
+            $this->formToObject = new formToObject();
+            $this->value = $this->formToObject->getFormToCategory();
+            if($opt2 == "upd"){$this->select = $this->formToObject->getSelect();}
+        }
         $this->controller = new categoryService();
         $this->controller->$opt($this->value, $this->select);
     }
     
     public function product($opt, $opt2 = null){
         if($opt2 != null){$this->value = $opt2;}
-        else{$this->createValueProduct();}
-        if($this->value == "upd"){$this->select = (!isset($_POST['select']))? null : $_POST['select'];}
+        else{
+            $this->formToObject = new formToObject();
+            $this->value = $this->formToObject->getFormToProduct();
+            if($opt2 == "upd"){$this->select = $this->formToObject->getSelect();}
+        }
         $this->controller = new productService();
         $this->controller->$opt($this->value, $this->select);
     }

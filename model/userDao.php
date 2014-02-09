@@ -3,7 +3,7 @@
 /**
  * @author LEFEBVRE Julien
  */
-class userCsv extends controllerCsv{
+class userDao extends controllerDao{
     
     private $userFile;
     

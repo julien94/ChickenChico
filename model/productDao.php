@@ -5,7 +5,7 @@
  *
  * @author LEFEBVRE Julien
  */
-class productCsv extends controllerCsv{
+class productDao extends controllerDao{
     
     private $product;
     private $good = false;

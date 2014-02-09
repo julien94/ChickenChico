@@ -6,7 +6,7 @@ class controleur {
     private $msg = array();
     private $array;
     private $image;
-    private $userCsv;
+    private $userDao;
     private $testUser;
     private $admin;
     
@@ -39,8 +39,8 @@ class controleur {
     }
     
     public function checkUser($email, $pwd){
-        $this->userCsv = new userCsv();
-        if($this->userCsv->getPseudo() !== $email || $this->userCsv->getPwd() !== $pwd){
+        $this->userDao = new userDao();
+        if($this->userDao->getPseudo() !== $email || $this->userDao->getPwd() !== $pwd){
             $this->setMsg('Email / Password Error');
             $this->render('accueil');
         }
@@ -59,5 +59,6 @@ class controleur {
         } 
         else {header('location:/accueil');}
     }
+ 
 }
 
