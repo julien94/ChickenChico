@@ -29,23 +29,19 @@ class admin extends controleur {
     }
     
     public function category($opt, $opt2 = null){
+        $this->formToObject = new formToObject();
         if($opt2 != null){$this->value = $opt2;}
-        else{
-            $this->formToObject = new formToObject();
-            $this->value = $this->formToObject->getFormToCategory();
-            if($opt2 == "upd"){$this->select = $this->formToObject->getSelect();}
-        }
+        else{$this->value = $this->formToObject->getFormToCategory();}
+        if($opt2 == "upd"){$this->select = $this->formToObject->getSelect();}
         $this->controller = new categoryService();
         $this->controller->$opt($this->value, $this->select);
     }
     
     public function product($opt, $opt2 = null){
+        $this->formToObject = new formToObject();
         if($opt2 != null){$this->value = $opt2;}
-        else{
-            $this->formToObject = new formToObject();
-            $this->value = $this->formToObject->getFormToProduct();
-            if($opt2 == "upd"){$this->select = $this->formToObject->getSelect();}
-        }
+        else{$this->value = $this->formToObject->getFormToProduct();}
+        if($opt2 == "upd"){$this->select = $this->formToObject->getSelect();}
         $this->controller = new productService();
         $this->controller->$opt($this->value, $this->select);
     }

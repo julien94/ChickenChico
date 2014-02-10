@@ -6,7 +6,7 @@
 class categoryDao extends controllerDao{
     
     private $category;
-    private $good = false;
+    protected $good = false;
     private $listGet = array();
     private $listSet = array();
     
@@ -24,13 +24,19 @@ class categoryDao extends controllerDao{
         $this->closeCsv();
         return $this->listGet;
     }
+    
+    public function getCategoryByName($name){
+        foreach($this->getAllCategory() as $aCat){
+            if($aCat[0] == $name){return new category($aCat[0]);}
+        }
+    }
        
     /**
      * @param String $name
      */
     public function addCategory(category $category){
         $this->connectCsv("category", "a+");
-        if(fputs($this->connection, $category->getNom()."\r\n")){$this->good = true;}
+        if(fputs($this->connection, $category->getName()."\r\n")){$this->good = true;}
         $this->closeCsv();
         $this->returnMsg("Ajout");
     }
@@ -41,10 +47,10 @@ class categoryDao extends controllerDao{
      */
     public function updCategory(category $category){
         foreach($this->getAllCategory() as $aCat){
-            if($aCat[0] == $category->getOldName()){$this->listSet[] = $this->toArray($category->getNom());}
+            if($aCat[0] == $category->getOldName()){$this->listSet[] = $this->toArray($category->getName());}
             else{$this->listSet[] = $aCat;}
         }
-        if($this->updFile("category")){$this->returnMsg("Modification");}
+        if($this->updFile()){$this->returnMsg("Modification");}
     }
  
      /**
@@ -53,9 +59,16 @@ class categoryDao extends controllerDao{
      */
     public function delCategory(category $category){
         foreach($this->getAllCategory() as $aCat){
-            if($aCat[0] != $category->getNom()){$this->listSet[] = $aCat;}
+            if($aCat[0] != $category->getName()){$this->listSet[] = $aCat;}
         }
-        if($this->updFile("category")){$this->returnMsg("Suppression");}
+        if($this->updFile()){$this->returnMsg("Suppression");}
+    }
+    
+    public function updFile(){
+        $this->connectCsv("category", 'w+');
+        foreach($this->listSet as $d){if(fputs($this->connection, $d[0]."\r\n")){$this->good = true;}}
+        $this->closeCsv();
+        return true;
     }
     
 }

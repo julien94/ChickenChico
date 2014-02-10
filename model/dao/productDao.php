@@ -8,7 +8,7 @@
 class productDao extends controllerDao{
     
     private $product;
-    private $good = false;
+    protected $good = false;
     private $listGet = array();
     private $listSet = array();
     
@@ -57,32 +57,41 @@ class productDao extends controllerDao{
     /**
      * @param objet $product
      */
-    public function addProduct($product){
+    public function addProduct(product $product){
         $this->connectCsv("product", "a+");
         if(fputs($this->connection, $product->toString()."\r\n")){$this->good = true;}
         $this->closeCsv();
-        $this->returnMsg("Ajout");
+        return $this->good;
     }
    
     /**
-     * @param String $old
      * @param Objet $product
      */
-    public function updProduct($old, $product){
+    public function updProduct(product $product){
         foreach ($this->getAllProduct() as $prod){
-            if($old == $prod[0]){$this->listSet[] = $product->getAll();}
+            if($product->getOldName() == $prod[0]){$this->listSet[] = $product->getAll();}
             else{$this->listSet[] = $prod;}
         }
-        if($this->updFile("product")){$this->returnMsg("Modification");}
+        $this->updFile();
+        return $this->good;
     }
     
     /**
-     * @param String $nom
+     * @param Object $product
      */
-    public function delProduct($nom){
+    public function delProduct(product $product){
         foreach($this->getAllProduct() as $prod){
-            if($prod != $nom){$this->listSet[] = $prod;}
+            if($prod[0] != $product->getName()){$this->listSet[] = $prod;}
         }
-        if($this->updFile("product")){$this->returnMsg("Suppression");}
+        $this->updFile();
+        return $this->good;
+    }
+    
+    private function updFile(){
+        $this->connectCsv("product", 'w+');
+        for($i=0; $i<count($this->listSet); $i++){
+            if(fputs($this->connection, $this->listSet[$i][0].";".$this->listSet[$i][1].";".$this->listSet[$i][2].";".$this->listSet[$i][3].";".$this->listSet[$i][4].";".$this->listSet[$i][5]."\r\n")){$this->good = true;}
+        }
+        $this->closeCsv();
     }
 }

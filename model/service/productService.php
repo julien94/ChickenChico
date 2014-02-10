@@ -8,13 +8,14 @@ class productService extends controleur{
     private $fh;
     private $form;
     private $dao;
-    private $select = null;
+    private $service;
+    private $object = null;
     
     public function view($opt, $select) {
         if($opt == null){$opt = "new";}
-        if($select != null){$this->select = $this->getObjProduct($select);}
-        $this->fh = new formHandler($this->select, $this->getServiceCategorys(), $this->getProducts());
-        $this->form = $this->fh->{$opt . 'Product'}($this->select);
+        if($select != null){$this->object = $this->getObjProduct($select);}
+        $this->fh = new formHandler($this->object, $this->getServiceCategorys(), $this->getProducts());
+        $this->form = $this->fh->{$opt . 'Product'}();
         $this->addData($this->form);
         $this->render('admin');
     }
@@ -22,21 +23,21 @@ class productService extends controleur{
     public function add(product $product) {
         if($this->checkfield("Product", $product)){
             $this->dao = new productDao();
-            $this->dao->addProduct($product);
+            $this->returnMsg($this->dao->addProduct($product), "ajout");
         }
     }
 
     public function upd(product $product) {
         if($this->checkfield("Product", $product)){
             $this->dao = new productDao();
-            $this->dao->updProduct($product);
+            $this->returnMsg($this->dao->updProduct($product), "modification");
         }
     }
 
     public function del(product $product) {
-        if($this->checkField($product)){
+        if($this->checkField("Product", $product)){
             $this->dao = new productDao();
-            $this->dao->delProduct($product);
+            $this->returnMsg($this->dao->delProduct($product), "suppression");
         }
     }
     
@@ -53,5 +54,11 @@ class productService extends controleur{
     private function getServiceCategorys(){
        $this->service = new categoryService();
        return $this->service->getCategorys();
+    }
+    
+    public function returnMsg($good, $subject){
+        if($good == false){$this->setMsg('Echec "'.$subject.'", contacter l\'administrateur');}
+        else{$this->setMsg($subject.' réussie');}
+        $this->render("admin");
     }
 }

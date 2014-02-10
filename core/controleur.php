@@ -34,8 +34,9 @@ class controleur {
     }
     
     public function checkField($type, $object){
-        $this->testField = new checkField.$type();
-        if($this->testField->start($object)){return true;}
+        return true;
+//        $this->testField = new checkField.$type();
+//        if($this->testField->start($object)){return true;}
     }
     
     public function checkUser($email, $pwd){

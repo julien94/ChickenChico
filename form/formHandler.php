@@ -34,7 +34,7 @@ class formHandler {
     
     public function updCategory(){
         $this->Form = new form("POST", "/admin/category/upd", null, "Modifier une categorie");
-        $this->Form->newStringField("text", "new", "Nouveau nom", "form-control");
+        $this->Form->newStringField("text", "name", "Nouveau nom", "form-control");
         $this->Form->newStringField("submit", "btn", null, "btn btn-default");
         $this->Form->newStringField("hidden", "old", $this->object->getName());
         return $this->Form;
@@ -49,7 +49,7 @@ class formHandler {
     
     public function newProduct(){
         $this->Form = new form("POST", "/admin/product/add", null, "ajouter un Produit", "multipart/form-data");
-        $this->Form->newStringField("text", "nom", "Nom", "form-control");
+        $this->Form->newStringField("text", "name", "Nom", "form-control");
         $this->Form->newTextField("description", null, "Description", "form-control");
         $this->Form->newStringField("text", "pu", "Prix Unité (ex : 4.80)", "form-control");
         $this->Form->newStringField("text", "pm", "Prix Unité (ex : 5.50)", "form-control");
@@ -68,7 +68,7 @@ class formHandler {
     
     public function updProduct(){
         $this->Form = new form("POST", "/admin/product/upd", null, "Modifier un Produit", "multipart/form-data");
-        $this->Form->newStringField("text", "nom", $this->object->getNom(), "form-control");
+        $this->Form->newStringField("text", "name", $this->object->getName(), "form-control");
         $this->Form->newTextField("description", null, $this->object->getDescription(), "form-control");
         $this->Form->newStringField("text", "pu", $this->object->getPrix(), "form-control");
         $this->Form->newStringField("text", "pm", $this->object->getPrixMenu(), "form-control");
