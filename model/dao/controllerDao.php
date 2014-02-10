@@ -3,7 +3,7 @@
 /**
  * @author LEFEBVRE Julien
  */
-class controllerDao extends controleur{
+class controllerDao {
     
     public $connection;
     private $array = array();
@@ -17,12 +17,4 @@ class controllerDao extends controleur{
         fclose($this->connection);
     }
     
-    /**
-     * @param String $subject
-     */
-    public function returnMsg($subject){
-        if($this->good == false){$this->setMsg('Echec "'.$subject.'", contacter l\'administrateur');}
-        else{$this->setMsg($subject.' réussie');}
-        $this->render("admin");
-    }
 }

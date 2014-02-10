@@ -29,14 +29,14 @@ class controleur {
         
     }
     
-    public function toArray($string){
-        return $this->array = array($string);
+    public function returnMsg($good, $subject){
+        if($good == false){$this->setMsg('Echec "'.$subject.'", contacter l\'administrateur');}
+        else{$this->setMsg($subject.' réussie');}
+        $this->render("admin");
     }
     
-    public function checkField($type, $object){
-        return true;
-//        $this->testField = new checkField.$type();
-//        if($this->testField->start($object)){return true;}
+    public function toArray($string){
+        return $this->array = array($string);
     }
     
     public function checkUser($email, $pwd){

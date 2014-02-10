@@ -10,6 +10,7 @@ class productService extends controleur{
     private $dao;
     private $service;
     private $object = null;
+    private $testObj;
     
     public function view($opt, $select) {
         if($opt == null){$opt = "new";}
@@ -21,24 +22,24 @@ class productService extends controleur{
     }
 
     public function add(product $product) {
-        if($this->checkfield("Product", $product)){
+        $this->testObj = new checkObjProduct($product);
+        if($this->testObj->start()){
             $this->dao = new productDao();
-            $this->returnMsg($this->dao->addProduct($product), "ajout");
+            $this->returnMsg($this->dao->addProduct($product), "Ajout");
         }
     }
 
     public function upd(product $product) {
-        if($this->checkfield("Product", $product)){
+        $this->testObj = new checkObjProduct($product);
+        if($this->testObj->start()){
             $this->dao = new productDao();
-            $this->returnMsg($this->dao->updProduct($product), "modification");
+            $this->returnMsg($this->dao->updProduct($product), "Modification");
         }
     }
 
     public function del(product $product) {
-        if($this->checkField("Product", $product)){
-            $this->dao = new productDao();
-            $this->returnMsg($this->dao->delProduct($product), "suppression");
-        }
+        $this->dao = new productDao();
+        $this->returnMsg($this->dao->delProduct($product), "Suppression");
     }
     
     public function getProducts(){
@@ -56,9 +57,4 @@ class productService extends controleur{
        return $this->service->getCategorys();
     }
     
-    public function returnMsg($good, $subject){
-        if($good == false){$this->setMsg('Echec "'.$subject.'", contacter l\'administrateur');}
-        else{$this->setMsg($subject.' réussie');}
-        $this->render("admin");
-    }
 }

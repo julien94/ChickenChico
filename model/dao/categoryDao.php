@@ -10,9 +10,6 @@ class categoryDao extends controllerDao{
     private $listGet = array();
     private $listSet = array();
     
-    public function __construct() {
-    }
-    
     /**
      * @return array
      */
@@ -38,7 +35,7 @@ class categoryDao extends controllerDao{
         $this->connectCsv("category", "a+");
         if(fputs($this->connection, $category->getName()."\r\n")){$this->good = true;}
         $this->closeCsv();
-        $this->returnMsg("Ajout");
+        return $this->good;
     }
     
     /**
@@ -50,7 +47,8 @@ class categoryDao extends controllerDao{
             if($aCat[0] == $category->getOldName()){$this->listSet[] = $this->toArray($category->getName());}
             else{$this->listSet[] = $aCat;}
         }
-        if($this->updFile()){$this->returnMsg("Modification");}
+        $this->updFile();
+        return $this->good;
     }
  
      /**
@@ -61,14 +59,15 @@ class categoryDao extends controllerDao{
         foreach($this->getAllCategory() as $aCat){
             if($aCat[0] != $category->getName()){$this->listSet[] = $aCat;}
         }
-        if($this->updFile()){$this->returnMsg("Suppression");}
+        $this->updFile();
+        return $this->good;
     }
+    
     
     public function updFile(){
         $this->connectCsv("category", 'w+');
         foreach($this->listSet as $d){if(fputs($this->connection, $d[0]."\r\n")){$this->good = true;}}
         $this->closeCsv();
-        return true;
     }
     
 }

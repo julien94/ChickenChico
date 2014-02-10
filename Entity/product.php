@@ -12,8 +12,6 @@ class product {
     private $prixMenu;
     private $image;
     private $category;
-    private $objUploadImg;
-    
     
     function __construct($nom, $description, $prix, $category, $prixMenu = null, $image = null) {
         $this->name = $nom;
@@ -44,10 +42,17 @@ class product {
             return trim($this->prixMenu);
         }
     }
+    
+    public function getImage(){
+        return $this->image;
+    }
 
     public function getImageName() {
-        if(file_exists("image/menu/sandwich/".$this->image)){return $this->image;}
-        else{return $this->image = "no-image.jpg";}
+        return $this->image->getName();
+    }
+    
+    public function getImageTmpName() {
+        return $this->image->getTmp_name();
     }
 
     public function getCategory() {
@@ -55,7 +60,8 @@ class product {
     }
     
     public function getAll(){
-        return array($this->name, $this->description, $this->prix, $this->prixMenu, $this->image, $this->category);
+        if($this->image == null){$this->image = new image(null, "no-image.jpg");}
+        return array($this->name, $this->description, $this->prix, $this->prixMenu, $this->getImageName(), $this->category);
     }
 
     public function getOldName() {
@@ -65,17 +71,12 @@ class product {
     public function setOldName($oldName) {
         $this->oldName = $oldName;
     }
-
-    public function getObjUploadImg() {
-        return $this->objUploadImg;
+    
+    public function setOldImage($name){
+        $this->image = new image(null, $name);
     }
 
-    public function setObjUploadImg(image $objUploadImg) {
-        $this->objUploadImg = $objUploadImg;
-    }
-
-        
-    public function setNom($nom) {
+    public function setName($nom) {
         $this->name = $nom;
     }
 
@@ -100,6 +101,7 @@ class product {
     }
 
     public function toString(){
-        return $this->name.';'.$this->description.';'.$this->prix.';'.$this->prixMenu.';'.$this->image.';'.$this->category;
+        if($this->image == null){$this->image = new image(null, "no-image.jpg");}
+        return $this->name.';'.$this->description.';'.$this->prix.';'.$this->prixMenu.';'.$this->getImageName().';'.$this->category;
     }
 }

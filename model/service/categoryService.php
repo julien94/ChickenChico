@@ -10,6 +10,7 @@ class categoryService extends controleur{
     private $dao;
     private $service;
     private $object = null;
+    private $testObj;
     
     public function view($opt, $select) {
         if($opt == null){$opt = "new";}
@@ -21,24 +22,24 @@ class categoryService extends controleur{
     }
 
     public function add(category $category) {
-        if($this->checkfield("Category", $category)){
+        $this->testObj = new checkObjCategory($category);
+        if($this->testObj->start()){
             $this->dao = new categoryDao();
-            $this->dao->addCategory($category);
+            $this->returnMsg($this->dao->addCategory($category), "Ajout");
         }
     }
 
     public function upd(category $category) {
-        if($this->checkfield("Category", $category)){
+        $this->testObj = new checkObjCategory($category);
+        if($this->testObj->start()){
             $this->dao = new categoryDao();
-            $this->dao->updCategory($category);
+            $this->returnMsg($this->dao->updCategory($category), "Modification");
         }
     }
 
     public function del(category $category) {
-        if($this->checkField("Category", $category)){
-            $this->dao = new categoryDao();
-            $this->dao->delCategory($category);
-        }
+        $this->dao = new categoryDao();
+        $this->returnMsg($this->dao->delCategory($category), "Suppression");
     }
     
     public function getCategorys(){

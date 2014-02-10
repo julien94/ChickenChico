@@ -8,7 +8,7 @@
 class productDao extends controllerDao{
     
     private $product;
-    protected $good = false;
+    private $good = false;
     private $listGet = array();
     private $listSet = array();
     
@@ -60,6 +60,7 @@ class productDao extends controllerDao{
     public function addProduct(product $product){
         $this->connectCsv("product", "a+");
         if(fputs($this->connection, $product->toString()."\r\n")){$this->good = true;}
+        $this->updImage($product->getImageName(), $product->getImageTmpName());
         $this->closeCsv();
         return $this->good;
     }
@@ -69,9 +70,13 @@ class productDao extends controllerDao{
      */
     public function updProduct(product $product){
         foreach ($this->getAllProduct() as $prod){
-            if($product->getOldName() == $prod[0]){$this->listSet[] = $product->getAll();}
-            else{$this->listSet[] = $prod;}
-        }
+            if($product->getOldName() == $prod[0]){
+                if($product->getImage() == null){$product->setOldImage($prod[4]);}
+                else{$this->deleteImage($prod[4]);}
+                $this->listSet[] = $product->getAll();
+                $this->updImage($product->getImageName(), $product->getImageTmpName());
+            }
+            else{$this->listSet[] = $prod;}}
         $this->updFile();
         return $this->good;
     }
@@ -81,7 +86,10 @@ class productDao extends controllerDao{
      */
     public function delProduct(product $product){
         foreach($this->getAllProduct() as $prod){
-            if($prod[0] != $product->getName()){$this->listSet[] = $prod;}
+            if($prod[0] != $product->getName()){
+                $this->listSet[] = $prod;
+                $this->deleteImage($prod[4]);
+            }
         }
         $this->updFile();
         return $this->good;
@@ -94,4 +102,17 @@ class productDao extends controllerDao{
         }
         $this->closeCsv();
     }
+    
+    private function updImage($new, $way){
+        if(!file_exists(ROOT."image/menu/".$new)){move_uploaded_file($way, ROOT."image/menu/".$new);}
+    }
+    
+    private function deleteImage($img){
+        if(file_exists("image/menu/".$img) && $img != "no-image.jpg"){
+                        umask(0000); 
+                        chmod(ROOT."image/menu/".$img,0777); 
+                        unlink(ROOT."image/menu/".$img);
+        }
+    }
+    
 }
