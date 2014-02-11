@@ -1,4 +1,77 @@
-pomme de terre au four;c un fruit;1;;image.jpg;sandwich
-Bledar;C un sandwich bien bon;4.5;5.7;20110619_pano03.jpg;sandwich
-banane;C un fruit trop bon;1.20;1.50;test.jpg;sandwich
-test;Plouf plouf;3.80;;404.jpg;sandwich
+H1;1 Steack 100g + Fromage;4.50;5.50;h1.png;hummers
+H2;2 Steack 100g + Fromage;5.50;6.50;h2.png;hummers
+H3;3 Steack 100g + Fromage;6.50;7.50;h3.png;hummers
+grec;viande de kebab;4.80;5.80;grec.png;sandwich
+Chikka;Original, Paprika, Curry ou Special;4.80;5.80;chikka.png;sandwichs
+Escalope du chef;Escalope du chef + Creme fraiche + Olives + Champignons + Fromage;4.80;5.80;escalope.png;sandwichs
+chico;2 Steaks 50g + Viande au choix + Oeuf + Fromage;5.80;6.80;chico.png;sandwichs
+panamera;2 Tranches d'escalope + Oeuf + Fromage + Jambon de dinde;5.30;6.30;panamera.png;sandwichs
+bledard;Viande Hachée + Oeuf + Oignons Tomates frits + Fromage;5.30;6.30;bledard.png;sandwichs
+r8;2 Steaks 50g + Oeuf + Galette de pommes de terre + Fromage;5.50;6.50;r8.png;sandwichs
+r8 GT;2 Steaks 50g + Cordon Bleu + Oeuf + Fromage;5.80;6.80;r8gt.png;sandwichs
+s2;2 Steaks 50g + Fromage;4.50;5.50;s2.png;sandwichs
+s3;3 Steaks 50g + Fromage;5.50;6.50;s3.png;sandwichs
+s4;4 Steaks 50g + Fromage;6.50;7.50;s4.png;sandwichs
+rs2;2 Steaks 50g + Oeuf + Bacon + Fromage;5.50;6.50;rs2.png;sandwichs
+rs3;3 Steaks 50g + Oeuf + Bacon + Fromage;6.50;7.50;rs3.png;sandwichs
+rs4;4 Steaks 50g + Oeuf + Bacon + Fromage;7.50;8.50;rs4.png;sandwichs
+rosbeef;rosbeef + mozzarela + emmental + sauce au choix;5;6;rosbeef.png;sandwichs au four
+grec;;5;6;no-img.png;sandwichs au four
+chikka;;5;6;no-img.png;sandwichs au four
+viande hachée;;5;6;no-img.png;sandwichs au four
+jambon;;5;6;no-img.png;sandwichs au four
+4 Fromages;;5;6;no-img.png;sandwichs au four
+bacon;;5;6;no-img.png;sandwichs au four
+saumon;;5;6;no-img.png;sandwichs au four
+viande;;1.50;;no-img.png;ingrediants supplementaire
+oeuf;;0.50;;no-img.png;ingrediants supplementaire
+fromage;;0.50;;no-img.png;ingrediants supplementaire
+galette de pomme de terre;;1;;no-img.png;ingrediants supplementaire
+cordon bleu;;1;;cordonbleu.png;ingrediants supplementaire
+jambon;;0.50;;no-img.png;ingrediants supplementaire
+bacon;;0.50;;no-img.png;ingrediants supplementaire
+grec;;;;no-img;pain
+galette;;;;no-img;pain
+tortilla;;;;no-img;pain
+au four;;;;no-img;pain
+lardon;pomme de terre, reblochon, crème fraiche, emmental;5.80;6.50;patate.png;patates au four
+saumon;pomme de terre, reblochon, crème fraiche, emmental;5.80;6.50;patate.png;patates au four
+jambon;pomme de terre, reblochon, crème fraiche, emmental;5.80;6.50;patate.png;patates au four
+poulet;pomme de terre, reblochon, crème fraiche, emmental;5.80;6.50;patate.png;patates au four
+chicken curry;pomme de terre, reblochon, crème fraiche, emmental;5.80;6.50;patate.png;patates au four
+chicken paprika;pomme de terre, reblochon, crème fraiche, emmental;5.80;6.50;patate.png;patates au four
+4 Fromages;pomme de terre, reblochon, crème fraiche, emmental;5.80;6.50;patate.png;patates au four
+viande hachée;pomme de terre, reblochon, crème fraiche, emmental;5.80;6.50;patate.png;patates au four
+cheese;Steak 50g + Fromage;3.20;4.20;cheese.png;burgers
+double cheese;2 Steaks 50g + 2 Fromages;4.20;5.20;doublecheese.png;burgers
+fish burger;Poisson pané;4.20;5.20;fishburger.png;burgers
+gp;Escalope + Steak 100g + Fromage;5.50;6.50;gp.png;burgers
+t-max;1 Steak 100g + Bacon + Fromage;4.30;5.30;tmax.png;burgers
+tech-max;2 Steak 100g + Bacon + Fromage + Oeuf;6.50;7.50;techmax.png;burgers
+gsx-r;2 Steak 100g + Oeuf + Fromage + Gallette de Pomme de Terre;6.90;7.90;gsxr.png;burgers
+croq;Jambon + Fromage;3.80;4.50;croq.png;croq monsieur
+double croq;Poulet + Jambon + Fromage;4.50;5.50;doublecroq.png;croq monsieur
+1 Viande; 1 viande au choix + crudités + frites;6.50;7.50;assiette.png;assiettes
+2 Viande; 2 viande au choix + crudités + frites;7.50;8.50;assiette.png;assiettes
+3 Viande; 3 viande au choix + crudités + frites;8.50;9.50;assiette.png;assiettes
+poulet;;4.50;5.50;paninis.png;paninis
+4 Fromages;;4.50;5.50;paninis.png;paninis
+steack;;4.50;5.50;paninis.png;paninis
+viande hachée;;4.50;5.50;paninis.png;paninis
+grec;;4.50;5.50;paninis.png;paninis
+dinde;;4.50;5.50;paninis.png;paninis
+pacifique;salade, tomate, surimi, crevettes, croutons;4;;salade.png;salades
+norvegienne;salade, tomate, Pomme de terre, citron, croutons;4;;salade.png;salades
+nicoise;salade, tomate, thon, Pomme de terre, Oeuf, Olives;4;;salade.png;salades
+salade chaude;salade, tomate, Olives, Mais, Poulet;5;;salade.png;salades
+coca cola;33 Cl;1.20;;cocacola.png;boissons
+coca cola zero;33 Cl;1.20;;cocazero.png;boissons
+tropico;33 Cl;1.20;;cocazero.png;boissons
+fanta;33 Cl;1.20;;cocazero.png;boissons
+schweppes;33 Cl;1.20;;schweppes.png;boissons
+orangina;33 Cl;1.20;;orangina.png;boissons
+oasis;33 Cl;1.20;;oasis.png;boissons
+Tarte Au Daims;;2;tarte.png;desserts
+Brownie;;2;Brownie.png;desserts
+Häagen-Dazs;;2;haagendazs.png;desserts
+tiramisu;;2;tiramisu.png;desserts
