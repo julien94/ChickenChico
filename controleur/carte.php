@@ -4,14 +4,15 @@
  */
 class carte extends controleur{
      private $listObjCategory = array();
-     private $categoryCsv;
+     private $service;
      private $receive;
      
      public function __construct() {
-         $this->categoryCsv = new categoryCsv();
-         foreach ($this->categoryCsv->getAllCategory() as $this->receive){
-             $this->listObjCategory[] = new category($this->receive[0]);
-             $this->listObjCategory[]->attachProduct();
+         $this->service = new categoryService();
+         foreach ($this->service->getCategorys() as $this->receive){
+             $test = new category($this->receive[0]);
+             $test->attachProduct();
+             $this->listObjCategory[] = $test;
          }
          $this->set($this->listObjCategory);
          $this->render('carte');

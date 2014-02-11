@@ -3,9 +3,11 @@
 /**
  * @author LEFEBVRE Julien
  */
-class categoryDao extends controllerDao{
+class categoryDao extends controleur{
     
     private $category;
+    private $connection;
+    private $fileConnect;
     protected $good = false;
     private $listGet = array();
     private $listSet = array();
@@ -14,11 +16,12 @@ class categoryDao extends controllerDao{
      * @return array
      */
     Public function getAllCategory(){
-        $this->connectCsv('category');
-        while($this->category = fgetcsv($this->connection, 255, ";")){
+        $this->connection = new connection();
+        $this->fileConnect = $this->connection->connectCsv("category");
+        while($this->category = fgetcsv($this->fileConnect, 255, ";")){
             $this->listGet[] = $this->category;
         }
-        $this->closeCsv();
+        $this->connection->closeCsv();
         return $this->listGet;
     }
     
@@ -32,9 +35,10 @@ class categoryDao extends controllerDao{
      * @param String $name
      */
     public function addCategory(category $category){
-        $this->connectCsv("category", "a+");
-        if(fputs($this->connection, $category->getName()."\r\n")){$this->good = true;}
-        $this->closeCsv();
+        $this->connection = new connection();
+        $this->fileConnect = $this->connection->connectCsv("category", "a+");
+        if(fputs($this->fileConnect, $category->getName()."\r\n")){$this->good = true;}
+        $this->connection->closeCsv();
         return $this->good;
     }
     
@@ -65,9 +69,10 @@ class categoryDao extends controllerDao{
     
     
     public function updFile(){
-        $this->connectCsv("category", 'w+');
-        foreach($this->listSet as $d){if(fputs($this->connection, $d[0]."\r\n")){$this->good = true;}}
-        $this->closeCsv();
+        $this->connection = new connection();
+        $this->fileConnect = $this->connection->connectCsv("category", "w+");
+        foreach($this->listSet as $d){if(fputs($this->fileConnect, $d[0]."\r\n")){$this->good = true;}}
+        $this->connection->closeCsv();
     }
     
 }

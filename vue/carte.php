@@ -33,7 +33,7 @@
                 <?php
                 for($i=0;$i<count($this->data);$i++){
                     if(is_int($i/2)){
-                        echo'<h2>'.$this->data[$i]->getNom().'</h2><br/><br/>';
+                        echo'<h2>'.strtoupper($this->data[$i]->getName()).'</h2><br/><br/>';
                         echo'<div class="ligne">';
                         echo'<ul class="titre">';
                         echo'<li class="nom">Nom</li>';
@@ -49,17 +49,19 @@
                             else{$class = "";}
                             echo'<div class="ligne '.$class.'">';
                             echo'<ul>';
-                            echo'<li class="nom">'.$tab[$j]->getNom().'</li>';
+                            echo'<li class="nom">'.ucfirst($tab[$j]->getName()).'</li>';
                             echo'<li class="descri">'.$tab[$j]->getDescription().'</li>';
-                            echo'<li class="price">'.$tab[$j]->getPrix().' €</li>';
-                            echo'<li class="price">'.$tab[$j]->getPrixMenu().' €</li>';
+                            if($tab[$j]->getPrix() == ""){$euro = "";}else{$euro = " €";}
+                            if($tab[$j]->getPrixMenu() == ""){$euro1 = "";}else{$euro1 = " €";}
+                            echo'<li class="price">'.$tab[$j]->getPrix().$euro.'</li>';
+                            echo'<li class="price">'.$tab[$j]->getPrixMenu().$euro1.'</li>';
                             echo'<li><img class="img fright" src="image/menu/sandwich/'.$tab[$j]->getImage().'"></li>';
                             echo'</ul>';
                             echo'</div>';
                         }
                     }
                     else{
-                    echo'<h2>'.$this->data[$i]->getNom().'</h2><br/><br/>';
+                    echo'<h2>'.strtoupper($this->data[$i]->getName()).'</h2><br/><br/>';
                     echo'<div class"ligne">';
                     echo'<ul class="titre">';
                     echo'<li class="img">Photo</li>';
@@ -76,10 +78,12 @@
                         echo'<div class="ligne '.$class.'">';
                         echo'<ul>';
                         echo'<li><img class="img fleft" src="image/menu/sandwich/'.$tab[$k]->getImage().'"></li>';
-                        echo'<li class="nom">'.$tab[$k]->getNom().'</li>';
+                        echo'<li class="nom">'.ucfirst($tab[$k]->getName()).'</li>';
                         echo'<li class="descri">'.$tab[$k]->getDescription().'</li>';
-                        echo'<li class="price">'.$tab[$k]->getPrix().' €</li>';
-                        echo'<li class="price">'.$tab[$k]->getPrixMenu().' €</li>';
+                        if($tab[$k]->getPrix() == ""){$euro = "";}else{$euro = " €";}
+                        if($tab[$k]->getPrixMenu() == ""){$euro1 = "";}else{$euro1 = " €";}
+                        echo'<li class="price">'.$tab[$k]->getPrix().$euro.'</li>';
+                        echo'<li class="price">'.$tab[$k]->getPrixMenu().$euro1.'</li>';
                         echo'</ul>';
                         echo'</div>';
                     }

@@ -5,8 +5,8 @@
  */
 class category {
     
-    private $listProduit = array();
-    private $produitCsv;
+    private $listProduct = array();
+    private $produitDao;
     private $produits;
     private $name;
     private $oldName;
@@ -16,9 +16,9 @@ class category {
     }
     
     public function attachProduct(){
-        $this->produitCsv = new productCsv();
-        foreach($this->produitCsv->getProductBy($this->name) as $this->produits){
-            $this->listProduit[] = new product($this->produits[0], $this->produits[1], $this->produits[2], $this->produits[5], $this->produits[3], $this->produits[4]);
+        $this->service = new productService();
+        foreach($this->service->getProductByCat($this->name) as $this->produits){
+            $this->listProduct[] = new product($this->produits[0], $this->produits[1], $this->produits[2], $this->produits[5], $this->produits[3], $this->produits[4]);
         }
     }
     
@@ -31,7 +31,7 @@ class category {
     }
 
     public function getListProduit(){
-        return $this->listProduit;
+        return $this->listProduct;
     }
     
     public function getOldName() {

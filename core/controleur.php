@@ -39,27 +39,17 @@ class controleur {
         return $this->array = array($string);
     }
     
-    public function checkUser($email, $pwd){
-        $this->userDao = new userDao();
-        if($this->userDao->getPseudo() !== $email || $this->userDao->getPwd() !== $pwd){
-            $this->setMsg('Email / Password Error');
-            $this->render('accueil');
-        }
-        else{
-            $this->admin = new user($email, $pwd);
-            $_SESSION['admin'] = serialize($this->admin);
-            return true;
+    private function updImage($new, $way){
+        if(!file_exists(ROOT."image/menu/".$new)){move_uploaded_file($way, ROOT."image/menu/".$new);}
+    }
+    
+    private function deleteImage($img){
+        if(file_exists("image/menu/".$img) && $img != "no-image.jpg"){
+                        umask(0000); 
+                        chmod(ROOT."image/menu/".$img,0777); 
+                        unlink(ROOT."image/menu/".$img);
         }
     }
     
-    public function checkSession(){
-        if (isset($_SESSION['admin'])) {
-            $this->testUser = unserialize($_SESSION['admin']);
-            if (!$this->checkUser($this->testUser->getEmail(), $this->testUser->getPassword())) {header('location:/accueil');} 
-            else {return null;}
-        } 
-        else {header('location:/accueil');}
-    }
- 
 }
 

@@ -5,7 +5,7 @@
  */
 class admin extends controleur {
 
-    private $controller;
+    private $service;
     private $formToObject;
     private $value;
     private $select = null;
@@ -13,10 +13,10 @@ class admin extends controleur {
 
     public function __construct() {
         session_start();
-        if (!isset($_POST['mail']) && !isset($_POST['mdp'])) {$this->checkSession();}
         $this->url = explode('/', $_SERVER['REDIRECT_URL']);
         if($this->url[2] == ""){header('location:/admin/option');}
-        
+        $this->service = new userService();
+        $this->service->checkSession();
     }
     
     public function option(){
@@ -24,8 +24,10 @@ class admin extends controleur {
     }
 
     public function userConnect() {
-        if (!isset($_POST['mail']) && !isset($_POST['mdp'])) {header('location:/accueil');}
-        if ($this->checkUser($_POST['mail'], $_POST['mdp'])) {header('location:/admin/option');}
+        $this->formToObject = new formToObject();
+        $this->value = $this->formToObject->getFormToUser();
+        $this->service = new userService();
+        if($this->service->checkUser($this->value)){$this->option();}
     }
     
     public function category($opt, $opt2 = null){
@@ -33,8 +35,8 @@ class admin extends controleur {
         if($opt2 != null){$this->value = $opt2;}
         else{$this->value = $this->formToObject->getFormToCategory();}
         if($opt2 == "upd"){$this->select = $this->formToObject->getSelect();}
-        $this->controller = new categoryService();
-        $this->controller->$opt($this->value, $this->select);
+        $this->service = new categoryService();
+        $this->service->$opt($this->value, $this->select);
     }
     
     public function product($opt, $opt2 = null){
@@ -42,8 +44,8 @@ class admin extends controleur {
         if($opt2 != null){$this->value = $opt2;}
         else{$this->value = $this->formToObject->getFormToProduct();}
         if($opt2 == "upd"){$this->select = $this->formToObject->getSelect();}
-        $this->controller = new productService();
-        $this->controller->$opt($this->value, $this->select);
+        $this->service = new productService();
+        $this->service->$opt($this->value, $this->select);
     }
     
 }

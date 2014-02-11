@@ -3,7 +3,7 @@
 /**
  * @author LEFEBVRE Julien
  */
-class productService extends controleur{
+class productService extends controleur {
     
     private $fh;
     private $form;
@@ -50,6 +50,11 @@ class productService extends controleur{
     public function getObjProduct($name){
         $this->dao = new productDao();
         return $this->dao->getProductByNom($name);
+    }
+    
+    public function getProductByCat($name){
+        $this->dao = new productDao();
+        return $this->dao->getProductBy($name);
     }
     
     private function getServiceCategorys(){

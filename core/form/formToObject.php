@@ -14,6 +14,9 @@ class formToObject {
     private $category = "";
     private $select = "";
     private $old = null;
+    private $mail;
+    private $pwd;
+    
     
     public function __construct() {
         if(isset($_POST['name'])){$this->name = $_POST['name'];}
@@ -27,7 +30,8 @@ class formToObject {
         if(isset($_POST['category'])){$this->category = $_POST['category'];}
         if(isset($_POST['select'])){$this->select = $_POST['select'];}
         if(isset($_POST['old'])){$this->old = $_POST['old'];}
-        
+        if(isset($_POST['mail'])){$this->mail = $_POST['mail'];}
+        if(isset($_POST['mdp'])){$this->pwd = $_POST['mdp'];}
     }
     
     public function getSelect(){
@@ -44,5 +48,9 @@ class formToObject {
         $this->value = new product($this->name, $this->description, $this->pu, $this->category, $this->pm, $this->image);
         if($this->old != null){$this->value->setOldName($this->old);}
         return $this->value;
+    }
+    
+    public function getFormToUser(){
+        return $this->value = new user($this->mail, $this->pwd);
     }
 }
