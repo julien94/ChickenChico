@@ -170,6 +170,10 @@ body{
     clear: both;
 }
 
+.white{
+    color: white;
+}
+
 .msgform{
     background: black;
     border-radius: 10px;

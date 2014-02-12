@@ -42,9 +42,8 @@
                 echo '<h3>'.$this->data[0]->getTitre().'</h3>';
                 echo '<form role="form"'.$this->data[0]->getMethod().$this->data[0]->getAction().$this->data[0]->getClass().$this->data[0]->getEncType().'>';
                 foreach($this->data[0]->getFieldList() as $field){
-                    echo '<div class="form-group">';
-                    echo $field->toString();
-                    echo '</div>';
+                    echo '<label for="form-control" class="white">'.$field->getMiniTxt().'</label>';
+                    echo '<div class="form-group">'.$field->toString().'</div>';
                 }
                 echo '</form>';
                 echo '<br/>';
