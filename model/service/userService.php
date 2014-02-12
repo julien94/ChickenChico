@@ -9,6 +9,18 @@ class userService extends controleur{
     private $admin;
     private $testUser;
     
+    public function view(){
+        $this->fh = new formHandler(null, null, null);
+        $this->form = $this->fh->{'user'}();
+        $this->addData($this->form);
+        $this->render('admin');
+    }
+    
+    public function deconnexion(){
+        session_destroy();
+        header('location:/accueil');
+    }
+    
     public function checkUser(user $user){
         $this->userDao = new userDao();
         if($this->userDao->getPseudo() !== $user->getEmail() || $this->userDao->getPwd() !== $user->getPassword()){

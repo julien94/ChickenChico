@@ -22,12 +22,12 @@ class admin extends controleur {
     public function option(){
         $this->render('admin');
     }
-
-    public function userConnect() {
+    
+    public function user($opt) {
         $this->formToObject = new formToObject();
         $this->value = $this->formToObject->getFormToUser();
         $this->service = new userService();
-        if($this->service->checkUser($this->value)){$this->option();}
+        $this->service->$opt($this->value);
     }
     
     public function category($opt, $opt2 = null){

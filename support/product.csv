@@ -66,12 +66,12 @@ nicoise;salade, tomate, thon, Pomme de terre, Oeuf, Olives;4;;salade.png;salades
 salade chaude;salade, tomate, Olives, Mais, Poulet;5;;salade.png;salades
 coca cola;33 Cl;1.20;;cocacola.png;boissons
 coca cola zero;33 Cl;1.20;;cocazero.png;boissons
-tropico;33 Cl;1.20;;cocazero.png;boissons
-fanta;33 Cl;1.20;;cocazero.png;boissons
+tropico;33 Cl;1.20;;tropico.png;boissons
+fanta;33 Cl;1.20;;fanta.png;boissons
 schweppes;33 Cl;1.20;;schweppes.png;boissons
 orangina;33 Cl;1.20;;orangina.png;boissons
 oasis;33 Cl;1.20;;oasis.png;boissons
-Tarte Au Daims;;2;tarte.png;desserts
-Brownie;;2;Brownie.png;desserts
-Häagen-Dazs;;2;haagendazs.png;desserts
-tiramisu;;2;tiramisu.png;desserts
+Tarte Au Daims;;2;;tarte.png;desserts
+Brownie;;2;;Brownie.png;desserts
+Häagen-Dazs;;2;;haagendazs.png;desserts
+tiramisu;;2;;tiramisu.png;desserts

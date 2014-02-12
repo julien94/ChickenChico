@@ -33,12 +33,12 @@
                 <img src="<?php echo (ROOTHTML) ?>../image/logo.png" class="logo">
                 <div id="menu">
                     <a href="/admin/option"><h4>Gestion Categorie / Produit</h4></a>
-                    <a href="/admin/deco"><h4>Deconnection</h4></a>
+                    <a href="/admin/deconnexion"><h4>Deconnexion</h4></a>
                 </div>
             </div>
-            <div class="formpage">
             <?php
             if(!empty($this->data[0])){
+                echo '<div class="formpage">';
                 echo '<h3>'.$this->data[0]->getTitre().'</h3>';
                 echo '<form role="form"'.$this->data[0]->getMethod().$this->data[0]->getAction().$this->data[0]->getClass().$this->data[0]->getEncType().'>';
                 foreach($this->data[0]->getFieldList() as $field){
@@ -48,29 +48,32 @@
                 }
                 echo '</form>';
                 echo '<br/>';
+                echo '</div>';
             }
             else{
                 ?>
+            <div class="menuAdmin">
                 <div class="category">
                     <h2>CATEGORIES</h2>
-                    <h3><a href="/admin/category/view/new">Ajouter</a></h3>
-                    <h3 class="grey"><a href="/admin/category/view/select">Modifier</a></h3>
-                    <h3><a href="/admin/category/view/del">Supprimer</a></h3>
+                    <h4 class="grey"><a href="/admin/category/view/new">AJOUTER</a></h4>
+                    <h4 class="grey"><a href="/admin/category/view/select">MODIFIER</a></h4>
+                    <h4 class="grey"><a href="/admin/category/view/del">SUPPRIMER</a></h4>
                 </div>
                 <div class="product">
                     <h2>PRODUITS</h2>
-                    <h3 class="grey"><a href="/admin/product/view/new">Ajouter</a></h3>
-                    <h3><a href="/admin/product/view/select">Modifier</a></h3>
-                    <h3 class="grey"><a href="/admin/product/view/del">Supprimer</a></h3>
+                    <h4 class="grey"><a href="/admin/product/view/new">AJOUTER</a></h4>
+                    <h4 class="grey"><a href="/admin/product/view/select">MODIFIER</a></h4>
+                    <h4 class="grey"><a href="/admin/product/view/del">SUPPRIMER</a></h4>
                 </div>
-                <hr class="clear"/>
+                <div class="clear"></div>
             <?php }
                   if(!empty($this->msg)){echo '<div class="clear msgform">'.$this->msg[0].'</div>';} ?>
             </div>
+            <hr style="width:600px"/>
         </div>
         <script>
-            $(".category h3").mouseover(function(){$(this).css('background', 'grey');}).mouseout(function(){$(this).css('background', '');});
-            $(".product h3").mouseover(function(){$(this).css('background', 'grey');}).mouseout(function(){$(this).css('background', '');});
+            $(".category h4").mouseover(function(){$(this).css('background', 'grey');}).mouseout(function(){$(this).css('background', '');});
+            $(".product h4").mouseover(function(){$(this).css('background', 'grey');}).mouseout(function(){$(this).css('background', '');});
             $(".input").mousedown(function() {
                 $(this).val("").css("color", "white");
             });

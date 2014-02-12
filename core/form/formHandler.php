@@ -85,4 +85,12 @@ class formHandler {
         $this->Form->newStringField("submit", "bt", null, "btn btn-default");
         return $this->Form;
     }
+    
+    public function user(){
+        $this->Form = new form("POST", "/admin/user/connect", null, "Saisir le Login et Mot de passe");
+        $this->Form->newStringField("text", "mail", "", "form-control");
+        $this->Form->newStringField("text", "mdp", "", "form-control");
+        $this->Form->newStringField("submit", "bt", null, "btn btn-default");
+        return $this->Form;
+    }
 }

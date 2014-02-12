@@ -94,6 +94,67 @@ body{
     color: grey;
 }
 
+.menuAdmin{
+    margin: auto;
+    width: 900px;
+    padding-top: 160px; 
+    padding-bottom: 100px; 
+}
+
+.category{
+    border: solid 2px blue;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, white, rgba(255,255,255,0.2));
+    width: 300px;
+    text-align: center;
+    padding: 2px;
+    padding-bottom: 20px;
+    float: left;
+    margin-left: 10%; 
+}
+
+.category h2{
+    padding-bottom: 20px;
+}
+
+.category h4{
+    border-radius: 10px;
+    color: white;
+}
+
+
+.product{
+    border: solid 2px blue;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, white, rgba(255,255,255,0.2));
+    width: 300px;
+    text-align: center;
+    margin-right: 10%;
+    padding: 2px;
+    padding-bottom: 20px;
+    float: right;
+}
+
+.product h2{
+    padding-bottom: 20px;
+}
+
+.product h4{
+    border-radius: 10px;
+    color: white;
+}
+
+.clear{
+    clear: both;
+}
+
+.msgform{
+    color: white;
+    padding-top: 50px;
+    text-align: center;
+}
+
+
 /*******************************  PAGE ADMIN  *********************************/
 #corp{
     clear: both;
@@ -204,7 +265,7 @@ li{
 
 .nom{
     margin: 0px;
-    width: 100px;
+    width: 130px;
     padding-left: 10px;
     padding-bottom: 0px;
     padding-right: 0px;
@@ -216,7 +277,7 @@ li{
 }
 
 .descri{
-    width: 400px;
+    width: 370px;
 }
 
 .price{
@@ -261,27 +322,6 @@ li{
 /*****************************  FIN FOOTER ************************************/
 
 
-.category{
-    width: 230px;
-    text-align: center;
-    float: left;
-}
-
-.product{
-    width: 230px;
-    text-align: center;
-    float: right;
-}
-
-.clear{
-    clear: both;
-}
-
-.msgform{
-    color: white;
-    padding-top: 50px;
-    text-align: center;
-}
 
 /****************************** DIAPORAMA *************************************/
 
