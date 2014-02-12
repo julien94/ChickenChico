@@ -12,15 +12,15 @@ class admin extends controleur {
     private $url;
 
     public function __construct() {
-        session_start();
         $this->url = explode('/', $_SERVER['REDIRECT_URL']);
         if($this->url[2] == ""){header('location:/admin/option');}
-        $this->service = new userService();
-        $this->service->checkSession();
     }
     
     public function option(){
-        $this->render('admin');
+        $this->service = new userService();
+        if($this->service->checkSession()){
+            $this->render('admin');
+        }
     }
     
     public function user($opt) {
@@ -43,7 +43,7 @@ class admin extends controleur {
         $this->formToObject = new formToObject();
         if($opt2 != null){$this->value = $opt2;}
         else{$this->value = $this->formToObject->getFormToProduct();}
-        if($opt2 == "upd"){$this->select = $this->formToObject->getSelect();}
+        if($opt2 == "upd"){$this->select = $this->formToObject->getSelectProduct();}
         $this->service = new productService();
         $this->service->$opt($this->value, $this->select);
     }

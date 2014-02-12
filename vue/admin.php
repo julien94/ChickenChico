@@ -33,7 +33,7 @@
                 <img src="<?php echo (ROOTHTML) ?>../image/logo.png" class="logo">
                 <div id="menu">
                     <a href="/admin/option"><h4>Gestion Categorie / Produit</h4></a>
-                    <a href="/admin/deconnexion"><h4>Deconnexion</h4></a>
+                    <a href="/admin/user/deconnexion"><h4>Deconnexion</h4></a>
                 </div>
             </div>
             <?php
@@ -43,12 +43,17 @@
                 echo '<form role="form"'.$this->data[0]->getMethod().$this->data[0]->getAction().$this->data[0]->getClass().$this->data[0]->getEncType().'>';
                 foreach($this->data[0]->getFieldList() as $field){
                     echo '<div class="form-group">';
-                    print_r($field->toString());
+                    echo $field->toString();
                     echo '</div>';
                 }
                 echo '</form>';
                 echo '<br/>';
                 echo '</div>';
+                echo '<div class="clear"></div>';
+                if(isset($this->msg) && !empty($this->msg)){
+                    echo '<div class="clear msgform">'; print_r($this->msg[0]); echo'</div>'; 
+                    echo '<hr style="width:600px"/>'; 
+                }
             }
             else{
                 ?>
@@ -66,10 +71,8 @@
                     <h4 class="grey"><a href="/admin/product/view/del">SUPPRIMER</a></h4>
                 </div>
                 <div class="clear"></div>
-            <?php }
-                  if(!empty($this->msg)){echo '<div class="clear msgform">'.$this->msg[0].'</div>';} ?>
             </div>
-            <hr style="width:600px"/>
+            <?php if(!empty($this->msg)){echo '<div class="clear msgform">'.$this->msg[0].'</div>';}}?>
         </div>
         <script>
             $(".category h4").mouseover(function(){$(this).css('background', 'grey');}).mouseout(function(){$(this).css('background', '');});

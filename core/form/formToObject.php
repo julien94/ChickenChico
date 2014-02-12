@@ -38,6 +38,11 @@ class formToObject {
         return $this->select;
     }
     
+    public function getSelectProduct(){
+        $send = explode("-", $this->select);
+        return trim($send[0]);
+    }
+    
     public function getFormToCategory(){
         $this->value = new category($this->name);
         if($this->old != null){$this->value->setOldName($this->old);}

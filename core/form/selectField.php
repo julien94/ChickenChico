@@ -11,6 +11,7 @@ class selectField {
     private $name;
     private $class;
     private $options;
+    private $miniTxt;
     private $listOption = array();
     
     /**
@@ -19,12 +20,14 @@ class selectField {
      * @param String $id
      * @param String $class
      */
-    function __construct($name, $tabOption = null, $class = null, $id = null) {
+    function __construct($miniTxt, $name, $tabOption = null, $class = null, $id = null) {
+        $this->miniTxt = $minitxt;
         $this->name = ' name="'.$name.'"';
         if($tabOption != null){
             foreach($tabOption as $opt){
-            $this->listOption[] = '<option>'.$opt[0].'</option>';
-        }
+                $opt2 = isset($opt[5])? ' - '.$opt[5] : '';
+                $this->listOption[] = '<option>'.$opt[0].$opt2.'</option>';
+            }
         }
         if($id != null){$this->id = ' id="'.$id.'"';}
         if($class != null){$this->class = ' class="'.$class.'"';}
@@ -57,7 +60,16 @@ class selectField {
     public function getListOption() {
         return $this->listOption;
     }
+    
+    public function getMiniTxt() {
+        return $this->miniTxt;
+    }
 
+    public function setMiniTxt($miniTxt) {
+        $this->miniTxt = $miniTxt;
+    }
+
+    
     public function setId($id) {
         $this->id = $id;
     }

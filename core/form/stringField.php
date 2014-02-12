@@ -10,8 +10,10 @@ class stringField{
     private $name;
     private $value;
     private $class;
+    private $miniTxt;
     
-    function __construct($type, $name, $value = null, $class = null, $id = null) {
+    function __construct($minitxt, $type, $name, $value = null, $class = null, $id = null) {
+        $this->miniTxt = $minitxt;
         $this->type = ' type="'.$type.'"';
         $this->name = ' name="'.$name.'"';
         if($value != null){$this->value = ' value="'.$value.'"';}
@@ -43,6 +45,15 @@ class stringField{
         $this->type = $type;
     }
 
+    public function getMiniTxt() {
+        return $this->miniTxt;
+    }
+
+    public function setMiniTxt($miniTxt) {
+        $this->miniTxt = $miniTxt;
+    }
+
+        
     public function setId($id) {
         $this->id = $id;
     }

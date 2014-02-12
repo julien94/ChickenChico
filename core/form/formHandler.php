@@ -19,8 +19,8 @@ class formHandler {
     
     public function newCategory(){
         $this->Form = new form("POST", "/admin/category/add", null, "ajouter une categorie");
-        $this->Form->newStringField("text", "name", null, "form-control");
-        $this->Form->newStringField("submit", "bt", null, "btn btn-default");
+        $this->Form->newStringField("", "text", "name", null, "form-control");
+        $this->Form->newStringField("", "submit", "bt", null, "btn btn-default");
         return $this->Form;
     }
     
@@ -41,9 +41,9 @@ class formHandler {
     }
     
     public function delCategory(){
-        $this->Form = new form("POST", "/admin/category/del", null, "supprimer une categorie");
+        $this->Form = new form("POST", "/admin/category/del", null, "supprimer une categorie ?");
         $this->Form->newSelectField("name", $this->dataCategory, "form-control");
-        $this->Form->newStringField("submit", "bt", null, "btn btn-default");
+        $this->Form->newStringField("submit", "bt", "Supprimer", "btn btn-danger");
         return $this->Form;        
     }
     
@@ -80,17 +80,17 @@ class formHandler {
     }
     
     public function delProduct(){
-        $this->Form = new form("POST", "/admin/product/del", null, "Supprimer un produit");
+        $this->Form = new form("POST", "/admin/product/del", null, "Supprimer un produit ?");
         $this->Form->newSelectField("name", $this->dataProduct, "form-control");
-        $this->Form->newStringField("submit", "bt", null, "btn btn-default");
+        $this->Form->newStringField("submit", "bt", "Supprimer", "btn btn-danger");
         return $this->Form;
     }
     
     public function user(){
-        $this->Form = new form("POST", "/admin/user/connect", null, "Saisir le Login et Mot de passe");
+        $this->Form = new form("POST", "/admin/user/connexion", null, "Saisir le Login et Mot de passe");
         $this->Form->newStringField("text", "mail", "", "form-control");
         $this->Form->newStringField("text", "mdp", "", "form-control");
-        $this->Form->newStringField("submit", "bt", null, "btn btn-default");
+        $this->Form->newStringField("submit", "bt", null, "btn btn-success");
         return $this->Form;
     }
 }

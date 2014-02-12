@@ -12,8 +12,10 @@ class textField {
     private $class;
     private $rows;
     private $cols;
+    private $miniTxt;
     
-    public function __construct($name, $value = null, $text = null, $class = null, $id = null,$rows = null, $cols = null) {
+    public function __construct($miniTxt, $name, $value = null, $text = null, $class = null, $id = null,$rows = null, $cols = null) {
+        $this->miniTxt = $miniTxt;
         $this->name = ' name="'.$name.'"';
         if($id != null){$this->id = ' id="'.$id.'"';}
         if($value != null){$this->value = ' value="'.$value.'"';}
@@ -51,6 +53,15 @@ class textField {
         return $this->cols;
     }
 
+    public function getMiniTxt() {
+        return $this->miniTxt;
+    }
+
+    public function setMiniTxt($miniTxt) {
+        $this->miniTxt = $miniTxt;
+    }
+
+        
     public function setId($id) {
         $this->id = $id;
     }

@@ -24,16 +24,6 @@
         <div id="container">
             <div id="header">
                 <img src="../image/logo.png" class="logo">
-                <div class="form">
-                <form action="admin/userConnect" method="post">
-                    <div>
-                        <input class="zone" type="text" size="12" name="mail" value="Email">
-                        <input class="zone pass" type="text" size="12" name="mdp" value="Mot de passe">
-                    </div>
-                    <div class="right"><input type="submit" value="Admin"></div>
-                </form>
-                    <?php if(!empty($this->msg[0])){echo '<div class="erreur"><center>'.$this->msg[0].'</center></div>';} ?>
-                </div>
                 <div id="menu">
                     <a href="/accueil"><h4>Accueil</h4></a>
                     <a href="/carte"><h4>Nos menus</h4></a>
@@ -82,6 +72,7 @@
                 <a href="/carte"><img src="../image/mini3.jpg" class="mini m"></a>
                 <a href="/carte"><img src="../image/mini4.jpg" class="mini"></a>
             </div>
+            <div class="center">Copyright Chicken Chico 2014 - <a href="admin/user/view">Admin</a></div>
        </div>
         <script>
             $(".zone").click(function(){$(this).val("").css("color", "white");});
