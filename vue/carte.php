@@ -77,7 +77,7 @@
                         else{$class = "";}
                         echo'<div class="ligne '.$class.'">';
                         echo'<ul>';
-                        echo'<li><img class="img fleft" src="image/menu/sandwich/'.$tab[$k]->getImage().'"></li>';
+                        echo'<li><img class="img fleft" src="image/menu/'.$tab[$k]->getImage().'"></li>';
                         echo'<li class="nom">'.ucfirst($tab[$k]->getName()).'</li>';
                         echo'<li class="descri">'.$tab[$k]->getDescription().'</li>';
                         if($tab[$k]->getPrix() == ""){$euro = "";}else{$euro = " €";}

@@ -6,7 +6,6 @@
 class formHandler {
     
     private $Form;
-    private $dao;
     private $object;
     private $dataCategory;
     private $dataProduct;
@@ -26,7 +25,6 @@ class formHandler {
     
     public function selectCategory(){
         $this->Form = new form("POST", "/admin/category/view/upd", null, "Choisir la categorie a modifier");
-        $this->dao = new categoryDao();
         $this->Form->newSelectField("select", $this->dataCategory, "form-control", "Choisir une categorie :");
         $this->Form->newStringField("", "submit", "bt", null, "btn btn-default");
         return $this->Form;          

@@ -8,6 +8,7 @@ class productService extends controleur {
     private $fh;
     private $form;
     private $factDao;
+    private $fDao;
     private $service;
     private $object = null;
     private $testObj;
@@ -25,7 +26,8 @@ class productService extends controleur {
         $this->testObj = new checkObjProduct($product);
         if($this->testObj->start()){
             $this->factDao = new factoryDao("product");
-            $this->returnMsg($this->factDao->addProduct($product), "Ajout");
+            $this->fDao = $this->factDao->getDao();
+            $this->returnMsg($this->fDao->addProduct($product), "Ajout");
         }
     }
 
@@ -33,28 +35,33 @@ class productService extends controleur {
         $this->testObj = new checkObjProduct($product);
         if($this->testObj->start()){
             $this->factDao = new factoryDao("product");
-            $this->returnMsg($this->factDao->updProduct($product), "Modification");
+            $this->fDao = $this->factDao->getDao();
+            $this->returnMsg($this->fDao->updProduct($product), "Modification");
         }
     }
 
     public function del(product $product) {
         $this->factDao = new factoryDao("product");
-        $this->returnMsg($this->factDao->delProduct($product), "Suppression");
+        $this->fDao = $this->factDao->getDao();
+        $this->returnMsg($this->fDao->delProduct($product), "Suppression");
     }
     
     public function getProducts(){
         $this->factDao = new factoryDao("product");
-        return $this->factDao->getAllProduct();
+        $this->fDao = $this->factDao->getDao();
+        return $this->fDao->getAllProduct();
     }
     
     public function getObjProduct($name){
         $this->factDao = new factoryDao("product");
-        return $this->factDao->getProductByNom($name);
+        $this->fDao = $this->factDao->getDao();
+        return $this->fDao->getProductByNom($name);
     }
     
     public function getProductByCat($name){
         $this->factDao = new factoryDao("product");
-        return $this->factDao->getProductBy($name);
+        $this->fDao = $this->factDao->getDao();
+        return $this->fDao->getProductBy($name);
     }
     
     private function getServiceCategorys(){
