@@ -5,7 +5,7 @@
  */
 class userService extends controleur{
     
-    private $userDao;
+    private $factDao;
     private $admin;
     private $testUser;
     
@@ -23,8 +23,8 @@ class userService extends controleur{
     }
     
     public function connexion(user $user){
-        $this->userDao = new userDao();
-        if($this->userDao->getPseudo() !== $user->getEmail() || $this->userDao->getPwd() !== $user->getPassword()){
+        $this->factDao = new factoryDao("user");
+        if($this->factDao->getPseudo() !== $user->getEmail() || $this->factDao->getPwd() !== $user->getPassword()){
             $this->view("", "Erreur Login ou Mot de passe !");
         }
         else{
@@ -37,8 +37,8 @@ class userService extends controleur{
     public function checkSession(){
         if(isset($_SESSION['admin'])){
             $this->testUser = unserialize($_SESSION['admin']);
-            $this->userDao = new userDao();
-            if($this->userDao->getPseudo() !== $this->testUser->getEmail() || $this->userDao->getPwd() !== $this->testUser->getPassword()){
+            $this->factDao = new factoryDao("user");
+            if($this->factDao->getPseudo() !== $this->testUser->getEmail() || $this->factDao->getPwd() !== $this->testUser->getPassword()){
                 header('location:/accueil');
             }
             else{return true;}

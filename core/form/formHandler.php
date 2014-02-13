@@ -70,7 +70,7 @@ class formHandler {
         $this->Form = new form("POST", "/admin/product/upd", null, "Modifier un Produit", "multipart/form-data");
         $this->Form->newStringField("Nom :", "text", "name", $this->object->getName(), "form-control");
         $this->Form->newTextField("Description :", "description", null, $this->object->getDescription(), "form-control");
-        $this->Form->newStringField("Prix a l'unitée :", "text", "pu", $this->object->getPrix(), "form-control");
+        $this->Form->newStringField("Prix a l'unité :", "text", "pu", $this->object->getPrix(), "form-control");
         $this->Form->newStringField("Prix menu :", "text", "pm", $this->object->getPrixMenu(), "form-control");
         $this->Form->newStringField("Image actuel : ".$this->object->getImage(), "file", "image", null, "form-control");
         $this->Form->newSelectField("category", $this->dataCategory, "form-control", "choisir la categorie :", $this->object->getCategory());

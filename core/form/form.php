@@ -33,8 +33,8 @@ class form {
         $this->fieldList[] = new textField($mintxt, $name, $id, $value, $text, $class, $rows, $cols);
     }
     
-    public function newSelectField($name, $option, $class, $mintxt, $lock = null,$id = null){
-        $this->fieldList[] = new selectField($name, $option, $class, $lock,$mintxt, $id);
+    public function newSelectField($name, $option, $class, $mintxt, $lock = null, $id = null){
+        $this->fieldList[] = new selectField($name, $option, $class, $mintxt, $lock, $id);
     }
     
     public function getFieldList() {

@@ -9,10 +9,6 @@ class userDao{
     private $connection;
     private $fileConnect;
     
-    public function __construct() {
-        
-    }
-    
     public function getAdmin(){
         $this->connection = new connection();
         $this->fileConnect = $this->connection->connectCsv("user");

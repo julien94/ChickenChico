@@ -7,7 +7,7 @@ class categoryService extends controleur{
     
     private $fh;
     private $form;
-    private $dao;
+    private $factDao;
     private $service;
     private $object = null;
     private $testObj;
@@ -24,32 +24,32 @@ class categoryService extends controleur{
     public function add(category $category) {
         $this->testObj = new checkObjCategory($category);
         if($this->testObj->start()){
-            $this->dao = new categoryDao();
-            $this->returnMsg($this->dao->addCategory($category), "Ajout");
+            $this->factDao = new factoryDao("category");
+            $this->returnMsg($this->factDao->addCategory($category), "Ajout");
         }
     }
 
     public function upd(category $category) {
         $this->testObj = new checkObjCategory($category);
         if($this->testObj->start()){
-            $this->dao = new categoryDao();
-            $this->returnMsg($this->dao->updCategory($category), "Modification");
+            $this->factDao = new factoryDao("category");
+            $this->returnMsg($this->factDao->updCategory($category), "Modification");
         }
     }
 
     public function del(category $category) {
-        $this->dao = new categoryDao();
-        $this->returnMsg($this->dao->delCategory($category), "Suppression");
+        $this->factDao = new factoryDao("category");
+        $this->returnMsg($this->factDao->delCategory($category), "Suppression");
     }
     
     public function getCategorys(){
-        $this->dao = new categoryDao();
-        return $this->dao->getAllCategory();
+        $this->factDao = new factoryDao("category");
+        return $this->factDao->getAllCategory();
     }
     
     public function getObjCategory($name){
-        $this->dao = new categoryDao();
-        return $this->dao->getCategoryByName($name);
+        $this->factDao = new factoryDao("category");
+        return $this->factDao->getCategoryByName($name);
     }
     
     private function getServiceProducts(){

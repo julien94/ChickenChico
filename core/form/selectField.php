@@ -21,13 +21,12 @@ class selectField {
      * @param String $id
      * @param String $class
      */
-    function __construct($name, $tabOption = null, $class = null, $miniTxt = null, $lock = null,$id = null) {
+    function __construct($name, $tabOption = null, $class = null, $miniTxt = null, $lock = null, $id = null) {
         $this->name = ' name="'.$name.'"';
-        if($lock == null){$this->lock = "";}
         if($tabOption != null){
             foreach($tabOption as $opt){
                 $opt2 = isset($opt[5])? ' - '.$opt[5] : '';
-                if(isset($opt[5]) && $lock == $opt[5]){$this->lock = "select";}
+                if($lock != null && $lock == $opt[0]){$this->lock = "Selected";}else{$this->lock = "";}
                 $this->listOption[] = '<option '.$this->lock.'>'.$opt[0].$opt2.'</option>';
             }
         }
