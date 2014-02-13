@@ -8,7 +8,8 @@ class factoryDao {
     private $dao;
     
     public function __construct($nom) {
-        return new $nom."Dao()";
+        $this->dao = new $nom.'Dao()';
+        return $this->dao;
     }
     
 }

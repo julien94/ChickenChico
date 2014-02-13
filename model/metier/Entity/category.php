@@ -6,7 +6,6 @@
 class category {
     
     private $listProduct = array();
-    private $produitDao;
     private $produits;
     private $name;
     private $oldName;

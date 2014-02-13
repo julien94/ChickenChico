@@ -55,7 +55,7 @@
                             if($tab[$j]->getPrixMenu() == ""){$euro1 = "";}else{$euro1 = " €";}
                             echo'<li class="price">'.$tab[$j]->getPrix().$euro.'</li>';
                             echo'<li class="price">'.$tab[$j]->getPrixMenu().$euro1.'</li>';
-                            echo'<li><img class="img fright" src="image/menu/sandwich/'.$tab[$j]->getImage().'"></li>';
+                            echo'<li><img class="img fright" src="image/menu/'.$tab[$j]->getImage().'"></li>';
                             echo'</ul>';
                             echo'</div>';
                         }
