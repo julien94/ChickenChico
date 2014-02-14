@@ -42,36 +42,10 @@ body{
    color: white;
 }
 
-#menu h4{
-    border: solid 1px white;
+#menu div{
     display: inline;
     display: inline-block;
-    padding: 10px 20px 10px 20px;
-    margin-left: 5px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 15px rgba(0,100,255, 0.5);
-}
-
-.form{
-    position: absolute;
-    top: 5px;
-    right: 0px;
-    font-weight: bold;
-}
-
-.erreur{
-    color: red;
-    font-weight: bold;
-}
-
-.zone{
-    background-color: black;
-    color: grey;
-}
-
-.right{
-    right: 0px;
-    float: right;
+    margin-left: 10px;
 }
 
 /******************************  FIN DU HEADER  *******************************/
@@ -194,13 +168,11 @@ body{
 }
 
 #left{
-    background-color: black;
-    width: 400px;
-    height: 500px;
     float: left;
-    text-align: center;
-    border: solid 1px activeborder;
-    box-shadow: 1px 1px 15px rgba(0,100,255, 0.5);
+}
+
+#left div{
+    margin-bottom: 65px;
 }
 
 #welcome{
@@ -247,9 +219,31 @@ body{
     font-weight: bold;
 }
 
+/**************************** slide *******************************************/
+
+#slider {
+    border-radius: 20px;
+    width:960px;
+    height:250px;
+	
+    /*IE bugfix*/
+    padding:0;
+    margin:0;
+}
+		
+#slider li { list-style:none; }
+	
+#page {
+    border-radius: 20px;
+    width: 960px;
+    margin: auto;
+}
+
 /****************************  CARTE DU RESTO  ********************************/
 
 #liste{
+    box-shadow: 1px 1px 30px rgba(0,100,255, 0.5);
+    border-radius: 30px;
     width: 960px;
     position: relative;
     border: solid 1px white;
@@ -257,6 +251,74 @@ body{
     padding-top: 30px;
     background-color: black;
     font-size: 17px;
+}
+
+.cr400{
+    width: 400px;
+}
+
+.cr600{
+    width: 600px;
+}
+
+.crMax{
+    width: 960px;
+}
+
+.crBleu{
+    box-shadow: 1px 1px 8px rgba(255,255,255, 0.3);
+    background: linear-gradient(to bottom, rgb(0,80,160), rgb(0,5,50));
+    border-radius: 10px;
+    margin: auto;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
+.titreContact{
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.crJaune{
+    box-shadow: 1px 1px 8px rgba(255,255,255, 0.3);
+    background: linear-gradient(to bottom, rgb(255,255,255), rgb(120,100,0));
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
+.crBlanc{
+    box-shadow: 1px 1px 8px rgba(255,255,255, 0.3);
+    background: linear-gradient(to bottom, rgb(255,255,255), rgba(255,255,255,0.1));
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    color: black;
+    font-weight: bold;
+    height: 600px;
+    padding: 10px;
+    text-align: center;
+}
+
+.crRouge{
+    box-shadow: 1px 1px 8px rgba(255,255,255, 0.3);
+    background: linear-gradient(to bottom, rgb(255,0,0), rgb(100,0,0));
+    border-radius: 10px;
+    margin: auto;
+    width: 600px;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
 }
 
 .ligne{
@@ -277,7 +339,7 @@ li{
 
 #liste h2{
     text-align: center;
-    color: yellow;
+    color: gold;
     padding: 0px;
     margin: 0px;
 }
@@ -290,16 +352,18 @@ li{
     margin: 0px;
     padding: 0px;
     font-weight: bold;
-    color: yellow;
+    color: gold;
 }
 
 .nom{
+    font-weight: bold;
     margin: 0px;
     width: 130px;
     padding-left: 10px;
     padding-bottom: 0px;
     padding-right: 0px;
     padding-top: 0px;
+    text-align: center;
 }
 
 .marge{
@@ -307,7 +371,12 @@ li{
 }
 
 .descri{
+    text-align: center;
     width: 370px;
+}
+
+.bleu{
+    color: #269abc;
 }
 
 .price{
@@ -419,6 +488,7 @@ p.bjqs-caption{
 
 /*************************  GOOGLE MAP API  ***********************************/
 #map-canvas{
+    border-radius: 30px;
     margin: 0px;
     padding: 0px;
     width: 500px;

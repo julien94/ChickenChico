@@ -23,13 +23,13 @@
             <div id="header">
                 <img src="image/logo.png" class="logo">
                 <div id="menu">
-                    <a href="/accueil"><h4>Accueil</h4></a>
-                    <a href="/carte"><h4>Nos menus</h4></a>
-                    <a href="/contact"><h4>Nous contacter</h4></a>
+                    <a href="/accueil"><div class="crJaune">Accueil</div></a>
+                    <a href="/carte"><div class="crJaune">Nos menus</div></a>
+                    <a href="/contact"><div class="crJaune">Nous contacter</div></a>
                 </div>
             </div>
             <div id="liste">
-                <h3 class="white"><center>Tout nos sandichs vendu à l'unités, sont accompagnés de frites.</center></h3><br/><br/>
+                <div class="crBleu cr600">Tout nos sandichs vendu à l'unités, sont accompagnés de frites.</div><br/><br/>
                 <?php
                 for($i=0;$i<count($this->data);$i++){
                     if(is_int($i/2)){
@@ -49,11 +49,11 @@
                             else{$class = "";}
                             echo'<div class="ligne '.$class.'">';
                             echo'<ul>';
-                            echo'<li class="nom">'.ucfirst($tab[$j]->getName()).'</li>';
+                            echo'<li class="nom bleu">'.ucfirst($tab[$j]->getName()).'</li>';
                             echo'<li class="descri">'.$tab[$j]->getDescription().'</li>';
                             if($tab[$j]->getPrix() == ""){$euro = "";}else{$euro = " €";}
                             if($tab[$j]->getPrixMenu() == ""){$euro1 = "";}else{$euro1 = " €";}
-                            echo'<li class="price">'.$tab[$j]->getPrix().$euro.'</li>';
+                            echo'<li class="price bleu">'.$tab[$j]->getPrix().$euro.'</li>';
                             echo'<li class="price">'.$tab[$j]->getPrixMenu().$euro1.'</li>';
                             echo'<li><img class="img fright" src="image/menu/'.$tab[$j]->getImage().'"></li>';
                             echo'</ul>';
@@ -78,11 +78,11 @@
                         echo'<div class="ligne '.$class.'">';
                         echo'<ul>';
                         echo'<li><img class="img fleft" src="image/menu/'.$tab[$k]->getImage().'"></li>';
-                        echo'<li class="nom">'.ucfirst($tab[$k]->getName()).'</li>';
+                        echo'<li class="nom bleu">'.ucfirst($tab[$k]->getName()).'</li>';
                         echo'<li class="descri">'.$tab[$k]->getDescription().'</li>';
                         if($tab[$k]->getPrix() == ""){$euro = "";}else{$euro = " €";}
                         if($tab[$k]->getPrixMenu() == ""){$euro1 = "";}else{$euro1 = " €";}
-                        echo'<li class="price">'.$tab[$k]->getPrix().$euro.'</li>';
+                        echo'<li class="price bleu">'.$tab[$k]->getPrix().$euro.'</li>';
                         echo'<li class="price">'.$tab[$k]->getPrixMenu().$euro1.'</li>';
                         echo'</ul>';
                         echo'</div>';
@@ -96,8 +96,8 @@
             </div>
         </div>
         <script>
-            $("#menu h4").mouseover(function(){$(this).css("box-shadow", "1px 1px 20px rgba(255, 255, 0, 0.5)");});
-            $("#menu h4").mouseout(function(){$(this).css("box-shadow", "0px 0px 15px rgba(0, 100, 255, 0.5)");});
+            $(".crJaune").mouseover(function(){$(this).css("box-shadow", "1px 1px 15px rgba(255, 255, 0, 0.8)");});
+            $(".crJaune").mouseout(function(){$(this).css("box-shadow", "1px 1px 8px rgba(255,255,255, 0.3)");});
         </script>
     </body>
 </html>

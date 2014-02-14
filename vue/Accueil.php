@@ -6,9 +6,12 @@
         <meta name="description" content="Goutez la différence"/>
         <meta name="keywords" content="khebab, sandwich, pomme de terre, four"/>
         <link rel="stylesheet" href="../css/style.css" type="text/css"/>
-        <link rel="stylesheet" href="../css/bjqs.css">
-        <script src="../js/jquery-1.10.2.js"></script>
-        <script src="../js/bjqs-1.3.min.js"></script>
+        <link rel="stylesheet" href="../css/rhinoslider-1.05.css">
+        <script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="../js/rhinoslider-1.05.min.js"></script>
+        <script type="text/javascript" src="../js/mousewheel.js"></script>
+	<script type="text/javascript" src="../js/easing.js"></script>
+	
     </head>
     <body>
         <script>
@@ -25,10 +28,19 @@
             <div id="header">
                 <img src="../image/logo.png" class="logo">
                 <div id="menu">
-                    <a href="/accueil"><h4>Accueil</h4></a>
-                    <a href="/carte"><h4>Nos menus</h4></a>
-                    <a href="/contact"><h4>Nous contacter</h4></a>
+                    <a href="/accueil"><div class="crJaune">Accueil</div></a>
+                    <a href="/carte"><div class="crJaune">Nos menus</div></a>
+                    <a href="/contact"><div class="crJaune">Nous contacter</div></a>
                 </div>
+            </div>
+            <div id="page">
+                <ul id="slider">
+                    <li><img src="../img/slider/01.png" alt="" /></li>
+                    <li><img src="../img/slider/02.jpg" alt="" /></li>
+                    <li><img src="../img/slider/03.jpg" alt="" /></li>
+                    <li><img src="../img/slider/04.jpg" alt="" /></li>
+                    <li><img src="../img/slider/05.jpg" alt="" /></li>
+                </ul>
             </div>
             <div id="welcome">
                 <h1>Goûtez la différence !</h1><br/>
@@ -37,48 +49,23 @@
                     <iframe src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FChicken-Chico%2F269046623155226&amp;width=400&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:400px; height:290px;" allowTransparency="true"></iframe>
                 </div>
             </div>
-            <div id="banner-slide">
-                <ul class="bjqs">
-                    <li><img src="../image/photo0.jpg" title=""></li>
-                    <li><img src="../image/photo1.jpg" title=""></li>
-                    <li><img src="../image/photo2.jpg" title=""></li>
-                    <li><img src="../image/photo3.jpg" title=""></li>
-                    <li><img src="../image/photo4.jpg" title=""></li>
-                    <li><img src="../image/photo5.jpg" title=""></li>
-                    <li><img src="../image/photo6.jpg" title=""></li>
-                    <li><img src="../image/photo7.jpg" title=""></li>
-                    <li><img src="../image/photo8.jpg" title=""></li>
-                    <li><img src="../image/photo9.jpg" title=""></li>
-                </ul>
-            </div>
-            <script>
-                jQuery(document).ready(function($) {
-          
-                    $('#banner-slide').bjqs({
-                        animtype      : 'slide',
-                        height        : 600,
-                        width         : 450,
-                        animspeed     : 8000,
-                        showcontrols  : false,
-                        responsive    : true,
-                        randomstart   : false
-                    });
-          
-                });
-            </script>
-            <div id="footer">
-                <a href="/carte"><img src="../image/mini1.jpg" class="mini m"></a>
-                <a href="/carte"><img src="../image/mini2.jpg" class="mini m"></a>
-                <a href="/carte"><img src="../image/mini3.jpg" class="mini m"></a>
-                <a href="/carte"><img src="../image/mini4.jpg" class="mini"></a>
-            </div>
             <div class="center">Copyright Chicken Chico 2014 - <a href="admin/user/view">Admin</a></div>
        </div>
+        <script type="text/javascript">
+		$(document).ready(function() {
+			$('#slider').rhinoslider({
+				showTime: 8000,
+				controlsPrevNext: false,
+				controlsPlayPause: false,
+				autoPlay: true,
+				showBullets: 'always',
+				slidePrevDirection: 'toRight'
+			});
+		});
+	</script>
         <script>
-            $(".zone").click(function(){$(this).val("").css("color", "white");});
-            $(".pass").click(function(){$(this).attr("type", "password");});
-            $("#menu h4").mouseover(function(){$(this).css("box-shadow", "1px 1px 20px rgba(255, 255, 0, 0.5)");});
-            $("#menu h4").mouseout(function(){$(this).css("box-shadow", "0px 0px 15px rgba(0, 100, 255, 0.5)");});
+            $(".crJaune").mouseover(function(){$(this).css("box-shadow", "1px 1px 15px rgba(255, 255, 0, 0.8)");});
+            $(".crJaune").mouseout(function(){$(this).css("box-shadow", "1px 1px 8px rgba(255,255,255, 0.3)");});
             $(".mini").mouseover(function(){$(this).css("box-shadow", "1px 1px 20px rgba(0, 100, 255, 0.5)");});
             $(".mini").mouseout(function(){$(this).css("box-shadow", "0px 0px 15px rgba(255, 255, 0, 0.5)");});
         </script>

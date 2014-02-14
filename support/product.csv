@@ -30,10 +30,10 @@ galette de pomme de terre;;1;;no-img.png;ingrediants supplementaire
 cordon bleu;;1;;cordonbleu.png;ingrediants supplementaire
 jambon;;0.50;;no-img.png;ingrediants supplementaire
 bacon;;0.50;;no-img.png;ingrediants supplementaire
-grec;;;;no-img;pain
-galette;;;;no-img;pain
-tortilla;;;;no-img;pain
-au four;;;;no-img;pain
+grec;....................;;;paingrec.png;pain
+galette;....................;;;galette.png;pain
+tortilla;....................;;;tortilla.png;pain
+au four;....................;;;baguette.png;pain
 lardon;pomme de terre, reblochon, crème fraiche, emmental;5.80;6.50;patate.png;patates au four
 saumon;pomme de terre, reblochon, crème fraiche, emmental;5.80;6.50;patate.png;patates au four
 jambon;pomme de terre, reblochon, crème fraiche, emmental;5.80;6.50;patate.png;patates au four

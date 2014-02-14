@@ -32,8 +32,8 @@
             <div id="header">
                 <img src="<?php echo (ROOTHTML) ?>../image/logo.png" class="logo">
                 <div id="menu">
-                    <a href="/admin/option"><h4>Gestion Categorie / Produit</h4></a>
-                    <a href="/admin/user/deconnexion"><h4>Deconnexion</h4></a>
+                    <a href="/admin/option"><div class="crJaune">Gestion Categorie / Produit</div></a>
+                    <a href="/admin/user/deconnexion"><div class="crJaune">Deconnexion</div></a>
                 </div>
             </div>
             <?php
@@ -76,15 +76,9 @@
         <script>
             $(".category h4").mouseover(function(){$(this).css('background', 'grey');}).mouseout(function(){$(this).css('background', '');});
             $(".product h4").mouseover(function(){$(this).css('background', 'grey');}).mouseout(function(){$(this).css('background', '');});
-            $(".input").mousedown(function() {
-                $(this).val("").css("color", "white");
-            });
-            $("#menu h4").mouseover(function() {
-                $(this).css("box-shadow", "1px 1px 20px rgba(255, 255, 0, 0.5)");
-            });
-            $("#menu h4").mouseout(function() {
-                $(this).css("box-shadow", "0px 0px 15px rgba(0, 100, 255, 0.5)");
-            });
+            $(".input").mousedown(function(){$(this).val("").css("color", "white");});
+            $(".crJaune").mouseover(function(){$(this).css("box-shadow", "1px 1px 15px rgba(255, 255, 0, 0.8)");});
+            $(".crJaune").mouseout(function(){$(this).css("box-shadow", "1px 1px 8px rgba(255,255,255, 0.3)");});
         </script>
     </body>
 </html>
