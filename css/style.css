@@ -163,7 +163,7 @@ body{
 #corp{
     clear: both;
     position: relative;
-    top: 80px;
+    top: 100px;
     
 }
 
@@ -222,6 +222,7 @@ body{
 /**************************** slide *******************************************/
 
 #slider {
+    box-shadow: 1px 1px 30px rgba(255,255,255, 0.5);
     border-radius: 20px;
     width:960px;
     height:250px;
@@ -236,7 +237,8 @@ body{
 #page {
     border-radius: 20px;
     width: 960px;
-    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 80px;
 }
 
 /****************************  CARTE DU RESTO  ********************************/
@@ -253,12 +255,24 @@ body{
     font-size: 17px;
 }
 
+.copyright{
+    margin-left: 360px;
+    clear: both;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+}
+
 .cr400{
     width: 400px;
 }
 
 .cr600{
     width: 600px;
+}
+
+.cr800{
+    width: 800px;
 }
 
 .crMax{
@@ -276,6 +290,18 @@ body{
     text-align: center;
 }
 
+.crBleu2{
+    box-shadow: 1px 1px 8px rgba(255,255,255, 0.3);
+    background: linear-gradient(to bottom, rgb(0,80,160), rgb(0,5,50));
+    border-radius: 10px;
+    margin: auto;
+    color: white;
+    height: 180px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
 .titreContact{
     font-weight: bold;
     padding-top: 20px;
@@ -284,7 +310,7 @@ body{
 
 .crJaune{
     box-shadow: 1px 1px 8px rgba(255,255,255, 0.3);
-    background: linear-gradient(to bottom, rgb(255,255,255), rgb(120,100,0));
+    background: linear-gradient(to bottom, rgb(255,255,255), rgb(50,50,50));
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -297,14 +323,13 @@ body{
 
 .crBlanc{
     box-shadow: 1px 1px 8px rgba(255,255,255, 0.3);
-    background: linear-gradient(to bottom, rgb(255,255,255), rgba(255,255,255,0.1));
+    background: linear-gradient(to bottom, rgb(255,255,255), rgb(50,50,50));
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
     color: black;
     font-weight: bold;
-    height: 600px;
     padding: 10px;
     text-align: center;
 }
@@ -425,60 +450,12 @@ li{
 /*****************************  FIN FOOTER ************************************/
 
 
-
-/****************************** DIAPORAMA *************************************/
-
-#banner-slide{
-   top: 40px;
-   left:510px;
-   border: solid 1px white;
-}
-
-ul.bjqs-controls.v-centered li a{
-	display:block;
-	padding:10px;
-	background:#fff;
-	color:#000;
-	text-decoration: none;
-       
-        
-}
-
-ul.bjqs-controls.v-centered li a:hover{
-	background:#000;
-	color:#fff;
-        
-}
-
-ol.bjqs-markers li a{
-	padding:5px 9px;
-	background:#000;
-	color:#fff;
-	margin:5px;
-	text-decoration: none;
-        box-shadow: 1px 1px 10px rgba(0,100,255, 0.5);
-        border: solid 1px white;
-}
-
-ol.bjqs-markers li.active-marker a,
-ol.bjqs-markers li a:hover{
-	/*background: rgba(255,255,0, 0.4);*/
-        color: yellow;
-        border: solid 1px yellow;
-}
-
-p.bjqs-caption{
-	background: rgba(0,0,0,0.5);
-}
-
-/***************************  FIN DIAPORAMA ***********************************/
-
-
-
-
 /***************************  FACEBOOK API  ***********************************/
 #facebook{
+    margin-bottom: 30px;
+    padding: 0px;
     background: white;
+    float: right;
 }
 
 /************************  FIN FACEBOOK API  **********************************/

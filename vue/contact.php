@@ -33,12 +33,11 @@
                 <div id="menu">
                     <a href="/accueil"><div class="crJaune">Accueil</div></a>
                     <a href="/carte"><div class="crJaune">Nos menus</div></a>
+                    <a href="/photo"><div class="crJaune">Nos photos</div></a>
                     <a href="/contact"><div class="crJaune">Nous contacter</div></a>
                 </div>
             </div>
             <div id="corp">
-                <div class="crBlanc crMax">
-                    <div class="titreContact">PAR ADRESSE, PAR EMAIL OU BIEN PAR TELEPHONE... NOUS SOMME A VOTRE SERVICE !</div>
                     <div id="left">
                         <div class="crBleu cr400">~ Numero ~<br>06 - 10 - 58 - 09 - 11</div>
                         <div class="crBleu cr400">~ Email ~<br>chicken.chico@hotmail.fr</div>
@@ -66,8 +65,8 @@
                             google.maps.event.addDomListener(window, 'load', initialize);
                         </script>
                     </div>
-                </div>
             </div>
+            <div class="copyright">Copyright Chicken Chico 2014 - <a href="admin/user/view">Admin</a></div>
         </div>
         <script>
             $(".crJaune").mouseover(function(){$(this).css("box-shadow", "1px 1px 15px rgba(255, 255, 0, 0.8)");});
