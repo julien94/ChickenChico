@@ -256,10 +256,16 @@ body{
 }
 
 .copyright{
-    margin-left: 360px;
+    margin-left: 350px;
     clear: both;
-    position: absolute;
+    position: fixed;
     bottom: 0px;
+    text-align: center;
+}
+
+.copyright2{
+    margin: auto;
+    clear: both;
     text-align: center;
 }
 

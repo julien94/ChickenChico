@@ -16,24 +16,24 @@ rs2;2 Steaks 50g + Oeuf + Bacon + Fromage;5.50;6.50;rs2.png;sandwichs
 rs3;3 Steaks 50g + Oeuf + Bacon + Fromage;6.50;7.50;rs3.png;sandwichs
 rs4;4 Steaks 50g + Oeuf + Bacon + Fromage;7.50;8.50;rs4.png;sandwichs
 rosbeef;rosbeef + mozzarela + emmental + sauce au choix;5;6;rosbeef.png;sandwichs au four
-grec;;5;6;no-img.png;sandwichs au four
-chikka;;5;6;no-img.png;sandwichs au four
-viande hachée;;5;6;no-img.png;sandwichs au four
-jambon;;5;6;no-img.png;sandwichs au four
-4 Fromages;;5;6;no-img.png;sandwichs au four
-bacon;;5;6;no-img.png;sandwichs au four
-saumon;;5;6;no-img.png;sandwichs au four
-viande;;1.50;;no-img.png;ingrediants supplementaire
-oeuf;;0.50;;no-img.png;ingrediants supplementaire
-fromage;;0.50;;no-img.png;ingrediants supplementaire
-galette de pomme de terre;;1;;no-img.png;ingrediants supplementaire
-cordon bleu;;1;;no-img.png;ingrediants supplementaire
-jambon;;0.50;;no-img.png;ingrediants supplementaire
-bacon;;0.50;;no-img.png;ingrediants supplementaire
-grec;....................;;;paingrec.png;pain
-galette;....................;;;galette.png;pain
-tortilla;....................;;;tortilla.png;pain
-au four;....................;;;baguette.png;pain
+grec;;5;6;rosbeef.png;sandwichs au four
+chikka;;5;6;rosbeef.png;sandwichs au four
+viande hachée;;5;6;rosbeef.png;sandwichs au four
+jambon;;5;6;rosbeef.png;sandwichs au four
+4 Fromages;;5;6;rosbeef.png;sandwichs au four
+bacon;;5;6;rosbeef.png;sandwichs au four
+saumon;;5;6;rosbeef.png;sandwichs au four
+viande;;1.50;;viande.png;ingrediants supplementaire
+oeuf;;0.50;;oeuf.png;ingrediants supplementaire
+fromage;;0.50;;fromage.png;ingrediants supplementaire
+galette de pomme de terre;;1;;gallettepdt.png;ingrediants supplementaire
+cordon bleu;;1;;cordonbleu.png;ingrediants supplementaire
+jambon;;0.50;;jambon.png;ingrediants supplementaire
+bacon;;0.50;;bacon.png;ingrediants supplementaire
+grec;;;;paingrec.png;pain
+galette;;;;galette.png;pain
+tortilla;;;;tortilla.png;pain
+au four;;;;baguette.png;pain
 lardon;pomme de terre, reblochon, crème fraiche, emmental;5.80;6.50;patate.png;patates au four
 saumon;pomme de terre, reblochon, crème fraiche, emmental;5.80;6.50;patate.png;patates au four
 jambon;pomme de terre, reblochon, crème fraiche, emmental;5.80;6.50;patate.png;patates au four
@@ -64,14 +64,14 @@ pacifique;salade, tomate, surimi, crevettes, croutons;4;;salade.png;salades
 norvegienne;salade, tomate, Pomme de terre, citron, croutons;4;;salade.png;salades
 nicoise;salade, tomate, thon, Pomme de terre, Oeuf, Olives;4;;salade.png;salades
 salade chaude;salade, tomate, Olives, Mais, Poulet;5;;salade.png;salades
-coca cola;33 Cl;1.20;;cocacola.png;boissons
+coca cola;33 Cl;1.20;;coca.png;boissons
 coca cola zero;33 Cl;1.20;;cocazero.png;boissons
 tropico;33 Cl;1.20;;tropico.png;boissons
 fanta;33 Cl;1.20;;fanta.png;boissons
 schweppes;33 Cl;1.20;;schweppes.png;boissons
 orangina;33 Cl;1.20;;orangina.png;boissons
 oasis;33 Cl;1.20;;oasis.png;boissons
-Tarte Au Daims;;2;;tarte.png;desserts
+Tarte Au Daims;;2;;tartedaim.png;desserts
 Brownie;;2;;Brownie.png;desserts
 Häagen-Dazs;;2;;haagendazs.png;desserts
 tiramisu;;2;;tiramisu.png;desserts
