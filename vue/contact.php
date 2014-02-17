@@ -69,8 +69,8 @@
             <div class="copyright">Copyright Chicken Chico 2014 - <a href="admin/user/view">Admin</a></div>
         </div>
         <script>
-            $(".crJaune").mouseover(function(){$(this).css("box-shadow", "1px 1px 15px rgba(255, 255, 0, 0.8)");});
-            $(".crJaune").mouseout(function(){$(this).css("box-shadow", "1px 1px 8px rgba(255,255,255, 0.3)");});
+            $(".crJaune").mouseover(function(){$(this).css("box-shadow", "1px 1px 15px rgba(255, 255, 255, 0.8)");});
+            $(".crJaune").mouseout(function(){$(this).css("box-shadow", "1px 1px 15px rgba(255,255,255, 0)");});
             $(".mini").mouseover(function(){$(this).css("box-shadow", "1px 1px 20px rgba(0, 100, 255, 0.5)");});
             $(".mini").mouseout(function(){$(this).css("box-shadow", "0px 0px 15px rgba(255, 255, 0, 0.5)");});
         </script>

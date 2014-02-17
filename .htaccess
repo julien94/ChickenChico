@@ -1,0 +1,13 @@
+<VirtualHost *:80>
+    ServerAdmin webmaster@enquetes.com
+    DocumentRoot "c:/wamp/www/ChickenChico"
+    ServerName enquetes.com
+	
+	<Directory "c:/wamp/www/ChickenChico">
+		AllowOverride None
+		RewriteEngine On
+		RewriteCond %{REQUEST_FILENAME} !-f
+		RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php [QSA,L]
+	</Directory>
+	
+</VirtualHost>
