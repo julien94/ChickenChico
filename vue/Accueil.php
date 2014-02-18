@@ -36,10 +36,10 @@
             </div>
             <div id="page">
                 <ul id="slider">
-                    <li><a href="/carte"><img src="../img/slider/01.png" alt="" /></a></li>
-                    <li><a href="/carte"><img src="../img/slider/02.png" alt="" /></a></li>
-                    <li><a href="/carte"><img src="../img/slider/03.png" alt="" /></a></li>
-                    <li><a href="/carte"><img src="../img/slider/04.png" alt="" /></a></li>
+                    <li><a href="/carte"><img src="../image/diaporama/slider/01.png" alt="" /></a></li>
+                    <li><a href="/carte"><img src="../image/diaporama/slider/02.png" alt="" /></a></li>
+                    <li><a href="/carte"><img src="../image/diaporama/slider/03.png" alt="" /></a></li>
+                    <li><a href="/carte"><img src="../image/diaporama/slider/04.png" alt="" /></a></li>
                 </ul>
             </div>
             <div class="crBleu2 cr400 fleft"><br>GOUTEZ LA DIFFERENCE !<br><br>Venez découvrir nos spécialités culinaire <strong>(Hallal)</strong> dans un cadre de qualité avec salle climatisée et terrasse.<br/><br/>Votre restaurant est ouvert tous les jours de 11h15 à 00h00 (Fermé le vendredi, uniquement aux heures de prières).</div>

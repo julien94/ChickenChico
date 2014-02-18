@@ -36,30 +36,36 @@
                     <a href="/contact"><div class="crJaune">Nous contacter</div></a>
                 </div>
             </div>
-            <div id="corp">
-                <div class="miniature fleft">
+            <div class="photo">
+                <div class="fleft">
+                    <div class="colmarge"><a href=""><img class="miniImg" src="image/photo/photo0.jpg"></a></div>
+                    <div><a href=""><img class="miniImg" src="image/photo/photo1.jpg"></a></div> 
+                </div>
+                <div><img class="fleft bigImg" src="image/photo/photo0.jpg"></div>
+                <div class="fright">
+                    <div class="colmarge"><a href=""><img class="miniImg" src="image/photo/photo2.jpg"></a></div>
+                    <div><a href=""><img class="miniImg" src="image/photo/photo3.jpg"></a></div>
+                </div>
+                <div class="clear"></div>
+                <div class="miniature">
                     <ul>
-                        <li class="miniImg fleft"><img src="image/photo/photo0.jpg"></li>
-                        <li class="miniImg fright"><img src="image/photo/photo1.jpg"></li>
-                        <li class="miniImg fleft"><img src="image/photo/photo2.jpg"></li>
-                        <li class="miniImg fright"><img src="image/photo/photo3.jpg"></li>
-                        <li class="miniImg fleft"><img src="image/photo/photo4.jpg"></li>
-                        <li class="miniImg fright"><img src="image/photo/photo5.jpg"></li>
-                        <li class="miniImg fleft"><img src="image/photo/photo6.jpg"></li>
-                        <li class="miniImg fright"><img src="image/photo/photo7.jpg"></li>
-                        <li class="miniImg fleft"><img src="image/photo/photo8.jpg"></li>
-                        <li class="miniImg fright"><img src="image/photo/photo9.jpg"></li>
+                        <li class="fleft"><a href=""><img class="miniImg" src="image/photo/photo4.jpg"></a></li>
+                        <li class="fleft"><a href=""><img class="miniImg" src="image/photo/photo5.jpg"></a></li>
+                        <li class="fleft"><a href=""><img class="miniImg" src="image/photo/photo6.jpg"></a></li>
+                        <li class="fleft"><a href=""><img class="miniImg" src="image/photo/photo7.jpg"></a></li>
+                        <li class="fleft"><a href=""><img class="miniImg" src="image/photo/photo8.jpg"></a></li>
+                        <li class="clear"><a href=""><img class="miniImg" src="image/photo/photo9.jpg"></a></li>
                     </ul>
                 </div>
-                <div class="bigImg fright"><img src="image/photo/photo0.jpg"></div>
             </div>
-            <div class="copyright">Copyright Chicken Chico 2014 - <a href="admin/user/view">Admin</a></div>
+            <div class="copyright2">Copyright Chicken Chico 2014 - <a href="admin/user/view">Admin</a></div>
         </div>
         <script>
+            $(".miniImg").mouseover(function(){$(".bigImg").attr("src", $(this).attr("src"));});
             $(".crJaune").mouseover(function(){$(this).css("box-shadow", "1px 1px 15px rgba(255, 255, 255, 0.8)");});
             $(".crJaune").mouseout(function(){$(this).css("box-shadow", "1px 1px 15px rgba(255,255,255, 0)");});
-            $(".mini").mouseover(function() {$(this).css("box-shadow", "1px 1px 20px rgba(0, 100, 255, 0.5)");});
-            $(".mini").mouseout(function() {$(this).css("box-shadow", "0px 0px 15px rgba(255, 255, 0, 0.5)");});
+            $(".mini").mouseover(function(){$(this).css("box-shadow", "1px 1px 20px rgba(0, 100, 255, 0.5)");});
+            $(".mini").mouseout(function(){$(this).css("box-shadow", "0px 0px 15px rgba(255, 255, 0, 0.5)");});
         </script>
     </body>
 </html>

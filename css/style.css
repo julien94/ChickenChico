@@ -158,10 +158,32 @@ body{
     text-align: center;
 }
 /********************************* PHOTO **************************************/
-
 .miniature{
-    height: 600px;
-    width: 480px;    
+    margin: auto;
+    width: 960px;
+}
+
+.miniImg{
+    border: 2px solid white;
+    margin: 3px;
+    width: 150px;    
+}
+
+.bigImg{
+    border: 10px solid white;
+    box-shadow: 1px 1px 15px rgba(50,50,50, 0.8);
+    width: 400px;
+    margin-left: 110px;
+    margin-bottom: 30px;
+}
+
+.colmarge{
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.photo{
+    margin-top: 50px;
 }
 
 /*******************************  PAGE ADMIN  *********************************/
