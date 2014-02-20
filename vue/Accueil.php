@@ -3,15 +3,14 @@
     <head>
         <title>Chicken Chico</title>
         <meta charset="utf-8"/>
-        <meta name="description" content="Goutez la différence"/>
-        <meta name="keywords" content="khebab, sandwich, pomme de terre, four"/>
-        <link rel="stylesheet" href="../css/style.css" type="text/css"/>
-        <link rel="stylesheet" href="../css/rhinoslider-1.05.css">
-        <script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
-        <script type="text/javascript" src="../js/rhinoslider-1.05.min.js"></script>
-        <script type="text/javascript" src="../js/mousewheel.js"></script>
-	<script type="text/javascript" src="../js/easing.js"></script>
-	
+        <meta name="description" content="Goutez la différence">
+        <meta name="keywords" content="khebab, sandwich, pomme de terre, four">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" href="css/rhinoslider-1.05.css">
+        <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="js/rhinoslider-1.05.min.js"></script>
+        <script type="text/javascript" src="js/mousewheel.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
     </head>
     <body>
         <script>
@@ -26,7 +25,7 @@
         </script>
         <div id="container">
             <div id="header">
-                <img src="../image/logo.png" class="logo">
+                <img src="vue/logo.png" class="logo">
                 <div id="menu">
                     <a href="/accueil"><div class="crJaune">Accueil</div></a>
                     <a href="/carte"><div class="crJaune">Nos menus</div></a>
@@ -36,10 +35,10 @@
             </div>
             <div id="page">
                 <ul id="slider">
-                    <li><a href="/carte"><img src="../image/diaporama/slider/01.png" alt="" /></a></li>
-                    <li><a href="/carte"><img src="../image/diaporama/slider/02.png" alt="" /></a></li>
-                    <li><a href="/carte"><img src="../image/diaporama/slider/03.png" alt="" /></a></li>
-                    <li><a href="/carte"><img src="../image/diaporama/slider/04.png" alt="" /></a></li>
+                    <li><a href="/carte"><img src="../image/diaporama/slider/01.jpg" alt="" /></a></li>
+                    <li><a href="/carte"><img src="../image/diaporama/slider/02.jpg" alt="" /></a></li>
+                    <li><a href="/carte"><img src="../image/diaporama/slider/03.jpg" alt="" /></a></li>
+                    <li><a href="/carte"><img src="../image/diaporama/slider/04.jpg" alt="" /></a></li>
                 </ul>
             </div>
             <div class="crBleu2 cr400 fleft"><br>GOUTEZ LA DIFFERENCE !<br><br>Venez découvrir nos spécialités culinaire <strong>(Hallal)</strong> dans un cadre de qualité avec salle climatisée et terrasse.<br/><br/>Votre restaurant est ouvert tous les jours de 11h15 à 00h00 (Fermé le vendredi, uniquement aux heures de prières).</div>

@@ -5,5 +5,4 @@ require (ROOT.'core/controleur.php');
 require (ROOT.'core/appStart.php');
         
 $app = new appStart();
-    
-        
+
