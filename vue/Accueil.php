@@ -25,7 +25,7 @@
         </script>
         <div id="container">
             <div id="header">
-                <img src="vue/logo.png" class="logo">
+                <img src="image/logo.png" class="logo">
                 <div id="menu">
                     <a href="/accueil"><div class="crJaune">Accueil</div></a>
                     <a href="/carte"><div class="crJaune">Nos menus</div></a>
